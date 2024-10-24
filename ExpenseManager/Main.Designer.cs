@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.movimientosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eXPENSE_MANAGERDataSet = new ExpenseManager.EXPENSE_MANAGERDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -44,19 +46,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.movimientosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.movimientosDataGridView = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.cbx_accounts = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btn_search = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,17 +54,28 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eXPENSE_MANAGERDataSet = new ExpenseManager.EXPENSE_MANAGERDataSet();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_monto = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_concepto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbx_tipo = new System.Windows.Forms.ComboBox();
+            this.cbx_accounts = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.movimientosTableAdapter = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.movimientosTableAdapter();
             this.tableAdapterManager = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.TableAdapterManager();
             this.cuentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cuentasTableAdapter = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingNavigator)).BeginInit();
             this.movimientosBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.movimientosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +118,16 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(25, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // movimientosBindingSource
+            // 
+            this.movimientosBindingSource.DataMember = "movimientos";
+            this.movimientosBindingSource.DataSource = this.eXPENSE_MANAGERDataSet;
+            // 
+            // eXPENSE_MANAGERDataSet
+            // 
+            this.eXPENSE_MANAGERDataSet.DataSetName = "EXPENSE_MANAGERDataSet";
+            this.eXPENSE_MANAGERDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -229,118 +239,6 @@
             this.movimientosDataGridView.Size = new System.Drawing.Size(594, 266);
             this.movimientosDataGridView.TabIndex = 1;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(376, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Fecha 2";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 184);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Tipo";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(130, 200);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(65, 20);
-            this.textBox3.TabIndex = 7;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(127, 184);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Monto";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(269, 200);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(148, 20);
-            this.textBox4.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(266, 184);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Concepto";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "dep",
-            "ext",
-            "tra"});
-            this.comboBox1.Location = new System.Drawing.Point(16, 200);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(46, 21);
-            this.comboBox1.TabIndex = 10;
-            // 
-            // cbx_accounts
-            // 
-            this.cbx_accounts.FormattingEnabled = true;
-            this.cbx_accounts.Location = new System.Drawing.Point(15, 66);
-            this.cbx_accounts.Name = "cbx_accounts";
-            this.cbx_accounts.Size = new System.Drawing.Size(155, 21);
-            this.cbx_accounts.TabIndex = 12;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Cuenta";
-            // 
-            // btn_search
-            // 
-            this.btn_search.Location = new System.Drawing.Point(536, 252);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(75, 27);
-            this.btn_search.TabIndex = 13;
-            this.btn_search.Text = "Buscar";
-            this.btn_search.UseVisualStyleBackColor = true;
-            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(378, 130);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(233, 20);
-            this.dateTimePicker1.TabIndex = 14;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(15, 130);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(233, 20);
-            this.dateTimePicker2.TabIndex = 16;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Fecha 1";
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
@@ -415,15 +313,117 @@
             this.dataGridViewTextBoxColumn8.Visible = false;
             this.dataGridViewTextBoxColumn8.Width = 110;
             // 
-            // movimientosBindingSource
+            // label1
             // 
-            this.movimientosBindingSource.DataMember = "movimientos";
-            this.movimientosBindingSource.DataSource = this.eXPENSE_MANAGERDataSet;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(376, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Fecha 2";
             // 
-            // eXPENSE_MANAGERDataSet
+            // label2
             // 
-            this.eXPENSE_MANAGERDataSet.DataSetName = "EXPENSE_MANAGERDataSet";
-            this.eXPENSE_MANAGERDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 184);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Tipo";
+            // 
+            // txt_monto
+            // 
+            this.txt_monto.Location = new System.Drawing.Point(130, 200);
+            this.txt_monto.Name = "txt_monto";
+            this.txt_monto.Size = new System.Drawing.Size(65, 20);
+            this.txt_monto.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(127, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Monto";
+            // 
+            // txt_concepto
+            // 
+            this.txt_concepto.Location = new System.Drawing.Point(269, 200);
+            this.txt_concepto.Name = "txt_concepto";
+            this.txt_concepto.Size = new System.Drawing.Size(148, 20);
+            this.txt_concepto.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(266, 184);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Concepto";
+            // 
+            // cbx_tipo
+            // 
+            this.cbx_tipo.FormattingEnabled = true;
+            this.cbx_tipo.Items.AddRange(new object[] {
+            "dep",
+            "ext",
+            "tra"});
+            this.cbx_tipo.Location = new System.Drawing.Point(16, 200);
+            this.cbx_tipo.Name = "cbx_tipo";
+            this.cbx_tipo.Size = new System.Drawing.Size(46, 21);
+            this.cbx_tipo.TabIndex = 10;
+            // 
+            // cbx_accounts
+            // 
+            this.cbx_accounts.FormattingEnabled = true;
+            this.cbx_accounts.Location = new System.Drawing.Point(15, 66);
+            this.cbx_accounts.Name = "cbx_accounts";
+            this.cbx_accounts.Size = new System.Drawing.Size(155, 21);
+            this.cbx_accounts.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Cuenta";
+            // 
+            // btn_search
+            // 
+            this.btn_search.Location = new System.Drawing.Point(536, 252);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(75, 27);
+            this.btn_search.TabIndex = 13;
+            this.btn_search.Text = "Buscar";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(378, 130);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(233, 20);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(15, 130);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(233, 20);
+            this.dateTimePicker2.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 114);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Fecha 1";
             // 
             // movimientosTableAdapter
             // 
@@ -458,10 +458,10 @@
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.cbx_accounts);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.cbx_tipo);
+            this.Controls.Add(this.txt_concepto);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_monto);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -474,9 +474,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingNavigator)).EndInit();
             this.movimientosBindingNavigator.ResumeLayout(false);
             this.movimientosBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.movimientosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -513,11 +513,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_monto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_concepto;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbx_tipo;
         private System.Windows.Forms.ComboBox cbx_accounts;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.BindingSource cuentasBindingSource;

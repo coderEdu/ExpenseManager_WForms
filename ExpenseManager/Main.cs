@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -44,8 +45,33 @@ namespace ExpenseManager
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            string selectText = "SELECT * FROM movimientos WHERE id_cuenta = 5";
+            string account = string.Empty; // will be managed later
+            string type = string.Empty;
+            string amount = string.Empty;
+            string concept = string.Empty;
+            
+            if (cbx_tipo.SelectedItem != null)
+            {
+                type = cbx_tipo.SelectedItem.ToString();
+                selectText += " AND tipo = '" + type + "'";
+            }
+
+            if (txt_monto.Text.Length > 0)
+            {
+                amount = txt_monto.Text;
+                selectText += " AND monto = " + amount;
+            }
+
+            if (txt_concepto.Text.Length > 0)
+            {
+                concept = txt_concepto.Text;
+                selectText += " AND concepto LIKE '%" + concept + "%'";
+            }
+
             SqlConnection MyConnection = new SqlConnection(ExpenseManager.Properties.Settings.Default.EXPENSE_MANAGERConnectionString);
-            SqlDataAdapter MyDataAdapter = new SqlDataAdapter("SELECT * FROM movimientos WHERE tipo = 'dep' AND id_cuenta = 5 AND monto = 20000", MyConnection);
+            
+            SqlDataAdapter MyDataAdapter = new SqlDataAdapter(selectText, MyConnection);
             SqlCommandBuilder MyCmd = new SqlCommandBuilder(MyDataAdapter);
             DataSet MyDataSet = new DataSet();
 
@@ -54,6 +80,9 @@ namespace ExpenseManager
             // MessageBox.Show(MyDataSet.Tables[0].Rows.Count.ToString()); // the query retrieves 361 rows 👍
 
             this.movimientosDataGridView.DataSource = MyDataSet.Tables[0];
+            
+            // MessageBox.Show(selectText);
+            
         }
     }
 }
