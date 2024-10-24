@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -41,5 +42,18 @@ namespace ExpenseManager
             //this.movimientosTableAdapter.Fill(this.eXPENSE_MANAGERDataSet.movimientos);
         }
 
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            SqlConnection MyConnection = new SqlConnection(ExpenseManager.Properties.Settings.Default.EXPENSE_MANAGERConnectionString);
+            SqlDataAdapter MyDataAdapter = new SqlDataAdapter("SELECT * FROM movimientos WHERE tipo = 'dep' AND id_cuenta = 5 AND monto = 20000", MyConnection);
+            SqlCommandBuilder MyCmd = new SqlCommandBuilder(MyDataAdapter);
+            DataSet MyDataSet = new DataSet();
+
+            MyDataAdapter.Fill(MyDataSet);
+
+            // MessageBox.Show(MyDataSet.Tables[0].Rows.Count.ToString()); // the query retrieves 361 rows 👍
+
+            this.movimientosDataGridView.DataSource = MyDataSet.Tables[0];
+        }
     }
 }

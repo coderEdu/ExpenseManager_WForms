@@ -45,7 +45,6 @@
             this.movimientosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.movimientosDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,6 +54,9 @@
             this.cbx_accounts = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_search = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -219,7 +221,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.movimientosDataGridView.DataSource = this.movimientosBindingSource;
-            this.movimientosDataGridView.Location = new System.Drawing.Point(17, 174);
+            this.movimientosDataGridView.Location = new System.Drawing.Point(17, 285);
             this.movimientosDataGridView.Name = "movimientosDataGridView";
             this.movimientosDataGridView.ReadOnly = true;
             this.movimientosDataGridView.RowHeadersVisible = false;
@@ -230,23 +232,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 61);
+            this.label1.Location = new System.Drawing.Point(376, 114);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Fecha";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(17, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(137, 20);
-            this.textBox1.TabIndex = 3;
+            this.label1.Text = "Fecha 2";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(176, 61);
+            this.label2.Location = new System.Drawing.Point(14, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 4;
@@ -254,7 +249,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(244, 78);
+            this.textBox3.Location = new System.Drawing.Point(130, 200);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(65, 20);
             this.textBox3.TabIndex = 7;
@@ -262,7 +257,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(244, 61);
+            this.label3.Location = new System.Drawing.Point(127, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 6;
@@ -270,15 +265,15 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(331, 78);
+            this.textBox4.Location = new System.Drawing.Point(269, 200);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(148, 20);
             this.textBox4.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(331, 61);
+            this.label4.Location = new System.Drawing.Point(266, 184);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 8;
@@ -291,7 +286,7 @@
             "dep",
             "ext",
             "tra"});
-            this.comboBox1.Location = new System.Drawing.Point(176, 78);
+            this.comboBox1.Location = new System.Drawing.Point(16, 200);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(46, 21);
             this.comboBox1.TabIndex = 10;
@@ -299,7 +294,7 @@
             // cbx_accounts
             // 
             this.cbx_accounts.FormattingEnabled = true;
-            this.cbx_accounts.Location = new System.Drawing.Point(453, 78);
+            this.cbx_accounts.Location = new System.Drawing.Point(15, 66);
             this.cbx_accounts.Name = "cbx_accounts";
             this.cbx_accounts.Size = new System.Drawing.Size(155, 21);
             this.cbx_accounts.TabIndex = 12;
@@ -307,7 +302,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(453, 61);
+            this.label5.Location = new System.Drawing.Point(13, 50);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 11;
@@ -315,12 +310,36 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(537, 135);
+            this.btn_search.Location = new System.Drawing.Point(536, 252);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(75, 27);
             this.btn_search.TabIndex = 13;
             this.btn_search.Text = "Buscar";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(378, 130);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(233, 20);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(15, 130);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(233, 20);
+            this.dateTimePicker2.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 114);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Fecha 1";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -432,7 +451,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 456);
+            this.ClientSize = new System.Drawing.Size(628, 566);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btn_search);
             this.Controls.Add(this.cbx_accounts);
             this.Controls.Add(this.label5);
@@ -442,7 +464,6 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.movimientosDataGridView);
             this.Controls.Add(this.movimientosBindingNavigator);
@@ -491,7 +512,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
@@ -503,5 +523,8 @@
         private System.Windows.Forms.BindingSource cuentasBindingSource;
         private EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter cuentasTableAdapter;
         private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label6;
     }
 }
