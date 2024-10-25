@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EXPENSE_MANAGERDataSet.cs">
+      <DependentUpon>EXPENSE_MANAGERDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EXPENSE_MANAGERDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
