@@ -29,6 +29,9 @@ namespace ExpenseManager
 
         private void Main_Load(object sender, EventArgs e)
         {
+            // it makes a non-editable combobox
+            this.cbx_accounts.DropDownStyle = ComboBoxStyle.DropDownList;
+
             // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.cuentas' table. You can move, or remove it, as needed.
             try
             {
@@ -40,13 +43,12 @@ namespace ExpenseManager
             }
             catch (Exception) { }
             // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.movimientos' table. You can move, or remove it, as needed.
-            //this.movimientosTableAdapter.Fill(this.eXPENSE_MANAGERDataSet.movimientos);
+            // this.movimientosTableAdapter.Fill(this.eXPENSE_MANAGERDataSet.movimientos);
         }
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            string selectText = "SELECT * FROM movimientos WHERE id_cuenta = 5";
-            string account = string.Empty; // will be managed later
+            string selectText = "SELECT * FROM movimientos WHERE id_cuenta = '" + cbx_accounts.SelectedValue.ToString() + "'";
             string type = string.Empty;
             string amount = string.Empty;
             string concept = string.Empty;
@@ -82,6 +84,7 @@ namespace ExpenseManager
             this.movimientosDataGridView.DataSource = MyDataSet.Tables[0];
             
             // MessageBox.Show(selectText);
+            // MessageBox.Show(cbx_accounts.SelectedValue.ToString());
             
         }
     }
