@@ -19,14 +19,6 @@ namespace ExpenseManager
             InitializeComponent();
         }
 
-        private void movimientosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.movimientosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.eXPENSE_MANAGERDataSet);
-
-        }
-
         private void Main_Load(object sender, EventArgs e)
         {
             // it makes a non-editable combobox
@@ -38,6 +30,9 @@ namespace ExpenseManager
             this.lbl_date1.Enabled = false;
             this.lbl_date2.Enabled = false;
             this.check_date2.Enabled = false;
+
+            // set color to lbl_records_count
+            this.lbl_cant_records.ForeColor = System.Drawing.Color.FromArgb(199, 0, 57);
 
             // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.cuentas' table. You can move, or remove it, as needed.
             try
@@ -107,6 +102,8 @@ namespace ExpenseManager
             // MessageBox.Show(MyDataSet.Tables[0].Rows.Count.ToString()); // the query retrieves 361 rows 👍
 
             this.movimientosDataGridView.DataSource = MyDataSet.Tables[0];
+
+            this.lbl_cant_records.Text = this.movimientosDataGridView.RowCount.ToString();
             
              //MessageBox.Show(queryText);            
         }
