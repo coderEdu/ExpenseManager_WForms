@@ -57,9 +57,6 @@ namespace ExpenseManager
         private void btn_search_Click(object sender, EventArgs e)
         {
             string queryText = "SELECT * FROM movimientos WHERE id_cuenta = '" + cbx_accounts.SelectedValue.ToString() + "'";
-            string type = string.Empty;
-            string amount = string.Empty;
-            string concept = string.Empty;
 
             if (dTP1.Enabled && dTP2.Enabled)
             {
@@ -73,23 +70,11 @@ namespace ExpenseManager
                 }
             }
             
-            if (cbx_tipo.SelectedItem != null)
-            {
-                type = cbx_tipo.SelectedItem.ToString();
-                queryText += " AND tipo = '" + type + "'";
-            }
+            if (cbx_tipo.SelectedItem != null) queryText += " AND tipo = '" + cbx_tipo.SelectedItem.ToString() + "'";
 
-            if (txt_monto.Text.Length > 0)
-            {
-                amount = txt_monto.Text;
-                queryText += " AND monto = " + amount;
-            }
+            if (txt_monto.Text.Length > 0) queryText += " AND monto = " + txt_monto.Text;
 
-            if (txt_concepto.Text.Length > 0)
-            {
-                concept = txt_concepto.Text;
-                queryText += " AND concepto LIKE '%" + concept + "%'";
-            }
+            if (txt_concepto.Text.Length > 0) queryText += " AND concepto LIKE '%" + txt_concepto.Text + "%'";
 
             SqlConnection MyConnection = new SqlConnection(ExpenseManager.Properties.Settings.Default.EXPENSE_MANAGERConnectionString);
             
