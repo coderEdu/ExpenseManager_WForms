@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eXPENSE_MANAGERDataSet = new ExpenseManager.EXPENSE_MANAGERDataSet();
             this.movimientosDataGridView = new System.Windows.Forms.DataGridView();
@@ -116,9 +116,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "fecha";
-            dataGridViewCellStyle2.Format = "F";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Format = "F";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn2.HeaderText = "fecha";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -237,7 +237,8 @@
             this.cbx_tipo.Items.AddRange(new object[] {
             "dep",
             "ext",
-            "tra"});
+            "tra",
+            "rec"});
             this.cbx_tipo.Location = new System.Drawing.Point(17, 136);
             this.cbx_tipo.Name = "cbx_tipo";
             this.cbx_tipo.Size = new System.Drawing.Size(46, 21);
@@ -346,11 +347,11 @@
             // 
             // lbl_cant_records
             // 
-            this.lbl_cant_records.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_cant_records.Font = new System.Drawing.Font("Segoe UI Semibold", 8.830189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cant_records.ForeColor = System.Drawing.Color.Red;
-            this.lbl_cant_records.Location = new System.Drawing.Point(66, 189);
+            this.lbl_cant_records.Location = new System.Drawing.Point(66, 188);
             this.lbl_cant_records.Name = "lbl_cant_records";
-            this.lbl_cant_records.Size = new System.Drawing.Size(54, 13);
+            this.lbl_cant_records.Size = new System.Drawing.Size(54, 17);
             this.lbl_cant_records.TabIndex = 20;
             this.lbl_cant_records.Text = "0";
             // 

@@ -32,7 +32,7 @@ namespace ExpenseManager
             this.check_date2.Enabled = false;
 
             // set color to lbl_records_count
-            this.lbl_cant_records.ForeColor = System.Drawing.Color.FromArgb(199, 0, 57);
+            this.lbl_cant_records.ForeColor = System.Drawing.Color.FromArgb(206, 0, 0);
 
             // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.cuentas' table. You can move, or remove it, as needed.
             try
