@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eXPENSE_MANAGERDataSet = new ExpenseManager.EXPENSE_MANAGERDataSet();
             this.movimientosDataGridView = new System.Windows.Forms.DataGridView();
@@ -62,6 +62,7 @@
             this.cuentasTableAdapter = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter();
             this.lbl_records = new System.Windows.Forms.Label();
             this.lbl_cant_records = new System.Windows.Forms.Label();
+            this.btn_show_query = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosDataGridView)).BeginInit();
@@ -116,9 +117,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "fecha";
-            dataGridViewCellStyle5.Format = "F";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "F";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn2.HeaderText = "fecha";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -355,12 +356,23 @@
             this.lbl_cant_records.TabIndex = 20;
             this.lbl_cant_records.Text = "0";
             // 
+            // btn_show_query
+            // 
+            this.btn_show_query.Location = new System.Drawing.Point(596, 12);
+            this.btn_show_query.Name = "btn_show_query";
+            this.btn_show_query.Size = new System.Drawing.Size(108, 23);
+            this.btn_show_query.TabIndex = 21;
+            this.btn_show_query.Text = "Mostrar Consulta";
+            this.btn_show_query.UseVisualStyleBackColor = true;
+            this.btn_show_query.Click += new System.EventHandler(this.btn_show_query_Click);
+            // 
             // Main
             // 
             this.AcceptButton = this.btn_search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(716, 487);
+            this.Controls.Add(this.btn_show_query);
             this.Controls.Add(this.lbl_cant_records);
             this.Controls.Add(this.lbl_records);
             this.Controls.Add(this.check_date2);
@@ -426,5 +438,6 @@
         private System.Windows.Forms.CheckBox check_date2;
         private System.Windows.Forms.Label lbl_records;
         private System.Windows.Forms.Label lbl_cant_records;
+        private System.Windows.Forms.Button btn_show_query;
     }
 }

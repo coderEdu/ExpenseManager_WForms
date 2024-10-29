@@ -14,6 +14,8 @@ namespace ExpenseManager
 {
     public partial class Main : Form
     {
+        public string QueryString { get; set; }
+
         public Main()
         {
             InitializeComponent();
@@ -90,7 +92,8 @@ namespace ExpenseManager
 
             this.lbl_cant_records.Text = this.movimientosDataGridView.RowCount.ToString();
             
-             //MessageBox.Show(queryText);            
+             //MessageBox.Show(queryText);
+             this.QueryString = queryText;
         }
 
         private void check_date1_CheckedChanged(object sender, EventArgs e)
@@ -127,6 +130,11 @@ namespace ExpenseManager
                 this.dTP2.Enabled = false;
                 this.lbl_date2.Enabled = false;
             }
+        }
+
+        private void btn_show_query_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.QueryString);
         }
     }
 }
