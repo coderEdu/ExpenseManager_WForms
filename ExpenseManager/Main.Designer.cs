@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eXPENSE_MANAGERDataSet = new ExpenseManager.EXPENSE_MANAGERDataSet();
             this.movimientosDataGridView = new System.Windows.Forms.DataGridView();
@@ -84,6 +85,14 @@
             this.movimientosDataGridView.AllowUserToAddRows = false;
             this.movimientosDataGridView.AllowUserToDeleteRows = false;
             this.movimientosDataGridView.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.movimientosDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.movimientosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.movimientosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -95,7 +104,8 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.movimientosDataGridView.DataSource = this.movimientosBindingSource;
-            this.movimientosDataGridView.Location = new System.Drawing.Point(12, 209);
+            this.movimientosDataGridView.EnableHeadersVisualStyles = false;
+            this.movimientosDataGridView.Location = new System.Drawing.Point(14, 261);
             this.movimientosDataGridView.Name = "movimientosDataGridView";
             this.movimientosDataGridView.ReadOnly = true;
             this.movimientosDataGridView.RowHeadersVisible = false;
@@ -117,9 +127,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "fecha";
-            dataGridViewCellStyle1.Format = "F";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "F";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "fecha";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -185,86 +195,95 @@
             // lbl_date2
             // 
             this.lbl_date2.AutoSize = true;
-            this.lbl_date2.Location = new System.Drawing.Point(486, 51);
+            this.lbl_date2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_date2.Location = new System.Drawing.Point(437, 132);
             this.lbl_date2.Name = "lbl_date2";
-            this.lbl_date2.Size = new System.Drawing.Size(46, 13);
+            this.lbl_date2.Size = new System.Drawing.Size(51, 15);
             this.lbl_date2.TabIndex = 2;
             this.lbl_date2.Text = "Fecha 2";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 120);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(196, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.Size = new System.Drawing.Size(31, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "Tipo";
             // 
             // txt_monto
             // 
-            this.txt_monto.Location = new System.Drawing.Point(141, 136);
+            this.txt_monto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_monto.Location = new System.Drawing.Point(13, 149);
             this.txt_monto.Name = "txt_monto";
-            this.txt_monto.Size = new System.Drawing.Size(65, 20);
+            this.txt_monto.Size = new System.Drawing.Size(76, 23);
             this.txt_monto.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(138, 120);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(10, 133);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.Size = new System.Drawing.Size(42, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = "Monto";
             // 
             // txt_concepto
             // 
-            this.txt_concepto.Location = new System.Drawing.Point(266, 136);
+            this.txt_concepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_concepto.Location = new System.Drawing.Point(110, 149);
             this.txt_concepto.Name = "txt_concepto";
-            this.txt_concepto.Size = new System.Drawing.Size(148, 20);
+            this.txt_concepto.Size = new System.Drawing.Size(157, 23);
             this.txt_concepto.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(263, 120);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(107, 133);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.Size = new System.Drawing.Size(59, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Concepto";
             // 
             // cbx_tipo
             // 
+            this.cbx_tipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbx_tipo.FormattingEnabled = true;
             this.cbx_tipo.Items.AddRange(new object[] {
             "dep",
             "ext",
             "tra",
             "rec"});
-            this.cbx_tipo.Location = new System.Drawing.Point(17, 136);
+            this.cbx_tipo.Location = new System.Drawing.Point(199, 84);
             this.cbx_tipo.Name = "cbx_tipo";
-            this.cbx_tipo.Size = new System.Drawing.Size(46, 21);
+            this.cbx_tipo.Size = new System.Drawing.Size(68, 25);
             this.cbx_tipo.TabIndex = 10;
             // 
             // cbx_accounts
             // 
+            this.cbx_accounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbx_accounts.FormattingEnabled = true;
-            this.cbx_accounts.Location = new System.Drawing.Point(14, 66);
+            this.cbx_accounts.Location = new System.Drawing.Point(13, 84);
             this.cbx_accounts.Name = "cbx_accounts";
-            this.cbx_accounts.Size = new System.Drawing.Size(155, 21);
+            this.cbx_accounts.Size = new System.Drawing.Size(161, 25);
             this.cbx_accounts.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 50);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(10, 68);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.Size = new System.Drawing.Size(46, 15);
             this.label5.TabIndex = 11;
             this.label5.Text = "Cuenta";
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(629, 176);
+            this.btn_search.Location = new System.Drawing.Point(631, 223);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(75, 27);
             this.btn_search.TabIndex = 13;
@@ -274,31 +293,34 @@
             // 
             // dTP1
             // 
-            this.dTP1.Location = new System.Drawing.Point(215, 66);
+            this.dTP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dTP1.Location = new System.Drawing.Point(437, 82);
             this.dTP1.Name = "dTP1";
-            this.dTP1.Size = new System.Drawing.Size(213, 20);
+            this.dTP1.Size = new System.Drawing.Size(268, 23);
             this.dTP1.TabIndex = 14;
             // 
             // dTP2
             // 
-            this.dTP2.Location = new System.Drawing.Point(489, 66);
+            this.dTP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dTP2.Location = new System.Drawing.Point(437, 147);
             this.dTP2.Name = "dTP2";
-            this.dTP2.Size = new System.Drawing.Size(213, 20);
+            this.dTP2.Size = new System.Drawing.Size(266, 23);
             this.dTP2.TabIndex = 16;
             // 
             // lbl_date1
             // 
             this.lbl_date1.AutoSize = true;
-            this.lbl_date1.Location = new System.Drawing.Point(214, 51);
+            this.lbl_date1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_date1.Location = new System.Drawing.Point(434, 66);
             this.lbl_date1.Name = "lbl_date1";
-            this.lbl_date1.Size = new System.Drawing.Size(46, 13);
+            this.lbl_date1.Size = new System.Drawing.Size(51, 15);
             this.lbl_date1.TabIndex = 15;
             this.lbl_date1.Text = "Fecha 1";
             // 
             // check_date1
             // 
             this.check_date1.AutoSize = true;
-            this.check_date1.Location = new System.Drawing.Point(414, 51);
+            this.check_date1.Location = new System.Drawing.Point(692, 67);
             this.check_date1.Name = "check_date1";
             this.check_date1.Size = new System.Drawing.Size(15, 14);
             this.check_date1.TabIndex = 17;
@@ -308,7 +330,7 @@
             // check_date2
             // 
             this.check_date2.AutoSize = true;
-            this.check_date2.Location = new System.Drawing.Point(689, 51);
+            this.check_date2.Location = new System.Drawing.Point(690, 132);
             this.check_date2.Name = "check_date2";
             this.check_date2.Size = new System.Drawing.Size(15, 14);
             this.check_date2.TabIndex = 18;
@@ -340,7 +362,7 @@
             // lbl_records
             // 
             this.lbl_records.AutoSize = true;
-            this.lbl_records.Location = new System.Drawing.Point(9, 189);
+            this.lbl_records.Location = new System.Drawing.Point(11, 237);
             this.lbl_records.Name = "lbl_records";
             this.lbl_records.Size = new System.Drawing.Size(54, 13);
             this.lbl_records.TabIndex = 19;
@@ -350,7 +372,7 @@
             // 
             this.lbl_cant_records.Font = new System.Drawing.Font("Segoe UI Semibold", 8.830189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_cant_records.ForeColor = System.Drawing.Color.Red;
-            this.lbl_cant_records.Location = new System.Drawing.Point(66, 188);
+            this.lbl_cant_records.Location = new System.Drawing.Point(68, 236);
             this.lbl_cant_records.Name = "lbl_cant_records";
             this.lbl_cant_records.Size = new System.Drawing.Size(54, 17);
             this.lbl_cant_records.TabIndex = 20;
@@ -358,9 +380,10 @@
             // 
             // btn_show_query
             // 
-            this.btn_show_query.Location = new System.Drawing.Point(596, 12);
+            this.btn_show_query.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_show_query.Location = new System.Drawing.Point(10, 7);
             this.btn_show_query.Name = "btn_show_query";
-            this.btn_show_query.Size = new System.Drawing.Size(108, 23);
+            this.btn_show_query.Size = new System.Drawing.Size(110, 25);
             this.btn_show_query.TabIndex = 21;
             this.btn_show_query.Text = "Mostrar Consulta";
             this.btn_show_query.UseVisualStyleBackColor = true;
@@ -371,7 +394,7 @@
             this.AcceptButton = this.btn_search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 487);
+            this.ClientSize = new System.Drawing.Size(716, 539);
             this.Controls.Add(this.btn_show_query);
             this.Controls.Add(this.lbl_cant_records);
             this.Controls.Add(this.lbl_records);

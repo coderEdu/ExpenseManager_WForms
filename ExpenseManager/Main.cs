@@ -15,6 +15,7 @@ namespace ExpenseManager
     public partial class Main : Form
     {
         public string QueryString { get; set; }
+        public DateTime Dtp2Date { get; set; }
 
         public Main()
         {
@@ -34,7 +35,7 @@ namespace ExpenseManager
             this.check_date2.Enabled = false;
 
             // set color to lbl_records_count
-            this.lbl_cant_records.ForeColor = System.Drawing.Color.FromArgb(206, 0, 0);
+            this.lbl_cant_records.ForeColor = System.Drawing.Color.FromArgb(17, 122, 101);
 
             // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.cuentas' table. You can move, or remove it, as needed.
             try
@@ -124,6 +125,7 @@ namespace ExpenseManager
             {
                 this.dTP2.Enabled = true;
                 this.lbl_date2.Enabled = true;
+                this.dTP2.Value = this.dTP1.Value.AddMonths(1);
             }
             else
             {
