@@ -2964,12 +2964,20 @@ SELECT id, fecha, tipo, monto, saldo_cuenta, concepto, id_usuario, id_cuenta FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, fecha, tipo, monto, saldo_cuenta, concepto, id_usuario, id_cuenta FROM" +
                 " dbo.movimientos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT    id, fecha, tipo, monto, saldo_cuenta, concepto, id_usuario, id_cuenta\r\n" +
+                "FROM       movimientos\r\nWHERE    (concepto LIKE \'%$correctivo%\') AND (id_cuenta " +
+                "= @id_account) AND (id_usuario = @id_logged)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_account", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_cuenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_logged", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2991,6 +2999,34 @@ SELECT id, fecha, tipo, monto, saldo_cuenta, concepto, id_usuario, id_cuenta FRO
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual EXPENSE_MANAGERDataSet.movimientosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            EXPENSE_MANAGERDataSet.movimientosDataTable dataTable = new EXPENSE_MANAGERDataSet.movimientosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCorrectivo(EXPENSE_MANAGERDataSet.movimientosDataTable dataTable, int id_account, int id_logged) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_account));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_logged));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual EXPENSE_MANAGERDataSet.movimientosDataTable GetDataByCorrectivo(int id_account, int id_logged) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id_account));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(id_logged));
             EXPENSE_MANAGERDataSet.movimientosDataTable dataTable = new EXPENSE_MANAGERDataSet.movimientosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

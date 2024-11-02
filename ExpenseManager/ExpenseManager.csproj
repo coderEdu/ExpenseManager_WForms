@@ -73,6 +73,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="EXPENSE_MANAGERDataSet.xsc">
       <DependentUpon>EXPENSE_MANAGERDataSet.xsd</DependentUpon>
@@ -97,6 +98,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dryicons-Aesthetica-2-Database-search.128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icontexto-Search-Search-green-neon.256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loupe-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

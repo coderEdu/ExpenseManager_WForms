@@ -16,6 +16,7 @@ namespace ExpenseManager
     {
         public string QueryString { get; set; }
         public DateTime Dtp2Date { get; set; }
+        List<string> fields = new List<string>();
 
         public Main()
         {
@@ -37,6 +38,9 @@ namespace ExpenseManager
             // set color to lbl_records_count
             this.lbl_cant_records.ForeColor = System.Drawing.Color.FromArgb(17, 122, 101);
 
+            // adjust dgv fields
+            AdjustFieldsmovimientosDataGridView();
+
             // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.cuentas' table. You can move, or remove it, as needed.
             try
             {
@@ -49,6 +53,24 @@ namespace ExpenseManager
             catch (Exception) { }
             // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.movimientos' table. You can move, or remove it, as needed.
             // this.movimientosTableAdapter.Fill(this.eXPENSE_MANAGERDataSet.movimientos);
+        }
+
+        public void AdjustFieldsmovimientosDataGridView()
+        {
+            if (this.movimientosDataGridView.RowCount > 12)
+            {
+                this.movimientosDataGridView.Columns[1].Width = 300;    // fecha
+                this.movimientosDataGridView.Columns[2].Width = 55;     // tipo
+                this.movimientosDataGridView.Columns[3].Width = 112;    // monto
+                this.movimientosDataGridView.Columns[4].Width = 112;    // saldo
+            }
+            else
+            {
+                this.movimientosDataGridView.Columns[1].Width = 311;    // fecha
+                this.movimientosDataGridView.Columns[2].Width = 59;     // tipo
+                this.movimientosDataGridView.Columns[3].Width = 115;    // monto
+                this.movimientosDataGridView.Columns[4].Width = 115;    // saldo
+            }
         }
 
         private string SearchByDate(string p)   // param values: s => single | r => range
@@ -79,6 +101,8 @@ namespace ExpenseManager
 
             if (txt_concepto.Text.Length > 0) queryText += " AND concepto LIKE '%" + txt_concepto.Text + "%'";
 
+            queryText += " ORDER BY fecha DESC";
+
             SqlConnection MyConnection = new SqlConnection(ExpenseManager.Properties.Settings.Default.EXPENSE_MANAGERConnectionString);
             
             SqlDataAdapter MyDataAdapter = new SqlDataAdapter(queryText, MyConnection);
@@ -95,6 +119,17 @@ namespace ExpenseManager
             
              //MessageBox.Show(queryText);
              this.QueryString = queryText;
+
+            AdjustFieldsmovimientosDataGridView();
+
+            DataTable dt = new DataTable();
+            dt = movimientosTableAdapter.GetDataByCorrectivo(Convert.ToInt32(cbx_accounts.SelectedValue), 1);
+            fields.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                string id = row["id"].ToString();
+                fields.Add(id);
+            }
         }
 
         private void check_date1_CheckedChanged(object sender, EventArgs e)
@@ -137,6 +172,48 @@ namespace ExpenseManager
         private void btn_show_query_Click(object sender, EventArgs e)
         {
             MessageBox.Show(this.QueryString);
+        }
+
+        private void movimientosDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            this.lbl_concept_text.Text = movimientosDataGridView.CurrentRow.Cells[5].Value.ToString();
+        }
+
+        private void movimientosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.lbl_concept_text.Text = movimientosDataGridView.CurrentRow.Cells[5].Value.ToString();
+        }
+
+        private void movimientosDataGridView_Enter(object sender, EventArgs e)
+        {
+            if (this.movimientosDataGridView.CurrentRow != null)
+            {
+                this.lbl_concept_text.Text = movimientosDataGridView.CurrentRow.Cells[5].Value.ToString();
+            }
+            else
+            {
+                this.lbl_concept_text.Text = "No hay registros en esta cuenta";
+                //this.lbl_concept_text.BackColor = Color.FromArgb(210,210,210);
+            }
+        }
+
+        private void movimientosDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            int correctivo = 0;
+
+            try { correctivo = this.movimientosTableAdapter.FillByCorrectivo(eXPENSE_MANAGERDataSet.movimientos, Convert.ToInt32(cbx_accounts.SelectedValue), 1); }
+            catch (Exception) { }
+
+            if (correctivo > 0)
+            {
+                for (int i = 0; i < movimientosDataGridView.RowCount; i++)
+                {
+                    if (fields.Contains(movimientosDataGridView.Rows[i].Cells[0].Value.ToString()))
+                    {
+                        movimientosDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
+                    }
+                }
+            }
         }
     }
 }

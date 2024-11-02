@@ -2,9 +2,11 @@
 {
 }
 
-namespace ExpenseManager {
-    
-    
-    public partial class EXPENSE_MANAGERDataSet {
+namespace ExpenseManager
+{
+
+
+    public partial class EXPENSE_MANAGERDataSet
+    {
     }
 }
