@@ -97,7 +97,7 @@ namespace ExpenseManager
                     queryText += SearchByDate("s");
                 }
             }
-            
+
             if (cbx_tipo.SelectedItem != null) queryText += " AND tipo = '" + cbx_tipo.SelectedItem.ToString() + "'";
 
             if (txt_monto.Text.Length > 0) queryText += " AND monto = " + txt_monto.Text;
@@ -107,7 +107,7 @@ namespace ExpenseManager
             queryText += " ORDER BY fecha DESC";
 
             SqlConnection MyConnection = new SqlConnection(ExpenseManager.Properties.Settings.Default.EXPENSE_MANAGERConnectionString);
-            
+
             SqlDataAdapter MyDataAdapter = new SqlDataAdapter(queryText, MyConnection);
             SqlCommandBuilder MyCmd = new SqlCommandBuilder(MyDataAdapter);
             DataSet MyDataSet = new DataSet();
@@ -119,9 +119,9 @@ namespace ExpenseManager
             this.movimientosDataGridView.DataSource = MyDataSet.Tables[0];
 
             this.lbl_cant_records.Text = this.movimientosDataGridView.RowCount.ToString();
-            
-             //MessageBox.Show(queryText);
-             this.QueryString = queryText;
+
+            //MessageBox.Show(queryText);
+            this.QueryString = queryText;
 
             AdjustFieldsmovimientosDataGridView();
 
@@ -222,14 +222,12 @@ namespace ExpenseManager
                 }
                 else
                 {
-                    this.lbl_concept_text.BackColor = Color.FromArgb(210, 210, 210);
-                    this.lbl_concept_text.Text = "";
+                    LblConceptGrayBg();
                 }
             }
             else
             {
-                this.lbl_concept_text.BackColor = Color.FromArgb(210, 210, 210);
-                this.lbl_concept_text.Text = "";
+                LblConceptGrayBg();
             }
         }
 
@@ -237,9 +235,15 @@ namespace ExpenseManager
         {
             if (this.movimientosDataGridView.RowCount == 0)
             {
-                this.lbl_concept_text.BackColor = Color.FromArgb(210, 210, 210);
-                this.lbl_concept_text.Text = "";
+                LblConceptGrayBg();
             }
         }
+
+        private void LblConceptGrayBg()
+        {
+            this.lbl_concept_text.BackColor = Color.FromArgb(210, 210, 210);
+            this.lbl_concept_text.Text = "";
+        }
+
     }
 }
