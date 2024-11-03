@@ -41,6 +41,9 @@ namespace ExpenseManager
             // adjust dgv fields
             AdjustFieldsmovimientosDataGridView();
 
+            // checking text length of the current concept
+            //CheckConceptTextLength();
+
             // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.cuentas' table. You can move, or remove it, as needed.
             try
             {
@@ -176,25 +179,17 @@ namespace ExpenseManager
 
         private void movimientosDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
-            this.lbl_concept_text.Text = movimientosDataGridView.CurrentRow.Cells[5].Value.ToString();
+            CheckConceptTextLength();
         }
 
         private void movimientosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.lbl_concept_text.Text = movimientosDataGridView.CurrentRow.Cells[5].Value.ToString();
+            CheckConceptTextLength();
         }
 
         private void movimientosDataGridView_Enter(object sender, EventArgs e)
         {
-            if (this.movimientosDataGridView.CurrentRow != null)
-            {
-                this.lbl_concept_text.Text = movimientosDataGridView.CurrentRow.Cells[5].Value.ToString();
-            }
-            else
-            {
-                this.lbl_concept_text.Text = "No hay registros en esta cuenta";
-                //this.lbl_concept_text.BackColor = Color.FromArgb(210,210,210);
-            }
+            CheckConceptTextLength();
         }
 
         private void movimientosDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -213,6 +208,37 @@ namespace ExpenseManager
                         movimientosDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
                     }
                 }
+            }
+        }
+
+        private void CheckConceptTextLength()
+        {
+            if (this.movimientosDataGridView.CurrentRow != null)
+            {
+                if (movimientosDataGridView.CurrentRow.Cells[5].Value.ToString().Length > 0)
+                {
+                    this.lbl_concept_text.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+                    this.lbl_concept_text.Text = movimientosDataGridView.CurrentRow.Cells[5].Value.ToString();
+                }
+                else
+                {
+                    this.lbl_concept_text.BackColor = Color.FromArgb(210, 210, 210);
+                    this.lbl_concept_text.Text = "";
+                }
+            }
+            else
+            {
+                this.lbl_concept_text.BackColor = Color.FromArgb(210, 210, 210);
+                this.lbl_concept_text.Text = "";
+            }
+        }
+
+        private void movimientosDataGridView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (this.movimientosDataGridView.RowCount == 0)
+            {
+                this.lbl_concept_text.BackColor = Color.FromArgb(210, 210, 210);
+                this.lbl_concept_text.Text = "";
             }
         }
     }
