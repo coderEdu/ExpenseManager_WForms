@@ -63,6 +63,46 @@ namespace ExpenseManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Everaldo_Crystal_Clear_App_login_manager_128 {
+            get {
+                object obj = ResourceManager.GetObject("Everaldo_Crystal_Clear_App_login_manager_128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gartoon_Team_Gartoon_Apps_Seahorse_key_personal_512 {
+            get {
+                object obj = ResourceManager.GetObject("Gartoon_Team_Gartoon_Apps_Seahorse_key_personal_512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gartoon_Team_Gartoon_Apps_System_users_512 {
+            get {
+                object obj = ResourceManager.GetObject("Gartoon_Team_Gartoon_Apps_System_users_512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ionic_Ionicons_Log_in_sharp_32 {
+            get {
+                object obj = ResourceManager.GetObject("Ionic_Ionicons_Log_in_sharp_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Loupe_icon {
             get {
                 object obj = ResourceManager.GetObject("Loupe_icon", resourceCulture);
