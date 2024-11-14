@@ -19,7 +19,7 @@ namespace ExpenseManager
         public static int id_note;
         public static int id_note_to_delete;
         public static string LoggUserName;
-        public static Form form1;
+        //public static Form form1;
         public static Form login;
         public static Form admin;
         public static Form main;
@@ -34,7 +34,7 @@ namespace ExpenseManager
 
         public static string getAppName()
         {
-            return "CAJA DE AHORRO -";
+            return "Expense Manager -";
         }
 
         public static string getTextCorrective()

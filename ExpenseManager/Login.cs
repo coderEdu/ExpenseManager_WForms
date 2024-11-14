@@ -54,7 +54,7 @@ namespace ExpenseManager
 
         public void LoadingModules()
         {
-            Auxiliar.form1 = new Form1();
+            Auxiliar.main = new Main();
             Auxiliar.admin = new Administrador();
             Auxiliar.login = this;
             scrDimH = Screen.PrimaryScreen.Bounds.Width;
@@ -163,7 +163,7 @@ namespace ExpenseManager
                     tmr_exp_contr.Stop();
                     this.barProgCounter = 0;
                     this.progress.Value = 0;
-                    Auxiliar.form1.Show();
+                    Auxiliar.main.Show();
                     Auxiliar.login.Hide();
                 }
                 else

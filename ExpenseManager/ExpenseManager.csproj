@@ -61,11 +61,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EXPENSE_MANAGERDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -73,16 +73,20 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Log.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Log.Designer.cs">
+      <DependentUpon>Log.cs</DependentUpon>
     </Compile>
+    <Compile Include="Nota.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log.resx">
+      <DependentUpon>Log.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -141,6 +145,183 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Ionic-Ionicons-Log-in-sharp.32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17332_binoculars_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17367_file_icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17367_file_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17368_add_file_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17369_edit_file_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17371_file_remove_icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17378_forms_pencil_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17399_blog_edit_message_pencil_sms_icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17399_blog_edit_message_pencil_sms_icon %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17399_blog_edit_message_pencil_sms_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17451_add_list_todo_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28363_door_exit_logout_mail_out_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\45461_connect_to_database_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\48781_mail_write_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\285645_user_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\314233_note_list_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\314233_note_list_icon_512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\314282_trash_can_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1889199_coins_hand_loan_loan money_money_icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1889199_coins_hand_loan_loan money_money_icon %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1889199_coins_hand_loan_loan money_money_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1889200_bag_coins_finance_saving_bank_icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1889200_bag_coins_finance_saving_bank_icon %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1889200_bag_coins_finance_saving_bank_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2620509_employee_job_note_seeker_unemployee_icon %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2620509_employee_job_note_seeker_unemployee_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5402435_account_profile_user_avatar_man_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6358078_account_avatar_man_people_person_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7549043_user_interface_verified_person_account_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_plus_outline_icon_140042.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-1-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-user-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atm-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atm-background_blur.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bank-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button-active-session.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Database-Active-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\data-management-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enter_icon-icons.com_71207.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_light_dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_light_mix.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_23632_add_add user_group_new_user_icon_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock-Lock-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lock-PadLock-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logged-user-light-indicator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock-unlock-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock-unlock-icon-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trafficlight-green-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User-icon-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-logged.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fatcow-Farm-Fresh-Outlook-change-view.32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

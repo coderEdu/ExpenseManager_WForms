@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace ExpenseManager
 {
     public partial class Main : Form
     {
-        public string QueryString { get; set; }
-        public DateTime Dtp2Date { get; set; }
-        List<string> fields = new List<string>();
+        static int increase;
+        public double opacity = 0.3;
+        public double WinOpacity { get; set; }
 
         public Main()
         {
@@ -25,225 +24,236 @@ namespace ExpenseManager
 
         private void Main_Load(object sender, EventArgs e)
         {
-            // it makes a non-editable combobox
-            this.cbx_accounts.DropDownStyle = ComboBoxStyle.DropDownList;
+            // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.cuentas' table. You can move, or remove it, as needed.
+            this.cuentasTableAdapter.Fill(this.c_AHORRO_NEW_DS1.cuentas);
+            //MessageBox.Show("Hi");
+            // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.movi' table. You can move, or remove it, as needed.
+            try { this.moviTableAdapter.Fill(this.c_AHORRO_NEW_DS1.movimientos); }
+            catch (Exception) { }
 
-            // disabling datetimepickers
-            this.dTP2.Enabled = false;
-            this.dTP1.Enabled = false;
-            this.lbl_date1.Enabled = false;
-            this.lbl_date2.Enabled = false;
-            this.check_date2.Enabled = false;
+            this.Text = Auxiliar.getAppName() + " Sesión Activa";
+            //this.creadoTableAdapter1.FillByFecCrea(c_AHORRO_NEW_DS1.creado, Auxiliar.id_logged);  * Must fill will the user creation date 
+            DateTime dateTime = new DateTime();
 
-            // set color to lbl_records_count
-            this.lbl_cant_records.ForeColor = System.Drawing.Color.FromArgb(17, 122, 101);
 
-            // adjust dgv fields
-            AdjustFieldsmovimientosDataGridView();
+            ConnectToDB();
 
-            // checking text length of the current concept
-            //CheckConceptTextLength();
+            // ********************* some test lines ***************
 
-            // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.cuentas' table. You can move, or remove it, as needed.
+            //lbl_dios_desmolde.Text = "ISMA - EL DIOS DEL DESMOLDE"; //**** este texto tenía originalmente ****
+            DateTime dT;
+            dT = DateTime.Now;
+            this.dateTimePicker1.Visible = false;
+            this.dateTimePicker1.Enabled = true;
+            increase = 0;
+            GetLastNotes();
+
+        }
+
+        public void GetLastNotes()
+        {
+            int count = this.notasTableAdapter.FillByNotasById_log(this.c_AHORRO_NEW_DS1.notas, Auxiliar.id_logged); //MessageBox.Show(count.ToString());
+            this.loginTableAdapter1.Fill(this.c_AHORRO_NEW_DS1.usuarios);  // ay q llenar el ds p/poder obt los datos
+            for (int i = 0; i < count; i++)
+            {
+                if (this.flp_note.Controls.Count < 8)
+                {
+                    Nota nota = new Nota();
+                    string note_title;
+                    if (this.c_AHORRO_NEW_DS1.Tables["notas"].Rows[i].Field<string>(1).Length > 8)
+                    {
+                        note_title = this.c_AHORRO_NEW_DS1.Tables["notas"].Rows[i].Field<string>(1).Substring(0, 8) + "...";
+                    }
+                    else
+                    {
+                        note_title = this.c_AHORRO_NEW_DS1.Tables["notas"].Rows[i].Field<string>(1);
+                    }
+
+                    Button button = new Button();
+                    button = nota.CreateNewNoteWithAttrib(note_title);
+                    button.Name = this.c_AHORRO_NEW_DS1.Tables["notas"].Rows[i].Field<int>(0).ToString();
+                    button.BackColor = Color.White;
+                    button.FlatAppearance.BorderColor = System.Drawing.SystemColors.Window;
+                    button.FlatAppearance.BorderSize = 3;
+                    this.flp_note.Controls.Add(button);
+                }
+            }
+        }
+
+        private void ConnectToDB()      // modificar todo este método
+        {
+            // 11/11/2024
+            Auxiliar.id_logged = 1;
+            // código nuevo 24/6/2021 - desde el nuevo dataset
+            //this.loginTableAdapter1.FillByIdLogged(this.c_AHORRO_NEW_DS1.usuarios, Auxiliar.id_logged);
+            // capturo el nombre del usuario logueado y lo adjunto al texto del lbl_dios_desmolde
+            //Auxiliar.LoggUserName = this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<string>(1).ToString();
+            //Auxiliar.LoggUserName = Auxiliar.LoggUserName.Replace(" ", "");   // quito los espacios en blanco del final
+            //lbl_dios_desmolde.Text = "usuario activo [ " + Auxiliar.LoggUserName + " ]";
+            //lbl_fecha_portada.Text = dateTimePicker1.Text;
+            // capturo el valor caja del row del usuario logueado
+            //this.lbl_caja_valor.Text = this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<int>(3).ToString();
+            // capturo el nombre del usuario logueado y lo adjunto al texto del form
+            //this.Text = "  CAJA DE AHORRO - USUARIO ACTIVO = " + this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<string>(1).ToString();
+            // capturo el valor de caja del usuario activo
+            //this.lbl_caja_valor.Text = "$" + IfItHasAPointWithParam(this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<int>(3).ToString());
+            // capturo el valor de caja del usuario activo y lo guardo en Auxiliar
+            //Auxiliar.dineroEnCaja = this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<int>(3);
+
             try
             {
-                //this.cuentasTableAdapter.FillByAccountName(this.eXPENSE_MANAGERDataSet.cuentas, 1);
-                this.cbx_accounts.Items.Clear();
-                this.cbx_accounts.DataSource = this.cuentasTableAdapter.GetDataByAccountName(1);
-                this.cbx_accounts.ValueMember = "id";
-                this.cbx_accounts.DisplayMember = "nombre";
+                this.cuentasTableAdapter.FillByAccountName(this.c_AHORRO_NEW_DS1.cuentas, ((int)(System.Convert.ChangeType(Auxiliar.id_logged, typeof(int)))));
             }
-            catch (Exception) { }
-            // TODO: This line of code loads data into the 'eXPENSE_MANAGERDataSet.movimientos' table. You can move, or remove it, as needed.
-            // this.movimientosTableAdapter.Fill(this.eXPENSE_MANAGERDataSet.movimientos);
-        }
-
-        public void AdjustFieldsmovimientosDataGridView()
-        {
-            if (this.movimientosDataGridView.RowCount > 12)
+            catch (System.Exception ex)
             {
-                this.movimientosDataGridView.Columns[1].Width = 300;    // fecha
-                this.movimientosDataGridView.Columns[2].Width = 55;     // tipo
-                this.movimientosDataGridView.Columns[3].Width = 112;    // monto
-                this.movimientosDataGridView.Columns[4].Width = 112;    // saldo
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
-            else
+
+            try
             {
-                this.movimientosDataGridView.Columns[1].Width = 311;    // fecha
-                this.movimientosDataGridView.Columns[2].Width = 59;     // tipo
-                this.movimientosDataGridView.Columns[3].Width = 115;    // monto
-                this.movimientosDataGridView.Columns[4].Width = 115;    // saldo
+                this.moviTableAdapter.FillByLastFiveMovs(this.c_AHORRO_NEW_DS1.movimientos, Auxiliar.id_logged);
             }
+            catch (Exception)
+            { }
+
+            // cambio el color de "Saldo diponible" según el saldo disponible jeje
+            //if (Auxiliar.dineroEnCaja > 25000)
+            //    this.lbl_caja_valor.ForeColor = Color.Blue;
+            //else if (Auxiliar.dineroEnCaja > 5000)
+            //    this.lbl_caja_valor.ForeColor = Color.Green;
+            //else if (Auxiliar.dineroEnCaja > 1000)
+            //    this.lbl_caja_valor.ForeColor = Color.Gold;
+            //else if (Auxiliar.dineroEnCaja > 100)
+            //    this.lbl_caja_valor.ForeColor = Color.Orange;
+            //else
+            //    this.lbl_caja_valor.ForeColor = Color.Red;
+
+            increase = 0;
+            this.flp_note.Controls.Clear();
+            GetLastNotes();
         }
 
-        private string SearchByDate(string p)   // param values: s => single | r => range
+        public static String IfItHasAPointWithParam(String caja)
         {
-            object dateSwitcher = (p == "r") ? $"{dTP2.Value.Year}-{dTP2.Value.Month}-{dTP2.Value.Day}" : $"{dTP1.Value.Year}-{dTP1.Value.Month}-{dTP1.Value.Day}";
-            return $" AND fecha BETWEEN '{dTP1.Value.Year}-{dTP1.Value.Month}-{dTP1.Value.Day} 00:00:00:000' AND '{dateSwitcher} 23:59:59:999'";
+            double s = double.Parse(caja);
+            return String.Format("{0:N2}", s);
         }
 
-        private void btn_search_Click(object sender, EventArgs e)
+        private void btn_deposito_Click(object sender, EventArgs e)
         {
-            string queryText = "SELECT * FROM movimientos WHERE id_cuenta = '" + cbx_accounts.SelectedValue.ToString() + "'";
-
-            if (dTP1.Enabled && dTP2.Enabled)
-            {
-                queryText += SearchByDate("r");
-            }
-            else
-            {
-                if (dTP1.Enabled)
-                {
-                    queryText += SearchByDate("s");
-                }
-            }
-
-            if (cbx_tipo.SelectedItem != null) queryText += " AND tipo = '" + cbx_tipo.SelectedItem.ToString() + "'";
-
-            if (txt_monto.Text.Length > 0) queryText += " AND monto = " + txt_monto.Text;
-
-            if (txt_concepto.Text.Length > 0) queryText += " AND concepto LIKE '%" + txt_concepto.Text + "%'";
-
-            queryText += " ORDER BY fecha DESC";
-
-            SqlConnection MyConnection = new SqlConnection(ExpenseManager.Properties.Settings.Default.EXPENSE_MANAGERConnectionString);
-
-            SqlDataAdapter MyDataAdapter = new SqlDataAdapter(queryText, MyConnection);
-            SqlCommandBuilder MyCmd = new SqlCommandBuilder(MyDataAdapter);
-            DataSet MyDataSet = new DataSet();
-
-            MyDataAdapter.Fill(MyDataSet);
-
-            // MessageBox.Show(MyDataSet.Tables[0].Rows.Count.ToString()); // the query retrieves 361 rows 👍
-
-            this.movimientosDataGridView.DataSource = MyDataSet.Tables[0];
-
-            this.lbl_cant_records.Text = this.movimientosDataGridView.RowCount.ToString();
-
-            //MessageBox.Show(queryText);
-            this.QueryString = queryText;
-
-            AdjustFieldsmovimientosDataGridView();
-
-            DataTable dt = new DataTable();
-            dt = movimientosTableAdapter.GetDataByCorrectivo(Convert.ToInt32(cbx_accounts.SelectedValue), 1);
-            fields.Clear();
-            foreach (DataRow row in dt.Rows)
-            {
-                string id = row["id"].ToString();
-                fields.Add(id);
-            }
+            this.WinOpacity = this.opacity;
+            MostrarVentTrans(sender);
         }
 
-        private void check_date1_CheckedChanged(object sender, EventArgs e)
+        private void btn_extraccion_Click(object sender, EventArgs e)
         {
-            if (check_date1.Checked)
-            {
-                this.dTP1.Enabled = true;
-                this.lbl_date1.Enabled = true;
-                this.check_date2.Enabled = true;
-            }
-            else
-            {
-                if (check_date2.Checked)
-                {
-                    check_date2.Checked = false;
-                    this.dTP2.Enabled = false;
-                    this.lbl_date2.Enabled = false;
-                }
-                this.dTP1.Enabled = false;
-                this.lbl_date1.Enabled = false;
-                this.check_date2.Enabled = false;
-            }
+            this.WinOpacity = this.opacity;
+            MostrarVentTrans(sender);
         }
 
-        private void check_date2_CheckedChanged(object sender, EventArgs e)
+        public void MostrarVentTrans(object sender)
         {
-            if (check_date2.Checked)
-            {
-                this.dTP2.Enabled = true;
-                this.lbl_date2.Enabled = true;
-                this.dTP2.Value = this.dTP1.Value.AddMonths(1);
-            }
-            else
-            {
-                this.dTP2.Enabled = false;
-                this.lbl_date2.Enabled = false;
-            }
+            //Transaccion transaccion = new Transaccion();
+            //Button button = (Button)sender;
+            //if (button.Equals(btn_deposito))
+            //    transaccion.Text = Auxiliar.getAppName() + " Realizar un depósito";
+            //else
+            //    transaccion.Text = Auxiliar.getAppName() + " Realizar una extracción";
+            //transaccion.ShowDialog();
         }
 
-        private void btn_show_query_Click(object sender, EventArgs e)
+        private void btn_registro_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this.QueryString);
+            Log log = new Log();
+            log.LoggedUserName = Auxiliar.LoggUserName;
+            log.ShowDialog();
         }
 
-        private void movimientosDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            CheckConceptTextLength();
+            //e.Cancel = true;
+            //Auxiliar.main.Hide();
+            //Auxiliar.login.Show();
         }
 
-        private void movimientosDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Main_Activated(object sender, EventArgs e)
         {
-            CheckConceptTextLength();
+            this.Opacity = 1;
+            this.WinOpacity = 1;
+            ConnectToDB();
         }
 
-        private void movimientosDataGridView_Enter(object sender, EventArgs e)
+        private void flp_note_ControlAdded(object sender, ControlEventArgs e)
         {
-            CheckConceptTextLength();
+            Button btn = (Button)this.flp_note.Controls[increase];
+            btn.Click += Btn_note_click;
+            ++increase;
         }
 
-        private void movimientosDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        private void Btn_note_click(object sender, EventArgs e)
         {
-            int correctivo = 0;
+            Button button = (Button)sender;
+            Auxiliar.id_note = Convert.ToInt32(button.Name);
 
-            try { correctivo = this.movimientosTableAdapter.FillByCorrectivo(eXPENSE_MANAGERDataSet.movimientos, Convert.ToInt32(cbx_accounts.SelectedValue), 1); }
-            catch (Exception) { }
+            Point location = new Point(0, 0);
+            //int sysScreenWidth = Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth);
+            //int sysScreenHeight = Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenHeight);
+            //MessageBox.Show(sysScreenWidth.ToString()+","+sysScreenHeight.ToString());
 
-            if (correctivo > 0)
-            {
-                for (int i = 0; i < movimientosDataGridView.RowCount; i++)
-                {
-                    if (fields.Contains(movimientosDataGridView.Rows[i].Cells[0].Value.ToString()))
-                    {
-                        movimientosDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
-                    }
-                }
-            }
+            //if (sysScreenWidth < 1600)
+            //{
+            //    location = new Point(this.Location.X + this.Width - 343, this.Location.Y);
+            //}
+            //else
+            //{
+            //    if (this.Location.X >= sysScreenWidth / 3)
+            //        location = new Point(this.Location.X - 333, this.Location.Y);
+            //    else
+            //        location = new Point(this.Location.X + this.Width - 10, this.Location.Y);
+            //}
+
+            //DetNota detNota = new DetNota();
+            //detNota.WinLocation = location;
+            //detNota.Show(this);
         }
 
-        private void CheckConceptTextLength()
+        private void btn_crear_nota_Click(object sender, EventArgs e)
         {
-            if (this.movimientosDataGridView.CurrentRow != null)
-            {
-                if (movimientosDataGridView.CurrentRow.Cells[5].Value.ToString().Length > 0)
-                {
-                    this.lbl_concept_text.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-                    this.lbl_concept_text.Text = movimientosDataGridView.CurrentRow.Cells[5].Value.ToString();
-                }
-                else
-                {
-                    LblConceptGrayBg();
-                }
-            }
-            else
-            {
-                LblConceptGrayBg();
-            }
+            //this.WinOpacity = this.opacity;
+            //Notas notas = new Notas();
+            //notas.ShowDialog();
         }
 
-        private void movimientosDataGridView_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        private void btn_editar_nota_Click(object sender, EventArgs e)
         {
-            if (this.movimientosDataGridView.RowCount == 0)
-            {
-                LblConceptGrayBg();
-            }
+            //this.WinOpacity = this.opacity;
+            //Notas notas = new Notas();
+            //notas.EditarTab = true;
+            //notas.Show(this);
         }
 
-        private void LblConceptGrayBg()
+        private void Main_Deactivate(object sender, EventArgs e)
         {
-            this.lbl_concept_text.BackColor = Color.FromArgb(210, 210, 210);
-            this.lbl_concept_text.Text = "";
+            if (this.WinOpacity < 1)
+                this.Opacity = WinOpacity;
         }
 
+        private void btn_exit_sess_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btn_remove_note_Click(object sender, EventArgs e)
+        {
+            //this.WinOpacity = this.opacity;
+            //Notas notas = new Notas();
+            //notas.EliminTab = true;
+            //notas.Show(this);
+        }
+
+        private void btn_ver_notas_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
