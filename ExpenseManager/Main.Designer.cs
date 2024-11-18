@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.moviBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.c_AHORRO_NEW_DS1 = new ExpenseManager.EXPENSE_MANAGERDataSet();
@@ -40,19 +40,22 @@
             this.notasTableAdapter = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.notasTableAdapter();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tStrip_deposito = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_extraccion = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_transfer = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_ver_registro = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_new_nota = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_edit_nota = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_delete_nota = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_ver_notas = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tStrip_close_sesion = new System.Windows.Forms.ToolStripButton();
+            this.cbx_accounts = new System.Windows.Forms.ComboBox();
             this.cuentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cuentasTableAdapter = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lbl_saldo = new System.Windows.Forms.Label();
+            this.lbl_for_saldo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,11 +68,13 @@
             this.lbl_last_movs = new System.Windows.Forms.Label();
             this.lbl_last_notes = new System.Windows.Forms.Label();
             this.flp_note = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.moviBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_AHORRO_NEW_DS1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -110,18 +115,19 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(25, 25);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tStrip_deposito,
-            this.toolStripButton2,
-            this.toolStripButton3,
+            this.tStrip_extraccion,
+            this.tStrip_transfer,
+            this.tStrip_ver_registro,
             this.toolStripSeparator1,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton6,
-            this.toolStripButton7,
+            this.tStrip_new_nota,
+            this.tStrip_edit_nota,
+            this.tStrip_delete_nota,
+            this.tStrip_ver_notas,
             this.toolStripSeparator2,
-            this.toolStripButton8});
+            this.tStrip_close_sesion});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1312, 49);
+            this.toolStrip1.Size = new System.Drawing.Size(1312, 52);
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -130,94 +136,104 @@
             this.tStrip_deposito.Image = global::ExpenseManager.Properties.Resources._1889199_coins_hand_loan_loan_money_money_icon__1_;
             this.tStrip_deposito.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tStrip_deposito.Name = "tStrip_deposito";
-            this.tStrip_deposito.Size = new System.Drawing.Size(74, 46);
+            this.tStrip_deposito.Size = new System.Drawing.Size(74, 49);
             this.tStrip_deposito.Text = "Depósito";
             this.tStrip_deposito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton2
+            // tStrip_extraccion
             // 
-            this.toolStripButton2.Image = global::ExpenseManager.Properties.Resources._1889200_bag_coins_finance_saving_bank_icon__1_;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(81, 46);
-            this.toolStripButton2.Text = "Extracción";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_extraccion.Image = global::ExpenseManager.Properties.Resources._1889200_bag_coins_finance_saving_bank_icon__1_;
+            this.tStrip_extraccion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_extraccion.Name = "tStrip_extraccion";
+            this.tStrip_extraccion.Size = new System.Drawing.Size(81, 49);
+            this.tStrip_extraccion.Text = "Extracción";
+            this.tStrip_extraccion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton3
+            // tStrip_transfer
             // 
-            this.toolStripButton3.Image = global::ExpenseManager.Properties.Resources.Fatcow_Farm_Fresh_Outlook_change_view_32;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(100, 46);
-            this.toolStripButton3.Text = "Transferencia";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_transfer.Image = global::ExpenseManager.Properties.Resources.Fatcow_Farm_Fresh_Outlook_change_view_32;
+            this.tStrip_transfer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_transfer.Name = "tStrip_transfer";
+            this.tStrip_transfer.Size = new System.Drawing.Size(100, 49);
+            this.tStrip_transfer.Text = "Transferencia";
+            this.tStrip_transfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // tStrip_ver_registro
+            // 
+            this.tStrip_ver_registro.Image = global::ExpenseManager.Properties.Resources.Database_Active_icon;
+            this.tStrip_ver_registro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_ver_registro.Name = "tStrip_ver_registro";
+            this.tStrip_ver_registro.Size = new System.Drawing.Size(68, 49);
+            this.tStrip_ver_registro.Text = "Registro";
+            this.tStrip_ver_registro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 52);
             // 
-            // toolStripButton4
+            // tStrip_new_nota
             // 
-            this.toolStripButton4.Image = global::ExpenseManager.Properties.Resources._17368_add_file_icon;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(82, 46);
-            this.toolStripButton4.Text = "Crear nota";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_new_nota.Image = global::ExpenseManager.Properties.Resources._17368_add_file_icon;
+            this.tStrip_new_nota.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_new_nota.Name = "tStrip_new_nota";
+            this.tStrip_new_nota.Size = new System.Drawing.Size(82, 49);
+            this.tStrip_new_nota.Text = "Crear nota";
+            this.tStrip_new_nota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton5
+            // tStrip_edit_nota
             // 
-            this.toolStripButton5.Image = global::ExpenseManager.Properties.Resources._17369_edit_file_icon;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(86, 46);
-            this.toolStripButton5.Text = "Editar nota";
-            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_edit_nota.Image = global::ExpenseManager.Properties.Resources._17369_edit_file_icon;
+            this.tStrip_edit_nota.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_edit_nota.Name = "tStrip_edit_nota";
+            this.tStrip_edit_nota.Size = new System.Drawing.Size(86, 49);
+            this.tStrip_edit_nota.Text = "Editar nota";
+            this.tStrip_edit_nota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton6
+            // tStrip_delete_nota
             // 
-            this.toolStripButton6.Image = global::ExpenseManager.Properties.Resources._17371_file_remove_icon__1_;
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(88, 46);
-            this.toolStripButton6.Text = "Borrar nota";
-            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_delete_nota.Image = global::ExpenseManager.Properties.Resources._17371_file_remove_icon__1_;
+            this.tStrip_delete_nota.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_delete_nota.Name = "tStrip_delete_nota";
+            this.tStrip_delete_nota.Size = new System.Drawing.Size(88, 49);
+            this.tStrip_delete_nota.Text = "Borrar nota";
+            this.tStrip_delete_nota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // toolStripButton7
+            // tStrip_ver_notas
             // 
-            this.toolStripButton7.Image = global::ExpenseManager.Properties.Resources._17367_file_icon__1_;
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(74, 46);
-            this.toolStripButton7.Text = "Ver notas";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_ver_notas.Image = global::ExpenseManager.Properties.Resources._17367_file_icon__1_;
+            this.tStrip_ver_notas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_ver_notas.Name = "tStrip_ver_notas";
+            this.tStrip_ver_notas.Size = new System.Drawing.Size(74, 49);
+            this.tStrip_ver_notas.Text = "Ver notas";
+            this.tStrip_ver_notas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 52);
             // 
-            // toolStripButton8
+            // tStrip_close_sesion
             // 
-            this.toolStripButton8.Image = global::ExpenseManager.Properties.Resources.Lock_PadLock_icon;
-            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton8.Name = "toolStripButton8";
-            this.toolStripButton8.Size = new System.Drawing.Size(98, 46);
-            this.toolStripButton8.Text = "Cerrar sesión";
-            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_close_sesion.Image = global::ExpenseManager.Properties.Resources.Lock_PadLock_icon;
+            this.tStrip_close_sesion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_close_sesion.Name = "tStrip_close_sesion";
+            this.tStrip_close_sesion.Size = new System.Drawing.Size(98, 49);
+            this.tStrip_close_sesion.Text = "Cerrar sesión";
+            this.tStrip_close_sesion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // comboBox1
+            // cbx_accounts
             // 
-            this.comboBox1.DataSource = this.cuentasBindingSource;
-            this.comboBox1.DisplayMember = "nombre";
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(19, 83);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(196, 26);
-            this.comboBox1.TabIndex = 26;
-            this.comboBox1.ValueMember = "id";
+            this.cbx_accounts.DataSource = this.cuentasBindingSource;
+            this.cbx_accounts.DisplayMember = "nombre";
+            this.cbx_accounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_accounts.FormattingEnabled = true;
+            this.cbx_accounts.Location = new System.Drawing.Point(19, 102);
+            this.cbx_accounts.Name = "cbx_accounts";
+            this.cbx_accounts.Size = new System.Drawing.Size(196, 26);
+            this.cbx_accounts.TabIndex = 26;
+            this.cbx_accounts.ValueMember = "id";
+            this.cbx_accounts.SelectedIndexChanged += new System.EventHandler(this.cbx_accounts_SelectedIndexChanged);
             // 
             // cuentasBindingSource
             // 
@@ -236,6 +252,8 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainer1.Panel1.Controls.Add(this.lbl_saldo);
+            this.splitContainer1.Panel1.Controls.Add(this.lbl_for_saldo);
             // 
             // splitContainer1.Panel2
             // 
@@ -248,19 +266,38 @@
             this.splitContainer1.SplitterDistance = 836;
             this.splitContainer1.TabIndex = 27;
             // 
+            // lbl_saldo
+            // 
+            this.lbl_saldo.Font = new System.Drawing.Font("Caladea", 44F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_saldo.Location = new System.Drawing.Point(63, 63);
+            this.lbl_saldo.Name = "lbl_saldo";
+            this.lbl_saldo.Size = new System.Drawing.Size(725, 72);
+            this.lbl_saldo.TabIndex = 1;
+            this.lbl_saldo.Text = "$ 50.000";
+            // 
+            // lbl_for_saldo
+            // 
+            this.lbl_for_saldo.AutoSize = true;
+            this.lbl_for_saldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_for_saldo.Location = new System.Drawing.Point(19, 37);
+            this.lbl_for_saldo.Name = "lbl_for_saldo";
+            this.lbl_for_saldo.Size = new System.Drawing.Size(112, 15);
+            this.lbl_for_saldo.TabIndex = 0;
+            this.lbl_for_saldo.Text = "Saldo de la cuenta:";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.ColumnHeadersHeight = 25;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -273,26 +310,26 @@
             this.idusuarioDataGridViewTextBoxColumn,
             this.idcuentaDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.moviBindingSource;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(24, 63);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 45;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -381,7 +418,7 @@
             this.lbl_last_movs.AutoSize = true;
             this.lbl_last_movs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbl_last_movs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_last_movs.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbl_last_movs.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lbl_last_movs.Location = new System.Drawing.Point(20, 37);
             this.lbl_last_movs.Name = "lbl_last_movs";
             this.lbl_last_movs.Size = new System.Drawing.Size(165, 20);
@@ -393,8 +430,8 @@
             this.lbl_last_notes.AutoSize = true;
             this.lbl_last_notes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbl_last_notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_last_notes.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_last_notes.Location = new System.Drawing.Point(20, 237);
+            this.lbl_last_notes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_last_notes.Location = new System.Drawing.Point(20, 251);
             this.lbl_last_notes.Name = "lbl_last_notes";
             this.lbl_last_notes.Size = new System.Drawing.Size(115, 20);
             this.lbl_last_notes.TabIndex = 28;
@@ -408,14 +445,25 @@
             this.flp_note.Size = new System.Drawing.Size(389, 232);
             this.flp_note.TabIndex = 27;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 20);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Tus cuentas:";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1312, 733);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbx_accounts);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dateTimePicker1);
             this.Name = "Main";
@@ -430,6 +478,8 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).EndInit();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -449,16 +499,16 @@
         private EXPENSE_MANAGERDataSetTableAdapters.notasTableAdapter notasTableAdapter;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tStrip_deposito;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton tStrip_extraccion;
+        private System.Windows.Forms.ToolStripButton tStrip_transfer;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripButton toolStripButton6;
-        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton tStrip_new_nota;
+        private System.Windows.Forms.ToolStripButton tStrip_edit_nota;
+        private System.Windows.Forms.ToolStripButton tStrip_delete_nota;
+        private System.Windows.Forms.ToolStripButton tStrip_ver_notas;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton toolStripButton8;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ToolStripButton tStrip_close_sesion;
+        private System.Windows.Forms.ComboBox cbx_accounts;
         private System.Windows.Forms.BindingSource cuentasBindingSource;
         private EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter cuentasTableAdapter;
         private System.Windows.Forms.SplitContainer splitContainer1;
@@ -474,5 +524,9 @@
         private System.Windows.Forms.Label lbl_last_movs;
         private System.Windows.Forms.Label lbl_last_notes;
         private System.Windows.Forms.FlowLayoutPanel flp_note;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripButton tStrip_ver_registro;
+        private System.Windows.Forms.Label lbl_saldo;
+        private System.Windows.Forms.Label lbl_for_saldo;
     }
 }

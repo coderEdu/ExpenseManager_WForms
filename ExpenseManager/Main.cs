@@ -14,6 +14,7 @@ namespace ExpenseManager
     public partial class Main : Form
     {
         static int increase;
+        private int accountCount; 
         public double opacity = 0.3;
         public double WinOpacity { get; set; }
 
@@ -26,16 +27,15 @@ namespace ExpenseManager
         {
             // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.cuentas' table. You can move, or remove it, as needed.
             this.cuentasTableAdapter.Fill(this.c_AHORRO_NEW_DS1.cuentas);
-            //MessageBox.Show("Hi");
             // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.movi' table. You can move, or remove it, as needed.
             try { this.moviTableAdapter.Fill(this.c_AHORRO_NEW_DS1.movimientos); }
             catch (Exception) { }
 
             this.Text = Auxiliar.getAppName() + " Sesión Activa";
             //this.creadoTableAdapter1.FillByFecCrea(c_AHORRO_NEW_DS1.creado, Auxiliar.id_logged);  * Must fill will the user creation date 
-            DateTime dateTime = new DateTime();
+            //DateTime dateTime = new DateTime();
 
-
+            this.lbl_saldo.Text = "";
             ConnectToDB();
 
             // ********************* some test lines ***************
@@ -80,16 +80,25 @@ namespace ExpenseManager
             }
         }
 
+        private void ConsultingSelectedAccountProps()
+        {
+            int selectedIdx = this.cbx_accounts.SelectedIndex;
+            try
+            {
+                this.lbl_saldo.Text = "$ " + this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2).ToString();
+            }
+            catch (Exception) { }
+        }
+
         private void ConnectToDB()      // modificar todo este método
         {
             // 11/11/2024
-            Auxiliar.id_logged = 1;
-            // código nuevo 24/6/2021 - desde el nuevo dataset
-            //this.loginTableAdapter1.FillByIdLogged(this.c_AHORRO_NEW_DS1.usuarios, Auxiliar.id_logged);
-            // capturo el nombre del usuario logueado y lo adjunto al texto del lbl_dios_desmolde
-            //Auxiliar.LoggUserName = this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<string>(1).ToString();
+            //Auxiliar.id_logged = 1;
+            this.loginTableAdapter1.FillByIdLogged(this.c_AHORRO_NEW_DS1.usuarios, Auxiliar.id_logged);
+            // capturo el nombre del usuario logueado y lo adjunto al texto del form
+            Auxiliar.LoggUserName = this.c_AHORRO_NEW_DS1.Tables["usuarios"].Rows[0].Field<string>(1).ToString();
             //Auxiliar.LoggUserName = Auxiliar.LoggUserName.Replace(" ", "");   // quito los espacios en blanco del final
-            //lbl_dios_desmolde.Text = "usuario activo [ " + Auxiliar.LoggUserName + " ]";
+            this.Text += " - [ " + Auxiliar.LoggUserName.ToUpper() + " ]";
             //lbl_fecha_portada.Text = dateTimePicker1.Text;
             // capturo el valor caja del row del usuario logueado
             //this.lbl_caja_valor.Text = this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<int>(3).ToString();
@@ -102,7 +111,12 @@ namespace ExpenseManager
 
             try
             {
-                this.cuentasTableAdapter.FillByAccountName(this.c_AHORRO_NEW_DS1.cuentas, ((int)(System.Convert.ChangeType(Auxiliar.id_logged, typeof(int)))));
+                this.accountCount = this.cuentasTableAdapter.FillByAccountName(this.c_AHORRO_NEW_DS1.cuentas, ((int)(System.Convert.ChangeType(Auxiliar.id_logged, typeof(int)))));
+                if (accountCount > 0)
+                {
+                    ConsultingSelectedAccountProps();
+                }
+                
             }
             catch (System.Exception ex)
             {
@@ -171,9 +185,9 @@ namespace ExpenseManager
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //e.Cancel = true;
-            //Auxiliar.main.Hide();
-            //Auxiliar.login.Show();
+            e.Cancel = true;
+            Auxiliar.main.Hide();
+            Auxiliar.login.Show();
         }
 
         private void Main_Activated(object sender, EventArgs e)
@@ -254,6 +268,11 @@ namespace ExpenseManager
         private void btn_ver_notas_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cbx_accounts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ConsultingSelectedAccountProps();
         }
     }
 }
