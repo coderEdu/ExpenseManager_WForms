@@ -189,6 +189,15 @@ ORDER BY fecha DESC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="EXPENSE_MANAGERConnectionString (Settings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxIdScalarQuery" Modifier="Public" Name="MaxIdScalarQuery" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="MaxIdScalarQuery">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT    MAX(id) AS MaxId
+FROM       movimientos</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
             </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="notasTableAdapter" GeneratorDataComponentClassName="notasTableAdapter" Name="notas" UserDataComponentName="notasTableAdapter">
@@ -534,11 +543,11 @@ SELECT id, usuario, clave, fec_crea FROM usuarios WHERE (id = @id)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_cuentas_usuarios" msdata:parent="usuarios" msdata:child="cuentas" msdata:parentkey="id" msdata:childkey="id_user" msprop:Generator_UserParentTable="usuarios" msprop:Generator_UserChildTable="cuentas" msprop:Generator_RelationVarName="relationFK_cuentas_usuarios" msprop:Generator_ChildPropName="GetcuentasRows" msprop:Generator_ParentPropName="usuariosRow" msprop:Generator_UserRelationName="FK_cuentas_usuarios" />
-      <msdata:Relationship name="FK_movimientos_cuentas" msdata:parent="cuentas" msdata:child="movimientos" msdata:parentkey="id" msdata:childkey="id_cuenta" msprop:Generator_UserParentTable="cuentas" msprop:Generator_UserChildTable="movimientos" msprop:Generator_RelationVarName="relationFK_movimientos_cuentas" msprop:Generator_ChildPropName="GetmovimientosRows" msprop:Generator_UserRelationName="FK_movimientos_cuentas" msprop:Generator_ParentPropName="cuentasRow" />
-      <msdata:Relationship name="FK_movimientos_usuarios" msdata:parent="usuarios" msdata:child="movimientos" msdata:parentkey="id" msdata:childkey="id_usuario" msprop:Generator_UserParentTable="usuarios" msprop:Generator_UserChildTable="movimientos" msprop:Generator_RelationVarName="relationFK_movimientos_usuarios" msprop:Generator_ChildPropName="GetmovimientosRows" msprop:Generator_ParentPropName="usuariosRow" msprop:Generator_UserRelationName="FK_movimientos_usuarios" />
-      <msdata:Relationship name="FK_notas_cuentas" msdata:parent="cuentas" msdata:child="notas" msdata:parentkey="id" msdata:childkey="id_cuenta" msprop:Generator_UserParentTable="cuentas" msprop:Generator_UserChildTable="notas" msprop:Generator_RelationVarName="relationFK_notas_cuentas" msprop:Generator_ChildPropName="GetnotasRows" msprop:Generator_UserRelationName="FK_notas_cuentas" msprop:Generator_ParentPropName="cuentasRow" />
-      <msdata:Relationship name="FK_notas_usuarios" msdata:parent="usuarios" msdata:child="notas" msdata:parentkey="id" msdata:childkey="id_user" msprop:Generator_UserParentTable="usuarios" msprop:Generator_UserChildTable="notas" msprop:Generator_RelationVarName="relationFK_notas_usuarios" msprop:Generator_ChildPropName="GetnotasRows" msprop:Generator_ParentPropName="usuariosRow" msprop:Generator_UserRelationName="FK_notas_usuarios" />
+      <msdata:Relationship name="FK_cuentas_usuarios" msdata:parent="usuarios" msdata:child="cuentas" msdata:parentkey="id" msdata:childkey="id_user" msprop:Generator_UserParentTable="usuarios" msprop:Generator_UserChildTable="cuentas" msprop:Generator_RelationVarName="relationFK_cuentas_usuarios" msprop:Generator_ChildPropName="GetcuentasRows" msprop:Generator_UserRelationName="FK_cuentas_usuarios" msprop:Generator_ParentPropName="usuariosRow" />
+      <msdata:Relationship name="FK_movimientos_cuentas" msdata:parent="cuentas" msdata:child="movimientos" msdata:parentkey="id" msdata:childkey="id_cuenta" msprop:Generator_UserParentTable="cuentas" msprop:Generator_UserChildTable="movimientos" msprop:Generator_RelationVarName="relationFK_movimientos_cuentas" msprop:Generator_ChildPropName="GetmovimientosRows" msprop:Generator_ParentPropName="cuentasRow" msprop:Generator_UserRelationName="FK_movimientos_cuentas" />
+      <msdata:Relationship name="FK_movimientos_usuarios" msdata:parent="usuarios" msdata:child="movimientos" msdata:parentkey="id" msdata:childkey="id_usuario" msprop:Generator_UserParentTable="usuarios" msprop:Generator_UserChildTable="movimientos" msprop:Generator_RelationVarName="relationFK_movimientos_usuarios" msprop:Generator_ChildPropName="GetmovimientosRows" msprop:Generator_UserRelationName="FK_movimientos_usuarios" msprop:Generator_ParentPropName="usuariosRow" />
+      <msdata:Relationship name="FK_notas_cuentas" msdata:parent="cuentas" msdata:child="notas" msdata:parentkey="id" msdata:childkey="id_cuenta" msprop:Generator_UserParentTable="cuentas" msprop:Generator_UserChildTable="notas" msprop:Generator_RelationVarName="relationFK_notas_cuentas" msprop:Generator_ChildPropName="GetnotasRows" msprop:Generator_ParentPropName="cuentasRow" msprop:Generator_UserRelationName="FK_notas_cuentas" />
+      <msdata:Relationship name="FK_notas_usuarios" msdata:parent="usuarios" msdata:child="notas" msdata:parentkey="id" msdata:childkey="id_user" msprop:Generator_UserParentTable="usuarios" msprop:Generator_UserChildTable="notas" msprop:Generator_RelationVarName="relationFK_notas_usuarios" msprop:Generator_ChildPropName="GetnotasRows" msprop:Generator_UserRelationName="FK_notas_usuarios" msprop:Generator_ParentPropName="usuariosRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

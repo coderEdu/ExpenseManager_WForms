@@ -15,7 +15,7 @@ namespace ExpenseManager
     {
         static int increase;
         private int accountCount; 
-        public double opacity = 0.3;
+        public double opacity = 0.9;
         public double WinOpacity { get; set; }
 
         public Main()
@@ -30,8 +30,12 @@ namespace ExpenseManager
             // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.movi' table. You can move, or remove it, as needed.
             try { this.moviTableAdapter.Fill(this.c_AHORRO_NEW_DS1.movimientos); }
             catch (Exception) { }
-
-            this.Text = Auxiliar.getAppName() + " Sesión Activa";
+            this.Text = Auxiliar.getAppName() + " Usuario logueado => ";
+            this.loginTableAdapter1.FillByIdLogged(this.c_AHORRO_NEW_DS1.usuarios, Auxiliar.id_logged);
+            // capturo el nombre del usuario logueado y lo adjunto al texto del form
+            Auxiliar.LoggUserName = this.c_AHORRO_NEW_DS1.Tables["usuarios"].Rows[0].Field<string>(1).ToString();
+            //Auxiliar.LoggUserName = Auxiliar.LoggUserName.Replace(" ", "");   // quito los espacios en blanco del final
+            this.Text = this.Text + " [ " + Auxiliar.LoggUserName.ToUpper() + " ]";
             //this.creadoTableAdapter1.FillByFecCrea(c_AHORRO_NEW_DS1.creado, Auxiliar.id_logged);  * Must fill will the user creation date 
             //DateTime dateTime = new DateTime();
 
@@ -94,11 +98,6 @@ namespace ExpenseManager
         {
             // 11/11/2024
             //Auxiliar.id_logged = 1;
-            this.loginTableAdapter1.FillByIdLogged(this.c_AHORRO_NEW_DS1.usuarios, Auxiliar.id_logged);
-            // capturo el nombre del usuario logueado y lo adjunto al texto del form
-            Auxiliar.LoggUserName = this.c_AHORRO_NEW_DS1.Tables["usuarios"].Rows[0].Field<string>(1).ToString();
-            //Auxiliar.LoggUserName = Auxiliar.LoggUserName.Replace(" ", "");   // quito los espacios en blanco del final
-            this.Text += " - [ " + Auxiliar.LoggUserName.ToUpper() + " ]";
             //lbl_fecha_portada.Text = dateTimePicker1.Text;
             // capturo el valor caja del row del usuario logueado
             //this.lbl_caja_valor.Text = this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<int>(3).ToString();
@@ -153,12 +152,6 @@ namespace ExpenseManager
             return String.Format("{0:N2}", s);
         }
 
-        private void btn_deposito_Click(object sender, EventArgs e)
-        {
-            this.WinOpacity = this.opacity;
-            MostrarVentTrans(sender);
-        }
-
         private void btn_extraccion_Click(object sender, EventArgs e)
         {
             this.WinOpacity = this.opacity;
@@ -167,13 +160,13 @@ namespace ExpenseManager
 
         public void MostrarVentTrans(object sender)
         {
-            //Transaccion transaccion = new Transaccion();
-            //Button button = (Button)sender;
-            //if (button.Equals(btn_deposito))
-            //    transaccion.Text = Auxiliar.getAppName() + " Realizar un depósito";
-            //else
-            //    transaccion.Text = Auxiliar.getAppName() + " Realizar una extracción";
-            //transaccion.ShowDialog();
+            Transaccion transaccion = new Transaccion();
+            ToolStripButton ts_btn = (ToolStripButton)sender;
+            if (ts_btn.Equals(tStrip_deposito))
+                transaccion.Text = Auxiliar.getAppName() + " Realizar un depósito";
+            else if (ts_btn.Equals(tStrip_extraccion))
+                transaccion.Text = Auxiliar.getAppName() + " Realizar una extracción";
+            transaccion.ShowDialog();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -273,6 +266,18 @@ namespace ExpenseManager
             Log log = new Log();
             log.LoggedUserName = Auxiliar.LoggUserName;
             log.ShowDialog();
+        }
+
+        private void tStrip_deposito_Click(object sender, EventArgs e)
+        {
+            this.WinOpacity = this.opacity;
+            MostrarVentTrans(sender);
+        }
+
+        private void tStrip_extraccion_Click(object sender, EventArgs e)
+        {
+            this.WinOpacity = this.opacity;
+            MostrarVentTrans(sender);
         }
     }
 }

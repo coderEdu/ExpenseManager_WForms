@@ -139,6 +139,7 @@
             this.tStrip_deposito.Size = new System.Drawing.Size(74, 49);
             this.tStrip_deposito.Text = "Depósito";
             this.tStrip_deposito.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_deposito.Click += new System.EventHandler(this.tStrip_deposito_Click);
             // 
             // tStrip_extraccion
             // 
@@ -148,6 +149,7 @@
             this.tStrip_extraccion.Size = new System.Drawing.Size(81, 49);
             this.tStrip_extraccion.Text = "Extracción";
             this.tStrip_extraccion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_extraccion.Click += new System.EventHandler(this.tStrip_extraccion_Click);
             // 
             // tStrip_transfer
             // 
