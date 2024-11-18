@@ -50,7 +50,7 @@ namespace ExpenseManager
             {
                 //this.cuentasTableAdapter.FillByAccountName(this.eXPENSE_MANAGERDataSet.cuentas, 1);
                 this.cbx_accounts.Items.Clear();
-                this.cbx_accounts.DataSource = this.cuentasTableAdapter.GetDataByAccountName(1);
+                this.cbx_accounts.DataSource = this.cuentasTableAdapter.GetDataByAccountName(Auxiliar.id_logged);
                 this.cbx_accounts.ValueMember = "id";
                 this.cbx_accounts.DisplayMember = "nombre";
             }

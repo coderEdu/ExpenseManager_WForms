@@ -176,13 +176,6 @@ namespace ExpenseManager
             //transaccion.ShowDialog();
         }
 
-        private void btn_registro_Click(object sender, EventArgs e)
-        {
-            Log log = new Log();
-            log.LoggedUserName = Auxiliar.LoggUserName;
-            log.ShowDialog();
-        }
-
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
@@ -252,11 +245,6 @@ namespace ExpenseManager
                 this.Opacity = WinOpacity;
         }
 
-        private void btn_exit_sess_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void btn_remove_note_Click(object sender, EventArgs e)
         {
             //this.WinOpacity = this.opacity;
@@ -273,6 +261,18 @@ namespace ExpenseManager
         private void cbx_accounts_SelectedIndexChanged(object sender, EventArgs e)
         {
             ConsultingSelectedAccountProps();
+        }
+
+        private void tStrip_close_sesion_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void tStrip_ver_registro_Click(object sender, EventArgs e)
+        {
+            Log log = new Log();
+            log.LoggedUserName = Auxiliar.LoggUserName;
+            log.ShowDialog();
         }
     }
 }
