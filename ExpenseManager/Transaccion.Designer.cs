@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btn_trans = new System.Windows.Forms.Button();
             this.lbl_trans = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
@@ -37,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.loginTableAdapter1 = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.usuariosTableAdapter();
             this.pnl_container = new System.Windows.Forms.Panel();
+            this.btn_correctivo = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btn0 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
@@ -49,9 +51,13 @@
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
             this.txt_trans_monto = new System.Windows.Forms.Label();
-            this.btn_correctivo = new System.Windows.Forms.Button();
+            this.lbl_account = new System.Windows.Forms.Label();
+            this.cbx_accounts = new System.Windows.Forms.ComboBox();
+            this.cuentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cuentasTableAdapter = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.c_AHORRO_NEW_DS1)).BeginInit();
             this.pnl_container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_trans
@@ -62,7 +68,7 @@
             this.btn_trans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_trans.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_trans.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_trans.Location = new System.Drawing.Point(266, 220);
+            this.btn_trans.Location = new System.Drawing.Point(266, 263);
             this.btn_trans.Name = "btn_trans";
             this.btn_trans.Size = new System.Drawing.Size(86, 29);
             this.btn_trans.TabIndex = 2;
@@ -83,7 +89,7 @@
             // 
             // dtp
             // 
-            this.dtp.Location = new System.Drawing.Point(10, 223);
+            this.dtp.Location = new System.Drawing.Point(10, 266);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(200, 20);
             this.dtp.TabIndex = 3;
@@ -141,10 +147,23 @@
             this.pnl_container.Controls.Add(this.txt_trans_monto);
             this.pnl_container.Controls.Add(this.label1);
             this.pnl_container.Controls.Add(this.lbl_trans);
-            this.pnl_container.Location = new System.Drawing.Point(10, 9);
+            this.pnl_container.Location = new System.Drawing.Point(10, 58);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(342, 199);
             this.pnl_container.TabIndex = 0;
+            // 
+            // btn_correctivo
+            // 
+            this.btn_correctivo.BackColor = System.Drawing.Color.Crimson;
+            this.btn_correctivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_correctivo.ForeColor = System.Drawing.Color.White;
+            this.btn_correctivo.Location = new System.Drawing.Point(174, 76);
+            this.btn_correctivo.Name = "btn_correctivo";
+            this.btn_correctivo.Size = new System.Drawing.Size(25, 25);
+            this.btn_correctivo.TabIndex = 20;
+            this.btn_correctivo.Text = "C";
+            this.btn_correctivo.UseVisualStyleBackColor = false;
+            this.btn_correctivo.Click += new System.EventHandler(this.btn_correctivo_Click);
             // 
             // btnDel
             // 
@@ -277,25 +296,44 @@
             this.txt_trans_monto.TabIndex = 7;
             this.txt_trans_monto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_correctivo
+            // lbl_account
             // 
-            this.btn_correctivo.BackColor = System.Drawing.Color.Crimson;
-            this.btn_correctivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_correctivo.ForeColor = System.Drawing.Color.White;
-            this.btn_correctivo.Location = new System.Drawing.Point(174, 76);
-            this.btn_correctivo.Name = "btn_correctivo";
-            this.btn_correctivo.Size = new System.Drawing.Size(25, 25);
-            this.btn_correctivo.TabIndex = 20;
-            this.btn_correctivo.Text = "C";
-            this.btn_correctivo.UseVisualStyleBackColor = false;
-            this.btn_correctivo.Click += new System.EventHandler(this.btn_correctivo_Click);
+            this.lbl_account.AutoSize = true;
+            this.lbl_account.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_account.Location = new System.Drawing.Point(67, 20);
+            this.lbl_account.Name = "lbl_account";
+            this.lbl_account.Size = new System.Drawing.Size(0, 18);
+            this.lbl_account.TabIndex = 30;
+            // 
+            // cbx_accounts
+            // 
+            this.cbx_accounts.DataSource = this.cuentasBindingSource;
+            this.cbx_accounts.DisplayMember = "nombre";
+            this.cbx_accounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_accounts.FormattingEnabled = true;
+            this.cbx_accounts.Location = new System.Drawing.Point(156, 16);
+            this.cbx_accounts.Name = "cbx_accounts";
+            this.cbx_accounts.Size = new System.Drawing.Size(196, 26);
+            this.cbx_accounts.TabIndex = 29;
+            this.cbx_accounts.ValueMember = "id";
+            // 
+            // cuentasBindingSource
+            // 
+            this.cuentasBindingSource.DataMember = "cuentas";
+            this.cuentasBindingSource.DataSource = this.c_AHORRO_NEW_DS1;
+            // 
+            // cuentasTableAdapter
+            // 
+            this.cuentasTableAdapter.ClearBeforeFill = true;
             // 
             // Transaccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(363, 262);
+            this.ClientSize = new System.Drawing.Size(363, 302);
+            this.Controls.Add(this.lbl_account);
+            this.Controls.Add(this.cbx_accounts);
             this.Controls.Add(this.dtp);
             this.Controls.Add(this.btn_trans);
             this.Controls.Add(this.pnl_container);
@@ -309,7 +347,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.c_AHORRO_NEW_DS1)).EndInit();
             this.pnl_container.ResumeLayout(false);
             this.pnl_container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -337,5 +377,9 @@
         private System.Windows.Forms.Button btn9;
         private System.Windows.Forms.Button btn8;
         private System.Windows.Forms.Button btn_correctivo;
+        private System.Windows.Forms.Label lbl_account;
+        private System.Windows.Forms.ComboBox cbx_accounts;
+        private System.Windows.Forms.BindingSource cuentasBindingSource;
+        private EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter cuentasTableAdapter;
     }
 }

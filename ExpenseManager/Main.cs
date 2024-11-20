@@ -15,6 +15,7 @@ namespace ExpenseManager
     {
         static int increase;
         private int accountCount; 
+        private int accountBalance;
         public double opacity = 0.9;
         public double WinOpacity { get; set; }
 
@@ -263,6 +264,7 @@ namespace ExpenseManager
 
         private void tStrip_ver_registro_Click(object sender, EventArgs e)
         {
+            this.WinOpacity = this.opacity;
             Log log = new Log();
             log.LoggedUserName = Auxiliar.LoggUserName;
             log.ShowDialog();

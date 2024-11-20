@@ -20,12 +20,23 @@ namespace ExpenseManager
 
         private void Transaccion_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.cuentas' table. You can move, or remove it, as needed.
+            this.cuentasTableAdapter.Fill(this.c_AHORRO_NEW_DS1.cuentas);
             c_AHORRO_NEW_DS1.Clear();
             try
             {
                 this.moviTableAdapter2.Fill(this.c_AHORRO_NEW_DS1.movimientos);  // cargo el dataset con info
             }
             catch (Exception) { }
+
+            try
+            {
+                this.cuentasTableAdapter.FillByAccountName(this.c_AHORRO_NEW_DS1.cuentas, ((int)(System.Convert.ChangeType(Auxiliar.id_logged, typeof(int)))));
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
 
             this.dtp.Visible = false;
 
@@ -71,12 +82,22 @@ namespace ExpenseManager
 
             if (this.Text.EndsWith("ito"))
             {
-                dineroEnCaja += montoFromTextbox;
-                MessageBox.Show("Depósito realizado con éxito!.", "Caja de ahorro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //this.lbl_account.Text = "a la cuenta:";
+                //dineroEnCaja += montoFromTextbox;
                 try
                 {
                     // nuevo registro de transacción de depósito
-                    //this.moviTableAdapter2.InsertQuery(id, dateTime, "deposito", montoFromTextbox, Auxiliar.id_logged);
+                    int selectedIdx = this.cbx_accounts.SelectedIndex;
+                    int accountIdx = (int)this.cbx_accounts.SelectedValue;  // id of the account
+                    decimal saldo = this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2);
+                    //MessageBox.Show(saldo.ToString());
+                    int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "dep", Convert.ToDecimal(montoFromTextbox), saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
+                    if (insert_result > 0)
+                    {
+                        MessageBox.Show("Depósito realizado con éxito!.", "Caja de ahorro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        saldo += Convert.ToDecimal(montoFromTextbox);
+                        this.cuentasTableAdapter.UpdateQuery(saldo, accountIdx, Auxiliar.id_logged);
+                    }
                     //FileManager.WriteFile("Updated.txt", "1");
                 }
                 catch (SqlException ex)
