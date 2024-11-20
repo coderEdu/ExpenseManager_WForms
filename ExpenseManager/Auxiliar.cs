@@ -14,7 +14,6 @@ namespace ExpenseManager
     }
     class Auxiliar
     {
-        public static int dineroEnCaja;
         public static int id_logged;
         public static int id_note;
         public static int id_note_to_delete;
@@ -26,11 +25,6 @@ namespace ExpenseManager
         public static Dictionary<int, string> dic = new Dictionary<int, string>();
         internal static int messageId;
         public static bool DataBaseUpdated { get; set; }
-
-        public static int getDineroEnCaja()
-        {
-            return dineroEnCaja;
-        }
 
         public static string getAppName()
         {

@@ -13,6 +13,7 @@ namespace ExpenseManager
 {
     public partial class Transaccion : Form
     {
+        private DateTime dateTime;
         public Transaccion()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace ExpenseManager
 
         private void Transaccion_Load(object sender, EventArgs e)
         {
+            dateTime = this.dtp.Value;
             // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.cuentas' table. You can move, or remove it, as needed.
             this.cuentasTableAdapter.Fill(this.c_AHORRO_NEW_DS1.cuentas);
             c_AHORRO_NEW_DS1.Clear();
@@ -42,14 +44,77 @@ namespace ExpenseManager
 
             if (this.Text.EndsWith("ito"))
             {
+                this.lbl_account.Text = "A la cuenta:";
                 this.lbl_trans.Text = "Monto en pesos($):";
                 this.btn_trans.Text = "Depositar";
             }
             else
             {
+                this.lbl_account.Text = "De la cuenta:";
                 this.lbl_trans.Text = "Monto en pesos($):";
                 this.btn_trans.Text = "Extraer";
             }
+        }
+
+        private void Deposit(int montoIngresado)
+        {
+            try   // making a deposit
+            {
+                // nuevo registro de transacción de depósito
+                int id = Convert.ToInt32(this.moviTableAdapter2.MaxIdScalarQuery()) + 1;
+                int selectedIdx = this.cbx_accounts.SelectedIndex;
+                int accountIdx = (int)this.cbx_accounts.SelectedValue;  // id of the account
+                decimal saldo = this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2);
+                int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "dep", Convert.ToDecimal(montoIngresado), saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
+                if (insert_result > 0)
+                {
+                    MessageBox.Show("Depósito realizado con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    saldo += Convert.ToDecimal(montoIngresado);
+                    this.cuentasTableAdapter.UpdateQuery(saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
+                    //FileManager.WriteFile("Updated.txt", "1");
+                }
+            }
+            catch (SqlException ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void Withdraw(int montoIngresado)
+        {
+            try   // making a withdraw
+            {
+                // nuevo registro de transacción de extracción
+                int id = Convert.ToInt32(this.moviTableAdapter2.MaxIdScalarQuery()) + 1;
+                int selectedIdx = this.cbx_accounts.SelectedIndex;
+                int accountIdx = (int)this.cbx_accounts.SelectedValue;  // id of the account
+                decimal saldo = this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2);
+
+                if (montoIngresado > saldo)
+                {
+                    if (saldo == 0)
+                    {
+                        MessageBox.Show("Error: no dispone de saldo!", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: no dispone de saldo suficiente!", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    return;
+                }
+                else
+                {
+                    int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "ext", Convert.ToDecimal(montoIngresado), saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
+                    if (insert_result > 0)
+                    {
+                        MessageBox.Show("Extracción realizada con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        saldo -= Convert.ToDecimal(montoIngresado);
+                        this.cuentasTableAdapter.UpdateQuery(saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
+                        //FileManager.WriteFile("Updated.txt", "1");
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }           
         }
 
         private void btn_trans_Click(object sender, EventArgs e)
@@ -59,86 +124,29 @@ namespace ExpenseManager
                 return;
             }
 
-            DateTime dateTime;
-            dateTime = this.dtp.Value;
+            int montoIngresado = 0;
+            _ = Int32.TryParse(this.txt_trans_monto.Text, out montoIngresado);  // parsing from string to int
 
-            int montoFromTextbox = 0;
-            _ = Int32.TryParse(this.txt_trans_monto.Text, out montoFromTextbox);
-
-            if (montoFromTextbox <= 0)
+            if (montoIngresado <= 0)
                 return;
 
-            int dineroEnCaja = Auxiliar.getDineroEnCaja();
-
             DialogResult dR;
-            dR = MessageBox.Show("Confirma la transacción?", "Caja de ahorro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            dR = MessageBox.Show("Confirma la transacción?", "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dR == DialogResult.No)
             {
                 this.txt_trans_monto.Text = "";
                 return;
             }
 
-            int id = Convert.ToInt32(this.moviTableAdapter2.MaxIdScalarQuery()) + 1;
-
             if (this.Text.EndsWith("ito"))
             {
-                //this.lbl_account.Text = "a la cuenta:";
-                //dineroEnCaja += montoFromTextbox;
-                try
-                {
-                    // nuevo registro de transacción de depósito
-                    int selectedIdx = this.cbx_accounts.SelectedIndex;
-                    int accountIdx = (int)this.cbx_accounts.SelectedValue;  // id of the account
-                    decimal saldo = this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2);
-                    //MessageBox.Show(saldo.ToString());
-                    int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "dep", Convert.ToDecimal(montoFromTextbox), saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
-                    if (insert_result > 0)
-                    {
-                        MessageBox.Show("Depósito realizado con éxito!.", "Caja de ahorro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        saldo += Convert.ToDecimal(montoFromTextbox);
-                        this.cuentasTableAdapter.UpdateQuery(saldo, accountIdx, Auxiliar.id_logged);
-                    }
-                    //FileManager.WriteFile("Updated.txt", "1");
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                Deposit(montoIngresado);
             }
-            else
+            else  
             {
-                if (montoFromTextbox > dineroEnCaja)
-                {
-                    if (dineroEnCaja == 0)
-                        MessageBox.Show("Error: no dispone de saldo!", "Caja de ahorro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else
-                        MessageBox.Show("Error: no dispone de saldo suficiente!", "Caja de ahorro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    return;
-                }
-                else
-                {
-                    dineroEnCaja -= montoFromTextbox;
-                    MessageBox.Show("Extracción realizada con éxito!.", "Caja de ahorro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    try
-                    {
-                        // nuevo registro de transacción de extracción
-                        //this.moviTableAdapter2.InsertQuery(id, dateTime, "extracción", montoFromTextbox, Auxiliar.id_logged);
-                        //FileManager.WriteFile("Updated.txt", "1");
-                    }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
+                Withdraw(montoIngresado);
             }
 
-            try
-            {
-                //this.loginTableAdapter1.UpdateQuery(dineroEnCaja, Auxiliar.id_logged, Auxiliar.id_logged);
-                //FileManager.WriteFile("Updated.txt", "1");
-            }
-            catch (Exception) { }
 
             // ************************************************************************************************   working here   *************************
             if (this.txt_concepto.TextLength > 0)
