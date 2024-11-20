@@ -147,22 +147,7 @@ namespace ExpenseManager
                 Withdraw(montoIngresado);
             }
 
-
-            // ************************************************************************************************   working here   *************************
-            if (this.txt_concepto.TextLength > 0)
-            {
-                if (this.txt_concepto.Text == "$correctivo")
-                {
-                    //this.mensajeTableAdapter1.MessageInsertQuery(id, Auxiliar.getTextCorrective());
-                }
-                else
-                {
-                    //this.mensajeTableAdapter1.MessageInsertQuery(id, this.txt_concepto.Text);
-                }
-                //FileManager.WriteFile("Updated.txt", "1");
-            }
             this.Close();
-            // ************************************************************************************************   working here   *************************
         }
 
         private void txt_trans_monto_KeyPress(object sender, KeyPressEventArgs e)
