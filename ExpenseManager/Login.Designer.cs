@@ -62,12 +62,12 @@
             // 
             this.txt_usuario.BackColor = System.Drawing.Color.White;
             this.txt_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_usuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_usuario.Font = new System.Drawing.Font("Segoe UI Emoji", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_usuario.ForeColor = System.Drawing.Color.Black;
-            this.txt_usuario.Location = new System.Drawing.Point(58, 94);
+            this.txt_usuario.Location = new System.Drawing.Point(58, 68);
             this.txt_usuario.MaxLength = 25;
             this.txt_usuario.Name = "txt_usuario";
-            this.txt_usuario.Size = new System.Drawing.Size(256, 36);
+            this.txt_usuario.Size = new System.Drawing.Size(256, 30);
             this.txt_usuario.TabIndex = 0;
             this.txt_usuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_usuario.GotFocus += new System.EventHandler(this.TextBoxes_GotFocus);
@@ -76,13 +76,13 @@
             // 
             this.txt_contrasegna.BackColor = System.Drawing.Color.White;
             this.txt_contrasegna.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_contrasegna.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_contrasegna.Font = new System.Drawing.Font("Segoe UI Emoji", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_contrasegna.ForeColor = System.Drawing.Color.Black;
-            this.txt_contrasegna.Location = new System.Drawing.Point(58, 169);
+            this.txt_contrasegna.Location = new System.Drawing.Point(58, 135);
             this.txt_contrasegna.MaxLength = 25;
             this.txt_contrasegna.Name = "txt_contrasegna";
             this.txt_contrasegna.PasswordChar = '#';
-            this.txt_contrasegna.Size = new System.Drawing.Size(256, 28);
+            this.txt_contrasegna.Size = new System.Drawing.Size(256, 30);
             this.txt_contrasegna.TabIndex = 1;
             this.txt_contrasegna.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_contrasegna.GotFocus += new System.EventHandler(this.TextBoxes_GotFocus);
@@ -94,9 +94,9 @@
             this.btn_login.FlatAppearance.BorderColor = System.Drawing.SystemColors.ActiveBorder;
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_login.Image = global::ExpenseManager.Properties.Resources.Ionic_Ionicons_Log_in_sharp_32;
-            this.btn_login.Location = new System.Drawing.Point(0, 332);
+            this.btn_login.Location = new System.Drawing.Point(0, 289);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(718, 53);
+            this.btn_login.Size = new System.Drawing.Size(686, 53);
             this.btn_login.TabIndex = 5;
             this.btn_login.TabStop = false;
             this.btn_login.UseVisualStyleBackColor = false;
@@ -110,7 +110,7 @@
             this.btn_crea_usuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_crea_usuario.Location = new System.Drawing.Point(0, 0);
             this.btn_crea_usuario.Name = "btn_crea_usuario";
-            this.btn_crea_usuario.Size = new System.Drawing.Size(718, 10);
+            this.btn_crea_usuario.Size = new System.Drawing.Size(686, 10);
             this.btn_crea_usuario.TabIndex = 6;
             this.btn_crea_usuario.TabStop = false;
             this.btn_crea_usuario.UseVisualStyleBackColor = false;
@@ -120,35 +120,35 @@
             // 
             this.txt_nuevo_usuario.BackColor = System.Drawing.Color.White;
             this.txt_nuevo_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_nuevo_usuario.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_nuevo_usuario.Font = new System.Drawing.Font("Segoe UI Emoji", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nuevo_usuario.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txt_nuevo_usuario.Location = new System.Drawing.Point(58, 89);
+            this.txt_nuevo_usuario.Location = new System.Drawing.Point(58, 69);
             this.txt_nuevo_usuario.MaxLength = 25;
             this.txt_nuevo_usuario.Name = "txt_nuevo_usuario";
-            this.txt_nuevo_usuario.Size = new System.Drawing.Size(256, 36);
+            this.txt_nuevo_usuario.Size = new System.Drawing.Size(256, 30);
             this.txt_nuevo_usuario.TabIndex = 8;
             this.txt_nuevo_usuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lbl_nuevo_usuario
             // 
-            this.lbl_nuevo_usuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.lbl_nuevo_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nuevo_usuario.BackColor = System.Drawing.Color.White;
+            this.lbl_nuevo_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_nuevo_usuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_nuevo_usuario.Location = new System.Drawing.Point(58, 77);
+            this.lbl_nuevo_usuario.Location = new System.Drawing.Point(55, 49);
             this.lbl_nuevo_usuario.Name = "lbl_nuevo_usuario";
-            this.lbl_nuevo_usuario.Size = new System.Drawing.Size(256, 16);
+            this.lbl_nuevo_usuario.Size = new System.Drawing.Size(73, 16);
             this.lbl_nuevo_usuario.TabIndex = 9;
             this.lbl_nuevo_usuario.Text = "Usuario:";
             this.lbl_nuevo_usuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_pass_nuevo_usuario
             // 
-            this.lbl_pass_nuevo_usuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.lbl_pass_nuevo_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_pass_nuevo_usuario.BackColor = System.Drawing.Color.White;
+            this.lbl_pass_nuevo_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_pass_nuevo_usuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbl_pass_nuevo_usuario.Location = new System.Drawing.Point(58, 152);
+            this.lbl_pass_nuevo_usuario.Location = new System.Drawing.Point(55, 116);
             this.lbl_pass_nuevo_usuario.Name = "lbl_pass_nuevo_usuario";
-            this.lbl_pass_nuevo_usuario.Size = new System.Drawing.Size(256, 16);
+            this.lbl_pass_nuevo_usuario.Size = new System.Drawing.Size(90, 16);
             this.lbl_pass_nuevo_usuario.TabIndex = 11;
             this.lbl_pass_nuevo_usuario.Text = "Contraseña:";
             this.lbl_pass_nuevo_usuario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -157,12 +157,12 @@
             // 
             this.txt_pass_nuevo_usuario.BackColor = System.Drawing.Color.White;
             this.txt_pass_nuevo_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_pass_nuevo_usuario.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pass_nuevo_usuario.Font = new System.Drawing.Font("Segoe UI Emoji", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_pass_nuevo_usuario.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txt_pass_nuevo_usuario.Location = new System.Drawing.Point(58, 164);
+            this.txt_pass_nuevo_usuario.Location = new System.Drawing.Point(58, 136);
             this.txt_pass_nuevo_usuario.MaxLength = 25;
             this.txt_pass_nuevo_usuario.Name = "txt_pass_nuevo_usuario";
-            this.txt_pass_nuevo_usuario.Size = new System.Drawing.Size(256, 31);
+            this.txt_pass_nuevo_usuario.Size = new System.Drawing.Size(256, 30);
             this.txt_pass_nuevo_usuario.TabIndex = 10;
             this.txt_pass_nuevo_usuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -174,7 +174,7 @@
             this.btn_guardar_nvo_usuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar_nvo_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_guardar_nvo_usuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_guardar_nvo_usuario.Location = new System.Drawing.Point(226, 222);
+            this.btn_guardar_nvo_usuario.Location = new System.Drawing.Point(226, 190);
             this.btn_guardar_nvo_usuario.Name = "btn_guardar_nvo_usuario";
             this.btn_guardar_nvo_usuario.Size = new System.Drawing.Size(70, 27);
             this.btn_guardar_nvo_usuario.TabIndex = 12;
@@ -190,7 +190,7 @@
             this.btn_cancelar_nvo_usuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar_nvo_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar_nvo_usuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_cancelar_nvo_usuario.Location = new System.Drawing.Point(302, 222);
+            this.btn_cancelar_nvo_usuario.Location = new System.Drawing.Point(302, 190);
             this.btn_cancelar_nvo_usuario.Name = "btn_cancelar_nvo_usuario";
             this.btn_cancelar_nvo_usuario.Size = new System.Drawing.Size(70, 27);
             this.btn_cancelar_nvo_usuario.TabIndex = 13;
@@ -206,8 +206,8 @@
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label1.Location = new System.Drawing.Point(60, 17);
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(60, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(255, 41);
             this.label1.TabIndex = 15;
@@ -216,24 +216,24 @@
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(58, 147);
+            this.label2.Location = new System.Drawing.Point(55, 117);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(256, 16);
+            this.label2.Size = new System.Drawing.Size(96, 16);
             this.label2.TabIndex = 17;
             this.label2.Text = "Contraseña:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(58, 72);
+            this.label3.Location = new System.Drawing.Point(55, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(256, 16);
+            this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 16;
             this.label3.Text = "Usuario:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -242,8 +242,8 @@
             // 
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label4.Location = new System.Drawing.Point(58, 17);
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(58, 3);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(256, 41);
             this.label4.TabIndex = 20;
@@ -255,11 +255,12 @@
             this.tab_sesion.Controls.Add(this.tabP_inicio);
             this.tab_sesion.Controls.Add(this.tabP_nuevo);
             this.tab_sesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab_sesion.Location = new System.Drawing.Point(310, 32);
+            this.tab_sesion.Location = new System.Drawing.Point(287, 21);
             this.tab_sesion.Name = "tab_sesion";
             this.tab_sesion.SelectedIndex = 0;
-            this.tab_sesion.Size = new System.Drawing.Size(386, 281);
+            this.tab_sesion.Size = new System.Drawing.Size(386, 254);
             this.tab_sesion.TabIndex = 21;
+            this.tab_sesion.SelectedIndexChanged += new System.EventHandler(this.tab_sesion_SelectedIndexChanged);
             this.tab_sesion.Selected += new System.Windows.Forms.TabControlEventHandler(this.tab_sesion_Selected);
             // 
             // tabP_inicio
@@ -273,7 +274,7 @@
             this.tabP_inicio.Location = new System.Drawing.Point(4, 24);
             this.tabP_inicio.Name = "tabP_inicio";
             this.tabP_inicio.Padding = new System.Windows.Forms.Padding(3);
-            this.tabP_inicio.Size = new System.Drawing.Size(378, 253);
+            this.tabP_inicio.Size = new System.Drawing.Size(378, 226);
             this.tabP_inicio.TabIndex = 0;
             this.tabP_inicio.Text = "Iniciar sesión";
             // 
@@ -290,7 +291,7 @@
             this.tabP_nuevo.Location = new System.Drawing.Point(4, 24);
             this.tabP_nuevo.Name = "tabP_nuevo";
             this.tabP_nuevo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabP_nuevo.Size = new System.Drawing.Size(378, 253);
+            this.tabP_nuevo.Size = new System.Drawing.Size(378, 226);
             this.tabP_nuevo.TabIndex = 1;
             this.tabP_nuevo.Text = "Crear nuevo usuario";
             // 
@@ -313,9 +314,9 @@
             // pbx_login
             // 
             this.pbx_login.Image = global::ExpenseManager.Properties.Resources.Gartoon_Team_Gartoon_Apps_Seahorse_key_personal_512;
-            this.pbx_login.Location = new System.Drawing.Point(22, 43);
+            this.pbx_login.Location = new System.Drawing.Point(14, 21);
             this.pbx_login.Name = "pbx_login";
-            this.pbx_login.Size = new System.Drawing.Size(270, 270);
+            this.pbx_login.Size = new System.Drawing.Size(267, 254);
             this.pbx_login.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbx_login.TabIndex = 18;
             this.pbx_login.TabStop = false;
@@ -327,7 +328,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(718, 385);
+            this.ClientSize = new System.Drawing.Size(686, 342);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.tab_sesion);
             this.Controls.Add(this.pbx_login);

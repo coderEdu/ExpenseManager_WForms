@@ -197,5 +197,10 @@ namespace ExpenseManager
             //    MessageBox.Show("No olvide exportar la base de datos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //}
         }
+
+        private void tab_sesion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
