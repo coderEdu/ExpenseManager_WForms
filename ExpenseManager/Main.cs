@@ -85,6 +85,24 @@ namespace ExpenseManager
             }
         }
 
+        private void Flp_note_ControlAdded(object sender, ControlEventArgs e)
+        {
+            Button btn = (Button)this.flp_note.Controls[increase];
+            btn.Click += Btn_note_click;
+            ++increase;
+        }
+
+        private void Btn_note_click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            Auxiliar.id_note = Convert.ToInt32(button.Name);
+
+            this.WinOpacity = this.opacity;
+            DetNota detNota = new DetNota();
+            detNota.StartPosition = FormStartPosition.CenterScreen;
+            detNota.ShowDialog(this);
+        }
+
         private void ConsultingSelectedAccountProps()
         {
             int selectedIdx = this.cbx_accounts.SelectedIndex;
@@ -130,18 +148,6 @@ namespace ExpenseManager
             catch (Exception)
             { }
 
-            // cambio el color de "Saldo diponible" según el saldo disponible jeje
-            //if (Auxiliar.dineroEnCaja > 25000)
-            //    this.lbl_caja_valor.ForeColor = Color.Blue;
-            //else if (Auxiliar.dineroEnCaja > 5000)
-            //    this.lbl_caja_valor.ForeColor = Color.Green;
-            //else if (Auxiliar.dineroEnCaja > 1000)
-            //    this.lbl_caja_valor.ForeColor = Color.Gold;
-            //else if (Auxiliar.dineroEnCaja > 100)
-            //    this.lbl_caja_valor.ForeColor = Color.Orange;
-            //else
-            //    this.lbl_caja_valor.ForeColor = Color.Red;
-
             increase = 0;
             this.flp_note.Controls.Clear();
             GetLastNotes();
@@ -182,40 +188,6 @@ namespace ExpenseManager
             this.Opacity = 1;
             this.WinOpacity = 1;
             ConnectToDB();
-        }
-
-        private void flp_note_ControlAdded(object sender, ControlEventArgs e)
-        {
-            Button btn = (Button)this.flp_note.Controls[increase];
-            btn.Click += Btn_note_click;
-            ++increase;
-        }
-
-        private void Btn_note_click(object sender, EventArgs e)
-        {
-            Button button = (Button)sender;
-            Auxiliar.id_note = Convert.ToInt32(button.Name);
-
-            Point location = new Point(0, 0);
-            //int sysScreenWidth = Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenWidth);
-            //int sysScreenHeight = Convert.ToInt32(System.Windows.SystemParameters.PrimaryScreenHeight);
-            //MessageBox.Show(sysScreenWidth.ToString()+","+sysScreenHeight.ToString());
-
-            //if (sysScreenWidth < 1600)
-            //{
-            //    location = new Point(this.Location.X + this.Width - 343, this.Location.Y);
-            //}
-            //else
-            //{
-            //    if (this.Location.X >= sysScreenWidth / 3)
-            //        location = new Point(this.Location.X - 333, this.Location.Y);
-            //    else
-            //        location = new Point(this.Location.X + this.Width - 10, this.Location.Y);
-            //}
-
-            //DetNota detNota = new DetNota();
-            //detNota.WinLocation = location;
-            //detNota.Show(this);
         }
 
         private void btn_crear_nota_Click(object sender, EventArgs e)

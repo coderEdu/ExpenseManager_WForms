@@ -53,6 +53,12 @@
       <DependentUpon>Administrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Auxiliar.cs" />
+    <Compile Include="DetNota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetNota.Designer.cs">
+      <DependentUpon>DetNota.cs</DependentUpon>
+    </Compile>
     <Compile Include="EXPENSE_MANAGERDataSet.cs">
       <DependentUpon>EXPENSE_MANAGERDataSet.xsd</DependentUpon>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Transaccion.Designer.cs">
       <DependentUpon>Transaccion.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DetNota.resx">
+      <DependentUpon>DetNota.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

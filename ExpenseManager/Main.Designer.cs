@@ -57,10 +57,6 @@
             this.lbl_saldo = new System.Windows.Forms.Label();
             this.lbl_for_saldo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lbl_last_movs = new System.Windows.Forms.Label();
-            this.lbl_last_notes = new System.Windows.Forms.Label();
-            this.flp_note = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +65,10 @@
             this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbl_last_movs = new System.Windows.Forms.Label();
+            this.lbl_last_notes = new System.Windows.Forms.Label();
+            this.flp_note = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.moviBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_AHORRO_NEW_DS1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -341,48 +341,6 @@
             this.dataGridView1.TabIndex = 26;
             this.dataGridView1.TabStop = false;
             // 
-            // lbl_last_movs
-            // 
-            this.lbl_last_movs.AutoSize = true;
-            this.lbl_last_movs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_last_movs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_last_movs.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_last_movs.Location = new System.Drawing.Point(20, 37);
-            this.lbl_last_movs.Name = "lbl_last_movs";
-            this.lbl_last_movs.Size = new System.Drawing.Size(165, 20);
-            this.lbl_last_movs.TabIndex = 25;
-            this.lbl_last_movs.Text = "Últimos Movimientos";
-            // 
-            // lbl_last_notes
-            // 
-            this.lbl_last_notes.AutoSize = true;
-            this.lbl_last_notes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_last_notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_last_notes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_last_notes.Location = new System.Drawing.Point(20, 251);
-            this.lbl_last_notes.Name = "lbl_last_notes";
-            this.lbl_last_notes.Size = new System.Drawing.Size(115, 20);
-            this.lbl_last_notes.TabIndex = 28;
-            this.lbl_last_notes.Text = "Últimas Notas";
-            // 
-            // flp_note
-            // 
-            this.flp_note.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flp_note.Location = new System.Drawing.Point(24, 276);
-            this.flp_note.Name = "flp_note";
-            this.flp_note.Size = new System.Drawing.Size(389, 232);
-            this.flp_note.TabIndex = 27;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 20);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Tus cuentas:";
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
@@ -458,6 +416,49 @@
             this.idcuentaDataGridViewTextBoxColumn.ReadOnly = true;
             this.idcuentaDataGridViewTextBoxColumn.Visible = false;
             this.idcuentaDataGridViewTextBoxColumn.Width = 112;
+            // 
+            // lbl_last_movs
+            // 
+            this.lbl_last_movs.AutoSize = true;
+            this.lbl_last_movs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_last_movs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_last_movs.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_last_movs.Location = new System.Drawing.Point(20, 37);
+            this.lbl_last_movs.Name = "lbl_last_movs";
+            this.lbl_last_movs.Size = new System.Drawing.Size(165, 20);
+            this.lbl_last_movs.TabIndex = 25;
+            this.lbl_last_movs.Text = "Últimos Movimientos";
+            // 
+            // lbl_last_notes
+            // 
+            this.lbl_last_notes.AutoSize = true;
+            this.lbl_last_notes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_last_notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_last_notes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_last_notes.Location = new System.Drawing.Point(20, 251);
+            this.lbl_last_notes.Name = "lbl_last_notes";
+            this.lbl_last_notes.Size = new System.Drawing.Size(115, 20);
+            this.lbl_last_notes.TabIndex = 28;
+            this.lbl_last_notes.Text = "Últimas Notas";
+            // 
+            // flp_note
+            // 
+            this.flp_note.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flp_note.Location = new System.Drawing.Point(24, 276);
+            this.flp_note.Name = "flp_note";
+            this.flp_note.Size = new System.Drawing.Size(389, 232);
+            this.flp_note.TabIndex = 27;
+            this.flp_note.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Flp_note_ControlAdded);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 20);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Tus cuentas:";
             // 
             // Main
             // 
