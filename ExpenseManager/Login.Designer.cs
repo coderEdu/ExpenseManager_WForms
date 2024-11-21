@@ -100,7 +100,7 @@
             this.btn_login.TabIndex = 5;
             this.btn_login.TabStop = false;
             this.btn_login.UseVisualStyleBackColor = false;
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
+            this.btn_login.Click += new System.EventHandler(this.Btn_login_Click);
             // 
             // btn_crea_usuario
             // 
@@ -114,7 +114,7 @@
             this.btn_crea_usuario.TabIndex = 6;
             this.btn_crea_usuario.TabStop = false;
             this.btn_crea_usuario.UseVisualStyleBackColor = false;
-            this.btn_crea_usuario.Click += new System.EventHandler(this.bnt_crea_usuario_Click);
+            this.btn_crea_usuario.Click += new System.EventHandler(this.Btn_crea_usuario_Click);
             // 
             // txt_nuevo_usuario
             // 
@@ -180,7 +180,7 @@
             this.btn_guardar_nvo_usuario.TabIndex = 12;
             this.btn_guardar_nvo_usuario.Text = "Guardar";
             this.btn_guardar_nvo_usuario.UseVisualStyleBackColor = false;
-            this.btn_guardar_nvo_usuario.Click += new System.EventHandler(this.btn_guardar_nvo_usuario_Click);
+            this.btn_guardar_nvo_usuario.Click += new System.EventHandler(this.Btn_guardar_nvo_usuario_Click);
             // 
             // btn_cancelar_nvo_usuario
             // 
@@ -196,11 +196,11 @@
             this.btn_cancelar_nvo_usuario.TabIndex = 13;
             this.btn_cancelar_nvo_usuario.Text = "Cancelar";
             this.btn_cancelar_nvo_usuario.UseVisualStyleBackColor = false;
-            this.btn_cancelar_nvo_usuario.Click += new System.EventHandler(this.btn_cancelar_nvo_usuario_Click);
+            this.btn_cancelar_nvo_usuario.Click += new System.EventHandler(this.Btn_cancelar_nvo_usuario_Click);
             // 
             // tmr_exp_contr
             // 
-            this.tmr_exp_contr.Tick += new System.EventHandler(this.tmr_exp_contr_Tick);
+            this.tmr_exp_contr.Tick += new System.EventHandler(this.Tmr_exp_contr_Tick);
             // 
             // label1
             // 
@@ -260,8 +260,8 @@
             this.tab_sesion.SelectedIndex = 0;
             this.tab_sesion.Size = new System.Drawing.Size(386, 254);
             this.tab_sesion.TabIndex = 21;
-            this.tab_sesion.SelectedIndexChanged += new System.EventHandler(this.tab_sesion_SelectedIndexChanged);
-            this.tab_sesion.Selected += new System.Windows.Forms.TabControlEventHandler(this.tab_sesion_Selected);
+            this.tab_sesion.SelectedIndexChanged += new System.EventHandler(this.Tab_sesion_SelectedIndexChanged);
+            this.tab_sesion.Selected += new System.Windows.Forms.TabControlEventHandler(this.Tab_sesion_Selected);
             // 
             // tabP_inicio
             // 

@@ -77,7 +77,7 @@ namespace ExpenseManager
             }
         }
 
-        private void btn_login_Click(object sender, EventArgs e)
+        private void Btn_login_Click(object sender, EventArgs e)
         {
             if (this.txt_usuario.Text == "admin" && this.txt_contrasegna.Text == "12345")
             {
@@ -100,13 +100,13 @@ namespace ExpenseManager
             }
         }
 
-        private void bnt_crea_usuario_Click(object sender, EventArgs e) // botón de arriba (top form)
+        private void Btn_crea_usuario_Click(object sender, EventArgs e) // botón de arriba (top form)
         {
             this.tmr_exp_contr.Start(); // timer start
             // código movido a tick 
         }
 
-        private void btn_guardar_nvo_usuario_Click(object sender, EventArgs e)
+        private void Btn_guardar_nvo_usuario_Click(object sender, EventArgs e)
         {
             // Código para guardar un nuevo usuario en la tabla login
             if (this.txt_nuevo_usuario.TextLength > 0 && this.txt_pass_nuevo_usuario.TextLength > 0)
@@ -141,7 +141,7 @@ namespace ExpenseManager
             }
         }
 
-        private void btn_cancelar_nvo_usuario_Click(object sender, EventArgs e)
+        private void Btn_cancelar_nvo_usuario_Click(object sender, EventArgs e)
         {
             this.txt_nuevo_usuario.Clear();
             this.txt_pass_nuevo_usuario.Clear();
@@ -149,7 +149,7 @@ namespace ExpenseManager
             //this.tmr_exp_contr.Start();
         }
 
-        private void tmr_exp_contr_Tick(object sender, EventArgs e)     // timer's tick
+        private void Tmr_exp_contr_Tick(object sender, EventArgs e)     // timer's tick
         {
             if (this.progress.Value < 100)
             {
@@ -173,7 +173,7 @@ namespace ExpenseManager
             }
         }
 
-        private void tab_sesion_Selected(object sender, TabControlEventArgs e)
+        private void Tab_sesion_Selected(object sender, TabControlEventArgs e)
         {
             if (this.tab_sesion.SelectedTab == tabP_nuevo)
             {
@@ -198,7 +198,7 @@ namespace ExpenseManager
             //}
         }
 
-        private void tab_sesion_SelectedIndexChanged(object sender, EventArgs e)
+        private void Tab_sesion_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
