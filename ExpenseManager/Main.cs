@@ -57,8 +57,7 @@ namespace ExpenseManager
 
         public void GetLastNotes()
         {
-            int count = this.notasTableAdapter.FillByNotasById_log(this.c_AHORRO_NEW_DS1.notas, Auxiliar.id_logged); //MessageBox.Show(count.ToString());
-            this.loginTableAdapter1.Fill(this.c_AHORRO_NEW_DS1.usuarios);  // ay q llenar el ds p/poder obt los datos
+            int count = this.notasTableAdapter.FillByNotasById_log_desc(this.c_AHORRO_NEW_DS1.notas, Auxiliar.id_logged);
             for (int i = 0; i < count; i++)
             {
                 if (this.flp_note.Controls.Count < 8)
@@ -127,27 +126,26 @@ namespace ExpenseManager
             // capturo el valor de caja del usuario activo y lo guardo en Auxiliar
             //Auxiliar.dineroEnCaja = this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<int>(3);
 
+            // getting the accounts
             try
             {
-                this.accountCount = this.cuentasTableAdapter.FillByAccountName(this.c_AHORRO_NEW_DS1.cuentas, ((int)(System.Convert.ChangeType(Auxiliar.id_logged, typeof(int)))));
+                this.accountCount = this.cuentasTableAdapter.FillByAccountSaldoDesc(this.c_AHORRO_NEW_DS1.cuentas, ((int)(System.Convert.ChangeType(Auxiliar.id_logged, typeof(int)))));
                 if (accountCount > 0)
                 {
                     ConsultingSelectedAccountProps();
                 }
                 
             }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+            catch (System.Exception ex) { System.Windows.Forms.MessageBox.Show(ex.Message); }
 
+            // getting the last five movements of the user
             try
             {
                 this.moviTableAdapter.FillByLastFiveMovs(this.c_AHORRO_NEW_DS1.movimientos, Auxiliar.id_logged);
             }
-            catch (Exception)
-            { }
+            catch (Exception) { }
 
+            // getting the last eight notes of the user
             increase = 0;
             this.flp_note.Controls.Clear();
             GetLastNotes();
