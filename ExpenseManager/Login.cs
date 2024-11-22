@@ -65,11 +65,7 @@ namespace ExpenseManager
             increase = 0;
             this.txt_usuario.Clear();
             this.txt_contrasegna.Clear();
-            //this.txt_usuario.Focus();
-
-            // to ease testing
-            this.txt_usuario.Text = "edu_coder";
-            this.txt_contrasegna.Text = "1342";
+            this.txt_usuario.Focus();
         }
 
         private void TextBoxes_GotFocus(object sender, EventArgs e)

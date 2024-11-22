@@ -190,33 +190,10 @@ namespace ExpenseManager
             ConnectToDB();
         }
 
-        private void btn_crear_nota_Click(object sender, EventArgs e)
-        {
-            //this.WinOpacity = this.opacity;
-            //Notas notas = new Notas();
-            //notas.ShowDialog();
-        }
-
-        private void btn_editar_nota_Click(object sender, EventArgs e)
-        {
-            //this.WinOpacity = this.opacity;
-            //Notas notas = new Notas();
-            //notas.EditarTab = true;
-            //notas.Show(this);
-        }
-
         private void Main_Deactivate(object sender, EventArgs e)
         {
             if (this.WinOpacity < 1)
                 this.Opacity = WinOpacity;
-        }
-
-        private void btn_remove_note_Click(object sender, EventArgs e)
-        {
-            //this.WinOpacity = this.opacity;
-            //Notas notas = new Notas();
-            //notas.EliminTab = true;
-            //notas.Show(this);
         }
 
         private void btn_ver_notas_Click(object sender, EventArgs e)
@@ -252,6 +229,29 @@ namespace ExpenseManager
         {
             this.WinOpacity = this.opacity;
             MostrarVentTrans(sender);
+        }
+
+        private void tStrip_new_nota_Click(object sender, EventArgs e)
+        {
+            this.WinOpacity = this.opacity;
+            Notas notas = new Notas();
+            notas.ShowDialog();
+        }
+
+        private void tStrip_edit_nota_Click(object sender, EventArgs e)
+        {
+            this.WinOpacity = this.opacity;
+            Notas notas = new Notas();
+            notas.EditarTab = true;
+            notas.Show(this);
+        }
+
+        private void tStrip_delete_nota_Click(object sender, EventArgs e)
+        {
+            this.WinOpacity = this.opacity;
+            Notas notas = new Notas();
+            notas.EliminTab = true;
+            notas.Show(this);
         }
     }
 }

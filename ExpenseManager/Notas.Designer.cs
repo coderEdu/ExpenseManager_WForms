@@ -29,20 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label idLabel;
-            System.Windows.Forms.Label tituloLabel;
-            System.Windows.Forms.Label notaLabel;
-            System.Windows.Forms.Label fec_creaLabel;
-            System.Windows.Forms.Label fec_modifLabel;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.idLabel = new System.Windows.Forms.Label();
+            this.tituloLabel = new System.Windows.Forms.Label();
+            this.notaLabel = new System.Windows.Forms.Label();
+            this.fec_creaLabel = new System.Windows.Forms.Label();
+            this.fec_modifLabel = new System.Windows.Forms.Label();
             this.tab_notas = new System.Windows.Forms.TabControl();
             this.tabP_nuevo = new System.Windows.Forms.TabPage();
+            this.lbl_note_length = new System.Windows.Forms.Label();
+            this.lbl_max_length = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_texto_nota = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_titulo_nota = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabP_editar = new System.Windows.Forms.TabPage();
+            this.lbl_edit_note_length = new System.Windows.Forms.Label();
+            this.lbl_edit_max_length = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.notasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -72,15 +76,6 @@
             this.notasTableAdapter1 = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.notasTableAdapter();
             this.tableAdapterManager = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.TableAdapterManager();
             this.c_AHORRO_NEW_DS_Notas = new ExpenseManager.EXPENSE_MANAGERDataSet();
-            this.lbl_max_length = new System.Windows.Forms.Label();
-            this.lbl_note_length = new System.Windows.Forms.Label();
-            this.lbl_edit_note_length = new System.Windows.Forms.Label();
-            this.lbl_edit_max_length = new System.Windows.Forms.Label();
-            idLabel = new System.Windows.Forms.Label();
-            tituloLabel = new System.Windows.Forms.Label();
-            notaLabel = new System.Windows.Forms.Label();
-            fec_creaLabel = new System.Windows.Forms.Label();
-            fec_modifLabel = new System.Windows.Forms.Label();
             this.tab_notas.SuspendLayout();
             this.tabP_nuevo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,48 +92,48 @@
             // 
             // idLabel
             // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(339, 113);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(18, 13);
-            idLabel.TabIndex = 4;
-            idLabel.Text = "id:";
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(339, 113);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(18, 13);
+            this.idLabel.TabIndex = 4;
+            this.idLabel.Text = "id:";
             // 
             // tituloLabel
             // 
-            tituloLabel.AutoSize = true;
-            tituloLabel.Location = new System.Drawing.Point(339, 139);
-            tituloLabel.Name = "tituloLabel";
-            tituloLabel.Size = new System.Drawing.Size(32, 13);
-            tituloLabel.TabIndex = 6;
-            tituloLabel.Text = "titulo:";
+            this.tituloLabel.AutoSize = true;
+            this.tituloLabel.Location = new System.Drawing.Point(339, 139);
+            this.tituloLabel.Name = "tituloLabel";
+            this.tituloLabel.Size = new System.Drawing.Size(32, 13);
+            this.tituloLabel.TabIndex = 6;
+            this.tituloLabel.Text = "titulo:";
             // 
             // notaLabel
             // 
-            notaLabel.AutoSize = true;
-            notaLabel.Location = new System.Drawing.Point(339, 168);
-            notaLabel.Name = "notaLabel";
-            notaLabel.Size = new System.Drawing.Size(31, 13);
-            notaLabel.TabIndex = 8;
-            notaLabel.Text = "nota:";
+            this.notaLabel.AutoSize = true;
+            this.notaLabel.Location = new System.Drawing.Point(339, 168);
+            this.notaLabel.Name = "notaLabel";
+            this.notaLabel.Size = new System.Drawing.Size(31, 13);
+            this.notaLabel.TabIndex = 8;
+            this.notaLabel.Text = "nota:";
             // 
             // fec_creaLabel
             // 
-            fec_creaLabel.AutoSize = true;
-            fec_creaLabel.Location = new System.Drawing.Point(339, 316);
-            fec_creaLabel.Name = "fec_creaLabel";
-            fec_creaLabel.Size = new System.Drawing.Size(43, 13);
-            fec_creaLabel.TabIndex = 12;
-            fec_creaLabel.Text = "creada:";
+            this.fec_creaLabel.AutoSize = true;
+            this.fec_creaLabel.Location = new System.Drawing.Point(339, 316);
+            this.fec_creaLabel.Name = "fec_creaLabel";
+            this.fec_creaLabel.Size = new System.Drawing.Size(43, 13);
+            this.fec_creaLabel.TabIndex = 12;
+            this.fec_creaLabel.Text = "creada:";
             // 
             // fec_modifLabel
             // 
-            fec_modifLabel.AutoSize = true;
-            fec_modifLabel.Location = new System.Drawing.Point(339, 342);
-            fec_modifLabel.Name = "fec_modifLabel";
-            fec_modifLabel.Size = new System.Drawing.Size(43, 13);
-            fec_modifLabel.TabIndex = 14;
-            fec_modifLabel.Text = "modific:";
+            this.fec_modifLabel.AutoSize = true;
+            this.fec_modifLabel.Location = new System.Drawing.Point(339, 342);
+            this.fec_modifLabel.Name = "fec_modifLabel";
+            this.fec_modifLabel.Size = new System.Drawing.Size(43, 13);
+            this.fec_modifLabel.TabIndex = 14;
+            this.fec_modifLabel.Text = "modific:";
             // 
             // tab_notas
             // 
@@ -150,7 +145,7 @@
             this.tab_notas.SelectedIndex = 0;
             this.tab_notas.Size = new System.Drawing.Size(663, 413);
             this.tab_notas.TabIndex = 0;
-            //this.tab_notas.Selected += new System.Windows.Forms.TabControlEventHandler(this.tab_notas_Selected);
+            this.tab_notas.Selected += new System.Windows.Forms.TabControlEventHandler(this.tab_notas_Selected);
             // 
             // tabP_nuevo
             // 
@@ -169,13 +164,33 @@
             this.tabP_nuevo.Text = "Nuevo";
             this.tabP_nuevo.UseVisualStyleBackColor = true;
             // 
+            // lbl_note_length
+            // 
+            this.lbl_note_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_note_length.Location = new System.Drawing.Point(549, 354);
+            this.lbl_note_length.Name = "lbl_note_length";
+            this.lbl_note_length.Size = new System.Drawing.Size(43, 15);
+            this.lbl_note_length.TabIndex = 6;
+            this.lbl_note_length.Text = "0";
+            this.lbl_note_length.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl_max_length
+            // 
+            this.lbl_max_length.AutoSize = true;
+            this.lbl_max_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_max_length.Location = new System.Drawing.Point(589, 354);
+            this.lbl_max_length.Name = "lbl_max_length";
+            this.lbl_max_length.Size = new System.Drawing.Size(12, 17);
+            this.lbl_max_length.TabIndex = 5;
+            this.lbl_max_length.Text = "/";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(328, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
+            this.label2.Size = new System.Drawing.Size(47, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Texto:";
             // 
@@ -188,7 +203,7 @@
             this.txt_texto_nota.Name = "txt_texto_nota";
             this.txt_texto_nota.Size = new System.Drawing.Size(296, 234);
             this.txt_texto_nota.TabIndex = 3;
-            //this.txt_texto_nota.TextChanged += new System.EventHandler(this.txt_texto_nota_TextChanged);
+            this.txt_texto_nota.TextChanged += new System.EventHandler(this.txt_texto_nota_TextChanged);
             // 
             // label1
             // 
@@ -196,7 +211,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(330, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 15);
+            this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Título:";
             // 
@@ -205,12 +220,12 @@
             this.txt_titulo_nota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_titulo_nota.Location = new System.Drawing.Point(329, 48);
             this.txt_titulo_nota.Name = "txt_titulo_nota";
-            this.txt_titulo_nota.Size = new System.Drawing.Size(296, 26);
+            this.txt_titulo_nota.Size = new System.Drawing.Size(296, 28);
             this.txt_titulo_nota.TabIndex = 1;
             // 
             // pictureBox1
             // 
-            //this.pictureBox1.Image = global::CajaDeAhorro.Properties.Resources._314233_note_list_icon_512;
+            this.pictureBox1.Image = global::ExpenseManager.Properties.Resources._314233_note_list_icon_512;
             this.pictureBox1.Location = new System.Drawing.Point(6, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 172);
@@ -226,14 +241,14 @@
             this.tabP_editar.Controls.Add(this.label5);
             this.tabP_editar.Controls.Add(this.label4);
             this.tabP_editar.Controls.Add(this.lbl_crea);
-            this.tabP_editar.Controls.Add(idLabel);
+            this.tabP_editar.Controls.Add(this.idLabel);
             this.tabP_editar.Controls.Add(this.idTextBox);
-            this.tabP_editar.Controls.Add(tituloLabel);
+            this.tabP_editar.Controls.Add(this.tituloLabel);
             this.tabP_editar.Controls.Add(this.tituloTextBox);
-            this.tabP_editar.Controls.Add(notaLabel);
+            this.tabP_editar.Controls.Add(this.notaLabel);
             this.tabP_editar.Controls.Add(this.notaTextBox);
-            this.tabP_editar.Controls.Add(fec_creaLabel);
-            this.tabP_editar.Controls.Add(fec_modifLabel);
+            this.tabP_editar.Controls.Add(this.fec_creaLabel);
+            this.tabP_editar.Controls.Add(this.fec_modifLabel);
             this.tabP_editar.Controls.Add(this.dgv);
             this.tabP_editar.Controls.Add(this.label3);
             this.tabP_editar.Controls.Add(this.textBox3);
@@ -245,6 +260,26 @@
             this.tabP_editar.TabIndex = 1;
             this.tabP_editar.Text = "Editar";
             this.tabP_editar.UseVisualStyleBackColor = true;
+            // 
+            // lbl_edit_note_length
+            // 
+            this.lbl_edit_note_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_edit_note_length.Location = new System.Drawing.Point(542, 286);
+            this.lbl_edit_note_length.Name = "lbl_edit_note_length";
+            this.lbl_edit_note_length.Size = new System.Drawing.Size(43, 15);
+            this.lbl_edit_note_length.TabIndex = 19;
+            this.lbl_edit_note_length.Text = "0";
+            this.lbl_edit_note_length.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl_edit_max_length
+            // 
+            this.lbl_edit_max_length.AutoSize = true;
+            this.lbl_edit_max_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_edit_max_length.Location = new System.Drawing.Point(582, 286);
+            this.lbl_edit_max_length.Name = "lbl_edit_max_length";
+            this.lbl_edit_max_length.Size = new System.Drawing.Size(12, 17);
+            this.lbl_edit_max_length.TabIndex = 18;
+            this.lbl_edit_max_length.Text = "/";
             // 
             // label5
             // 
@@ -299,7 +334,7 @@
             this.tituloTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloTextBox.Location = new System.Drawing.Point(395, 136);
             this.tituloTextBox.Name = "tituloTextBox";
-            this.tituloTextBox.Size = new System.Drawing.Size(222, 26);
+            this.tituloTextBox.Size = new System.Drawing.Size(222, 28);
             this.tituloTextBox.TabIndex = 7;
             // 
             // notaTextBox
@@ -312,7 +347,6 @@
             this.notaTextBox.Name = "notaTextBox";
             this.notaTextBox.Size = new System.Drawing.Size(222, 112);
             this.notaTextBox.TabIndex = 9;
-            //this.notaTextBox.TextChanged += new System.EventHandler(this.txt_texto_nota_TextChanged);
             // 
             // dgv
             // 
@@ -336,15 +370,17 @@
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersVisible = false;
+            this.dgv.RowHeadersWidth = 46;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(276, 248);
             this.dgv.TabIndex = 3;
-            //this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
+            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Width = 55;
@@ -353,6 +389,7 @@
             // 
             this.tituloDataGridViewTextBoxColumn.DataPropertyName = "titulo";
             this.tituloDataGridViewTextBoxColumn.HeaderText = "titulo";
+            this.tituloDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
             this.tituloDataGridViewTextBoxColumn.ReadOnly = true;
             this.tituloDataGridViewTextBoxColumn.Width = 220;
@@ -426,7 +463,7 @@
             this.btn_eliminar.TabIndex = 6;
             this.btn_eliminar.Text = "eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
-            //this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_buscar_id
             // 
@@ -436,7 +473,7 @@
             this.btn_buscar_id.TabIndex = 4;
             this.btn_buscar_id.Text = "buscar";
             this.btn_buscar_id.UseVisualStyleBackColor = true;
-            //this.btn_buscar_id.Click += new System.EventHandler(this.btn_buscar_id_Click);
+            this.btn_buscar_id.Click += new System.EventHandler(this.btn_buscar_id_Click);
             // 
             // lbl_id_elim
             // 
@@ -456,7 +493,7 @@
             // 
             // pictureBox2
             // 
-            //this.pictureBox2.Image = global::CajaDeAhorro.Properties.Resources._314282_trash_can_icon;
+            this.pictureBox2.Image = global::ExpenseManager.Properties.Resources._314282_trash_can_icon;
             this.pictureBox2.Location = new System.Drawing.Point(3, 17);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(167, 172);
@@ -472,7 +509,7 @@
             this.btn_guardar.TabIndex = 2;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
-            //this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // dtp_notas
             // 
@@ -492,60 +529,17 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            //this.tableAdapterManager.creadoTableAdapter = null;
-            //this.tableAdapterManager.estadoTableAdapter = null;
-            //this.tableAdapterManager.loginTableAdapter = null;
-            //this.tableAdapterManager.mensajeTableAdapter = null;
-            //this.tableAdapterManager.moviTableAdapter = null;
-            //this.tableAdapterManager.notasTableAdapter = this.notasTableAdapter;
-            //this.tableAdapterManager.prestamoTableAdapter = null;
-            //this.tableAdapterManager.sesionTableAdapter = null;
-            //this.tableAdapterManager.UpdateOrder = CajaDeAhorro.C_AHORRO_NEW_DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.cuentasTableAdapter = null;
+            this.tableAdapterManager.movimientosTableAdapter = null;
+            this.tableAdapterManager.notasTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.usuariosTableAdapter = null;
             // 
             // c_AHORRO_NEW_DS_Notas
             // 
             this.c_AHORRO_NEW_DS_Notas.DataSetName = "C_AHORRO_NEW_DS";
             this.c_AHORRO_NEW_DS_Notas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lbl_max_length
-            // 
-            this.lbl_max_length.AutoSize = true;
-            this.lbl_max_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_max_length.Location = new System.Drawing.Point(589, 354);
-            this.lbl_max_length.Name = "lbl_max_length";
-            this.lbl_max_length.Size = new System.Drawing.Size(10, 15);
-            this.lbl_max_length.TabIndex = 5;
-            this.lbl_max_length.Text = "/";
-            // 
-            // lbl_note_length
-            // 
-            this.lbl_note_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_note_length.Location = new System.Drawing.Point(549, 354);
-            this.lbl_note_length.Name = "lbl_note_length";
-            this.lbl_note_length.Size = new System.Drawing.Size(43, 15);
-            this.lbl_note_length.TabIndex = 6;
-            this.lbl_note_length.Text = "0";
-            this.lbl_note_length.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lbl_edit_note_length
-            // 
-            this.lbl_edit_note_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_edit_note_length.Location = new System.Drawing.Point(542, 286);
-            this.lbl_edit_note_length.Name = "lbl_edit_note_length";
-            this.lbl_edit_note_length.Size = new System.Drawing.Size(43, 15);
-            this.lbl_edit_note_length.TabIndex = 19;
-            this.lbl_edit_note_length.Text = "0";
-            this.lbl_edit_note_length.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lbl_edit_max_length
-            // 
-            this.lbl_edit_max_length.AutoSize = true;
-            this.lbl_edit_max_length.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_edit_max_length.Location = new System.Drawing.Point(582, 286);
-            this.lbl_edit_max_length.Name = "lbl_edit_max_length";
-            this.lbl_edit_max_length.Size = new System.Drawing.Size(10, 15);
-            this.lbl_edit_max_length.TabIndex = 18;
-            this.lbl_edit_max_length.Text = "/";
             // 
             // Notas
             // 
@@ -559,7 +553,7 @@
             this.Name = "Notas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notas";
-            //this.Load += new System.EventHandler(this.Notas_Load);
+            this.Load += new System.EventHandler(this.Notas_Load);
             this.tab_notas.ResumeLayout(false);
             this.tabP_nuevo.ResumeLayout(false);
             this.tabP_nuevo.PerformLayout();
@@ -621,5 +615,10 @@
         private System.Windows.Forms.Label lbl_max_length;
         private System.Windows.Forms.Label lbl_edit_note_length;
         private System.Windows.Forms.Label lbl_edit_max_length;
+        private System.Windows.Forms.Label idLabel;
+        private System.Windows.Forms.Label tituloLabel;
+        private System.Windows.Forms.Label notaLabel;
+        private System.Windows.Forms.Label fec_creaLabel;
+        private System.Windows.Forms.Label fec_modifLabel;
     }
 }
