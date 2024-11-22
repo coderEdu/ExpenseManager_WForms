@@ -79,24 +79,27 @@ namespace ExpenseManager
 
         private void Btn_login_Click(object sender, EventArgs e)
         {
-            if (this.txt_usuario.Text == "admin" && this.txt_contrasegna.Text == "12345")
+            if (this.txt_usuario.TextLength == 0 || this.txt_contrasegna.TextLength == 0)
             {
-                Auxiliar.admin.Show();
-                Auxiliar.login.Hide();
-                //MessageBox.Show("Logged!");
-            }            
-            else if (Convert.ToInt32(this.usuariosTableAdapter1.ScalarQuery(this.txt_usuario.Text, this.txt_contrasegna.Text)) == 1)
-            {
-                // obtener el valor del id del usuario logueado y guardarlo en Auxiliar
-                this.usuariosTableAdapter1.FillByWhoIsLogged(expensE_MANAGERDataSet1.usuarios, this.txt_usuario.Text, this.txt_contrasegna.Text);
-                Auxiliar.id_logged = expensE_MANAGERDataSet1.Tables["usuarios"].Rows[0].Field<int>(0);
-                this.tmr_exp_contr.Interval = 1;
-                this.tmr_exp_contr.Start();
-                //MessageBox.Show(Auxiliar.id_logged.ToString());
+                MessageBox.Show("Hay al menos un campo vacío.\nDebe completar los dos campos para ingresar");
             }
             else
             {
-                MessageBox.Show("Debe completar los campos");
+                if (this.txt_usuario.Text == "admin" && this.txt_contrasegna.Text == "12345")
+                {
+                    //Auxiliar.admin.Show();
+                    //Auxiliar.login.Hide();
+                    MessageBox.Show("The admin panel is under construction!");
+                }            
+                else if (Convert.ToInt32(this.usuariosTableAdapter1.ScalarQuery(this.txt_usuario.Text, this.txt_contrasegna.Text)) == 1)
+                {
+                    // obtener el valor del id del usuario logueado y guardarlo en Auxiliar
+                    this.usuariosTableAdapter1.FillByWhoIsLogged(expensE_MANAGERDataSet1.usuarios, this.txt_usuario.Text, this.txt_contrasegna.Text);
+                    Auxiliar.id_logged = expensE_MANAGERDataSet1.Tables["usuarios"].Rows[0].Field<int>(0);
+                    this.tmr_exp_contr.Interval = 1;
+                    this.tmr_exp_contr.Start();
+                    //MessageBox.Show(Auxiliar.id_logged.ToString());
+                }
             }
         }
 
