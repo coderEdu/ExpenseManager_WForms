@@ -251,5 +251,12 @@ namespace ExpenseManager
             notas.EliminTab = true;
             notas.Show(this);
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.WinOpacity = this.opacity;
+            CreateAccount newAccount = new CreateAccount();
+            newAccount.ShowDialog(this);
+        }
     }
 }

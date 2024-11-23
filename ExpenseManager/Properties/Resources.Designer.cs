@@ -413,6 +413,46 @@ namespace ExpenseManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Awicons_Vista_Artistic_Coin_48 {
+            get {
+                object obj = ResourceManager.GetObject("Awicons_Vista_Artistic_Coin_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Awicons_Vista_Artistic_Coin_add_48 {
+            get {
+                object obj = ResourceManager.GetObject("Awicons_Vista_Artistic_Coin_add_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Awicons_Vista_Artistic_Coin_delete_48 {
+            get {
+                object obj = ResourceManager.GetObject("Awicons_Vista_Artistic_Coin_delete_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Awicons_Vista_Artistic_Coin_search_48 {
+            get {
+                object obj = ResourceManager.GetObject("Awicons_Vista_Artistic_Coin_search_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bank_icon {
             get {
                 object obj = ResourceManager.GetObject("bank_icon", resourceCulture);
@@ -426,16 +466,6 @@ namespace ExpenseManager.Properties {
         internal static System.Drawing.Bitmap button_active_session {
             get {
                 object obj = ResourceManager.GetObject("button_active_session", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap data_management_icon {
-            get {
-                object obj = ResourceManager.GetObject("data_management_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -476,6 +506,16 @@ namespace ExpenseManager.Properties {
         internal static System.Drawing.Bitmap Fatcow_Farm_Fresh_Outlook_change_view_32 {
             get {
                 object obj = ResourceManager.GetObject("Fatcow_Farm_Fresh_Outlook_change_view_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fatcow_Farm_Fresh_Set_password_32 {
+            get {
+                object obj = ResourceManager.GetObject("Fatcow_Farm_Fresh_Set_password_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -643,6 +683,26 @@ namespace ExpenseManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Oxygen_Icons_org_Oxygen_Actions_dialog_ok_48 {
+            get {
+                object obj = ResourceManager.GetObject("Oxygen_Icons_org_Oxygen_Actions_dialog_ok_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Oxygen_Icons_org_Oxygen_Actions_dialog_ok_apply_48 {
+            get {
+                object obj = ResourceManager.GetObject("Oxygen_Icons_org_Oxygen_Actions_dialog_ok_apply_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap padlock_unlock_icon {
             get {
                 object obj = ResourceManager.GetObject("padlock_unlock_icon", resourceCulture);
@@ -686,16 +746,6 @@ namespace ExpenseManager.Properties {
         internal static System.Drawing.Bitmap User_icon_64 {
             get {
                 object obj = ResourceManager.GetObject("User_icon_64", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user_logged {
-            get {
-                object obj = ResourceManager.GetObject("user_logged", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
