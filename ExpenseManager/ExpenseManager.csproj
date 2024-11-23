@@ -53,11 +53,11 @@
       <DependentUpon>Administrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Auxiliar.cs" />
-    <Compile Include="Cuentas.cs">
+    <Compile Include="NuevaCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cuentas.Designer.cs">
-      <DependentUpon>Cuentas.cs</DependentUpon>
+    <Compile Include="NuevaCuenta.Designer.cs">
+      <DependentUpon>NuevaCuenta.cs</DependentUpon>
     </Compile>
     <Compile Include="DetNota.cs">
       <SubType>Form</SubType>
@@ -106,8 +106,8 @@
     <Compile Include="Transaccion.Designer.cs">
       <DependentUpon>Transaccion.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Cuentas.resx">
-      <DependentUpon>Cuentas.cs</DependentUpon>
+    <EmbeddedResource Include="NuevaCuenta.resx">
+      <DependentUpon>NuevaCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DetNota.resx">
       <DependentUpon>DetNota.cs</DependentUpon>
