@@ -136,6 +136,7 @@
             this.Name = "CreateAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nueva cuenta";
+            this.Load += new System.EventHandler(this.CreateAccount_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCoinPlus)).EndInit();
