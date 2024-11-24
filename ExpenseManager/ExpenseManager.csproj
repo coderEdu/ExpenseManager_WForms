@@ -53,6 +53,12 @@
       <DependentUpon>Administrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Auxiliar.cs" />
+    <Compile Include="DeleteAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteAccount.Designer.cs">
+      <DependentUpon>DeleteAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="NuevaCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="Transaccion.Designer.cs">
       <DependentUpon>Transaccion.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DeleteAccount.resx">
+      <DependentUpon>DeleteAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NuevaCuenta.resx">
       <DependentUpon>NuevaCuenta.cs</DependentUpon>
     </EmbeddedResource>

@@ -26,8 +26,6 @@ namespace ExpenseManager
 
         private void Main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.cuentas' table. You can move, or remove it, as needed.
-            this.cuentasTableAdapter.Fill(this.c_AHORRO_NEW_DS1.cuentas);
             // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.movi' table. You can move, or remove it, as needed.
             try { this.moviTableAdapter.Fill(this.c_AHORRO_NEW_DS1.movimientos); }
             catch (Exception) { }
@@ -257,6 +255,13 @@ namespace ExpenseManager
             this.WinOpacity = this.opacity;
             CreateAccount newAccount = new CreateAccount();
             newAccount.ShowDialog(this);
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            this.WinOpacity = this.opacity;
+            DeleteAccount deleteAccount = new DeleteAccount();
+            deleteAccount.ShowDialog(this);
         }
     }
 }

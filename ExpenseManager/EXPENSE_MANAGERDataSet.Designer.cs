@@ -32,9 +32,9 @@ namespace ExpenseManager {
         
         private usuariosDataTable tableusuarios;
         
-        private global::System.Data.DataRelation relationFK_cuentas_usuarios;
-        
         private global::System.Data.DataRelation relationFK_movimientos_cuentas;
+        
+        private global::System.Data.DataRelation relationFK_cuentas_usuarios;
         
         private global::System.Data.DataRelation relationFK_movimientos_usuarios;
         
@@ -276,8 +276,8 @@ namespace ExpenseManager {
                     this.tableusuarios.InitVars();
                 }
             }
-            this.relationFK_cuentas_usuarios = this.Relations["FK_cuentas_usuarios"];
             this.relationFK_movimientos_cuentas = this.Relations["FK_movimientos_cuentas"];
+            this.relationFK_cuentas_usuarios = this.Relations["FK_cuentas_usuarios"];
             this.relationFK_movimientos_usuarios = this.Relations["FK_movimientos_usuarios"];
             this.relationFK_notas_cuentas = this.Relations["FK_notas_cuentas"];
             this.relationFK_notas_usuarios = this.Relations["FK_notas_usuarios"];
@@ -299,14 +299,22 @@ namespace ExpenseManager {
             base.Tables.Add(this.tablenotas);
             this.tableusuarios = new usuariosDataTable();
             base.Tables.Add(this.tableusuarios);
-            this.relationFK_cuentas_usuarios = new global::System.Data.DataRelation("FK_cuentas_usuarios", new global::System.Data.DataColumn[] {
-                        this.tableusuarios.idColumn}, new global::System.Data.DataColumn[] {
-                        this.tablecuentas.id_userColumn}, false);
-            this.Relations.Add(this.relationFK_cuentas_usuarios);
+            global::System.Data.ForeignKeyConstraint fkc;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_movimientos_cuentas", new global::System.Data.DataColumn[] {
+                        this.tablecuentas.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablemovimientos.id_cuentaColumn});
+            this.tablemovimientos.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_movimientos_cuentas = new global::System.Data.DataRelation("FK_movimientos_cuentas", new global::System.Data.DataColumn[] {
                         this.tablecuentas.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablemovimientos.id_cuentaColumn}, false);
             this.Relations.Add(this.relationFK_movimientos_cuentas);
+            this.relationFK_cuentas_usuarios = new global::System.Data.DataRelation("FK_cuentas_usuarios", new global::System.Data.DataColumn[] {
+                        this.tableusuarios.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablecuentas.id_userColumn}, false);
+            this.Relations.Add(this.relationFK_cuentas_usuarios);
             this.relationFK_movimientos_usuarios = new global::System.Data.DataRelation("FK_movimientos_usuarios", new global::System.Data.DataColumn[] {
                         this.tableusuarios.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablemovimientos.id_usuarioColumn}, false);
@@ -2612,63 +2620,68 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[9];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, nombre, saldo, fec_crea, id_user FROM dbo.cuentas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT   id, nombre, saldo, fec_crea, id_user\r\nFROM      cuentas\r\nWHERE   (id_use" +
-                "r = @logged_user)\r\nORDER BY nombre ";
+            this._commandCollection[1].CommandText = "DELETE FROM cuentas\r\nWHERE    (id = @id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@logged_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT   id, nombre, saldo, fec_crea, id_user\r\nFROM      cuentas\r\nWHERE   (id_use" +
-                "r = @logged_user)\r\nORDER BY saldo desc";
+                "r = @logged_user)\r\nORDER BY nombre ";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@logged_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT    id, nombre, saldo, fec_crea, id_user\r\nFROM       cuentas\r\nWHERE    (nom" +
-                "bre = @name)";
+            this._commandCollection[3].CommandText = "SELECT   id, nombre, saldo, fec_crea, id_user\r\nFROM      cuentas\r\nWHERE   (id_use" +
+                "r = @logged_user)\r\nORDER BY saldo desc";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@logged_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "INSERT INTO cuentas\r\n                 (id, nombre, saldo, fec_crea, id_user)\r\nVAL" +
-                "UES    (@id,@nombre,@saldo,@fec_crea,@id_user); \r\nSELECT id, nombre, saldo, fec_" +
-                "crea, id_user FROM cuentas WHERE (id = @id)";
+            this._commandCollection[4].CommandText = "SELECT    id, nombre, saldo, fec_crea, id_user\r\nFROM       cuentas\r\nWHERE    (nom" +
+                "bre = @name)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@saldo", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "saldo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fec_crea", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "fec_crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT    MAX(id) AS Expr1\r\nFROM       cuentas";
+            this._commandCollection[5].CommandText = "INSERT INTO cuentas\r\n                 (id, nombre, saldo, fec_crea, id_user)\r\nVAL" +
+                "UES    (@id,@nombre,@saldo,@fec_crea,@id_user); \r\nSELECT id, nombre, saldo, fec_" +
+                "crea, id_user FROM cuentas WHERE (id = @id)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nombre", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "nombre", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@saldo", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "saldo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fec_crea", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "fec_crea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT    SUM(saldo) AS Expr1\r\nFROM       cuentas";
+            this._commandCollection[6].CommandText = "SELECT    MAX(id) AS Expr1\r\nFROM       cuentas";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "SELECT    SUM(saldo) AS Expr1\r\nFROM       cuentas\r\nWHERE    (id = @id) AND (id_us" +
-                "er = @logged_user)";
+            this._commandCollection[7].CommandText = "SELECT    SUM(saldo) AS Expr1\r\nFROM       cuentas";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@logged_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "UPDATE   cuentas\r\nSET          saldo = @saldo\r\nWHERE    (id = @id) AND (id_user =" +
-                " @id_logged)";
+            this._commandCollection[8].CommandText = "SELECT    SUM(saldo) AS Expr1\r\nFROM       cuentas\r\nWHERE    (id = @id) AND (id_us" +
+                "er = @logged_user)";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@saldo", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "saldo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_logged", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@logged_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = "UPDATE   cuentas\r\nSET          saldo = @saldo\r\nWHERE    (id = @id) AND (id_user =" +
+                " @id_logged)";
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@saldo", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "saldo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_logged", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2700,7 +2713,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByAccountName(EXPENSE_MANAGERDataSet.cuentasDataTable dataTable, int logged_user) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(logged_user));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2714,7 +2727,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual EXPENSE_MANAGERDataSet.cuentasDataTable GetDataByAccountName(int logged_user) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(logged_user));
             EXPENSE_MANAGERDataSet.cuentasDataTable dataTable = new EXPENSE_MANAGERDataSet.cuentasDataTable();
             this.Adapter.Fill(dataTable);
@@ -2726,7 +2739,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByAccountSaldoDesc(EXPENSE_MANAGERDataSet.cuentasDataTable dataTable, int logged_user) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(logged_user));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2740,7 +2753,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual EXPENSE_MANAGERDataSet.cuentasDataTable GetDataBy3(int logged_user) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(logged_user));
             EXPENSE_MANAGERDataSet.cuentasDataTable dataTable = new EXPENSE_MANAGERDataSet.cuentasDataTable();
             this.Adapter.Fill(dataTable);
@@ -2752,7 +2765,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByExistence(EXPENSE_MANAGERDataSet.cuentasDataTable dataTable, string name) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
@@ -2771,7 +2784,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual EXPENSE_MANAGERDataSet.cuentasDataTable GetDataBy6(string name) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
@@ -2926,9 +2939,33 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(int id) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(id));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery(int id, string nombre, decimal saldo, System.DateTime fec_crea, int id_user) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             command.Parameters[0].Value = ((int)(id));
             if ((nombre == null)) {
                 throw new global::System.ArgumentNullException("nombre");
@@ -2960,7 +2997,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<int> MaxIdScalarQuery() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2988,7 +3025,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<decimal> SumSaldoAllAccounts() {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3016,7 +3053,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<decimal> SumSaldoSelectedAccount(int id, int logged_user) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
             command.Parameters[0].Value = ((int)(id));
             command.Parameters[1].Value = ((int)(logged_user));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
@@ -3047,7 +3084,7 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery(decimal saldo, int id, int id_logged) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[8];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[9];
             command.Parameters[0].Value = ((decimal)(saldo));
             command.Parameters[1].Value = ((int)(id));
             command.Parameters[2].Value = ((int)(id_logged));

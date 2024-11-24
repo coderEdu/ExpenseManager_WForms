@@ -69,7 +69,7 @@
             // pbxCoinPlus
             // 
             this.pbxCoinPlus.Image = global::ExpenseManager.Properties.Resources.Awicons_Vista_Artistic_Coin_add_48;
-            this.pbxCoinPlus.Location = new System.Drawing.Point(255, 3);
+            this.pbxCoinPlus.Location = new System.Drawing.Point(265, 3);
             this.pbxCoinPlus.Name = "pbxCoinPlus";
             this.pbxCoinPlus.Size = new System.Drawing.Size(49, 57);
             this.pbxCoinPlus.TabIndex = 5;
