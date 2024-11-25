@@ -12,6 +12,18 @@
     <Shape ID="DesignTable:usuarios" ZOrder="5" X="198" Y="-17" Height="262" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="117" />
   </Shapes>
   <Connectors>
+    <Connector ID="DesignRelation:FK_movimientos_cuentas" ZOrder="1" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>651</X>
+          <Y>260</Y>
+        </Point>
+        <Point>
+          <X>651</X>
+          <Y>299</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
     <Connector ID="DesignRelation:FK_cuentas_usuarios" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
@@ -65,18 +77,6 @@
         <Point>
           <X>222</X>
           <Y>291</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:FK_movimientos_cuentas" ZOrder="1" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>651</X>
-          <Y>260</Y>
-        </Point>
-        <Point>
-          <X>651</X>
-          <Y>299</Y>
         </Point>
       </RoutePoints>
     </Connector>

@@ -24,6 +24,34 @@ namespace ExpenseManager
             InitializeComponent();
         }
 
+        private string GetSaldoAccount(int id_account)
+        {
+            // testing function
+            //
+            decimal? total = 0;
+            if (this.moviTableAdapter.SumMontoScalarQuery("dep", id_account, Auxiliar.id_logged) != null)
+            {
+                total += this.moviTableAdapter.SumMontoScalarQuery("dep", id_account, Auxiliar.id_logged);
+            }
+
+            if (this.moviTableAdapter.SumMontoScalarQuery("rec", id_account, Auxiliar.id_logged) != null)
+            {
+                total += this.moviTableAdapter.SumMontoScalarQuery("rec", id_account, Auxiliar.id_logged);
+            }
+
+            if (this.moviTableAdapter.SumMontoScalarQuery("tra", id_account, Auxiliar.id_logged) != null)
+            {
+                total -= this.moviTableAdapter.SumMontoScalarQuery("tra", id_account, Auxiliar.id_logged);
+            }
+
+            if (this.moviTableAdapter.SumMontoScalarQuery("ext", id_account, Auxiliar.id_logged) != null)
+            {
+                total -= this.moviTableAdapter.SumMontoScalarQuery("ext", id_account, Auxiliar.id_logged);
+            }
+
+            return total.ToString();
+        }
+
         private void Main_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.movi' table. You can move, or remove it, as needed.

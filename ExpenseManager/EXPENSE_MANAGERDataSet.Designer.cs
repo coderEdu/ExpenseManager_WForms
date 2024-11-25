@@ -3296,7 +3296,7 @@ SELECT id, fecha, tipo, monto, saldo_cuenta, concepto, id_usuario, id_cuenta FRO
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, fecha, tipo, monto, saldo_cuenta, concepto, id_usuario, id_cuenta FROM" +
@@ -3336,6 +3336,14 @@ SELECT id, fecha, tipo, monto, saldo_cuenta, concepto, id_usuario, id_cuenta FRO
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT    MAX(id) AS MaxId\r\nFROM       movimientos";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "SELECT    SUM(monto) AS Expr1\r\nFROM       movimientos\r\nWHERE    (tipo = @tipo) AN" +
+                "D (id_cuenta = @id_account) AND (id_usuario = @id_logged)";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipo", global::System.Data.SqlDbType.NChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_account", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_cuenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_logged", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3674,6 +3682,42 @@ SELECT id, fecha, tipo, monto, saldo_cuenta, concepto, id_usuario, id_cuenta FRO
             }
             else {
                 return ((object)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual global::System.Nullable<decimal> SumMontoScalarQuery(string tipo, int id_account, int id_logged) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            if ((tipo == null)) {
+                throw new global::System.ArgumentNullException("tipo");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(tipo));
+            }
+            command.Parameters[1].Value = ((int)(id_account));
+            command.Parameters[2].Value = ((int)(id_logged));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return new global::System.Nullable<decimal>();
+            }
+            else {
+                return new global::System.Nullable<decimal>(((decimal)(returnValue)));
             }
         }
     }
