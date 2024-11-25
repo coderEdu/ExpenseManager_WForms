@@ -194,6 +194,7 @@ namespace ExpenseManager
             if (this.Txt_display.Text.Length > 0)
             {
                 this.Txt_display.Text = this.Txt_display.Text.Remove(this.Txt_display.Text.Length - 1);
+                this.decimalCounter--;
             }
         }
 
