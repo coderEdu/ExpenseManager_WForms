@@ -58,7 +58,7 @@ namespace ExpenseManager
             }
         }
 
-        private void Deposit(int montoIngresado)
+        private void Deposit(decimal montoIngresado)
         {
             try   // making a deposit
             {
@@ -73,13 +73,13 @@ namespace ExpenseManager
                     MessageBox.Show("Depósito realizado con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     saldo += Convert.ToDecimal(montoIngresado);
                     this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
-                    //FileManager.WriteFile("Updated.txt", "1");
+                    //FileManager.WriteFile("Updated.txt", ",");
                 }
             }
             catch (SqlException ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void Withdraw(int montoIngresado)
+        private void Withdraw(decimal montoIngresado)
         {
             try   // making a withdraw
             {
@@ -109,7 +109,7 @@ namespace ExpenseManager
                         MessageBox.Show("Extracción realizada con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         saldo -= Convert.ToDecimal(montoIngresado);
                         this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
-                        //FileManager.WriteFile("Updated.txt", "1");
+                        //FileManager.WriteFile("Updated.txt", ",");
                     }
                 }
             }
@@ -126,8 +126,7 @@ namespace ExpenseManager
                 return;
             }
 
-            int montoIngresado = 0;
-            _ = Int32.TryParse(this.Txt_display.Text, out montoIngresado);  // parsing from string to int
+            decimal montoIngresado = Convert.ToDecimal(this.Txt_display.Text);
 
             if (montoIngresado <= 0)
                 return;
@@ -144,11 +143,11 @@ namespace ExpenseManager
             {
                 Deposit(montoIngresado);
             }
-            else  
+            else
             {
                 Withdraw(montoIngresado);
             }
-
+            //MessageBox.Show(montoIngresado.ToString());
             this.Close();
         }
 
@@ -158,23 +157,24 @@ namespace ExpenseManager
                 this.btn_trans.PerformClick();
         }
 
-        private void Btn0_Click(object sender, EventArgs e)
+        private void Buttons_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            if (button.Text == "0")
+
+            if (this.Txt_display.Text.Length == 0)
             {
-                if (this.Txt_display.Text.Length == 0 && !this.Txt_display.Text.Contains("."))
+                if (button.Text == ",")
                 {
-                    this.Txt_display.Text = "0.";
+                    this.Txt_display.Text = "0,";                   
                 }
                 else
                 {
-                    this.Txt_display.Text += "0";
+                    this.Txt_display.Text += button.Text;
                 }
             }
             else
             {
-                if (this.Txt_display.Text.Contains("."))
+                if (this.Txt_display.Text.Contains(","))
                 {
                     if (this.decimalCounter < 2)
                     {
@@ -194,7 +194,10 @@ namespace ExpenseManager
             if (this.Txt_display.Text.Length > 0)
             {
                 this.Txt_display.Text = this.Txt_display.Text.Remove(this.Txt_display.Text.Length - 1);
-                this.decimalCounter--;
+                if (decimalCounter > 0)
+                {
+                    this.decimalCounter--;
+                }
             }
         }
 
@@ -205,11 +208,11 @@ namespace ExpenseManager
 
         private void Btn_point_Click(object sender, EventArgs e)
         {
-            if (this.Txt_display.Text.Length > 0 || this.Txt_display.Text == "0")
+            if (this.Txt_display.Text.Length > 0)
             {
-                if (!this.Txt_display.Text.Contains("."))
+                if (!this.Txt_display.Text.Contains(","))
                 {
-                    this.Txt_display.Text += ".";
+                    this.Txt_display.Text += ",";
                 }
             }
         }
