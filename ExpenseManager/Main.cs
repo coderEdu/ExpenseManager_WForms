@@ -24,34 +24,6 @@ namespace ExpenseManager
             InitializeComponent();
         }
 
-        private string GetSaldoAccount(int id_account)
-        {
-            // testing function
-            //
-            decimal? total = 0;
-            if (this.moviTableAdapter.SumMontoScalarQuery("dep", id_account, Auxiliar.id_logged) != null)
-            {
-                total += this.moviTableAdapter.SumMontoScalarQuery("dep", id_account, Auxiliar.id_logged);
-            }
-
-            if (this.moviTableAdapter.SumMontoScalarQuery("rec", id_account, Auxiliar.id_logged) != null)
-            {
-                total += this.moviTableAdapter.SumMontoScalarQuery("rec", id_account, Auxiliar.id_logged);
-            }
-
-            if (this.moviTableAdapter.SumMontoScalarQuery("tra", id_account, Auxiliar.id_logged) != null)
-            {
-                total -= this.moviTableAdapter.SumMontoScalarQuery("tra", id_account, Auxiliar.id_logged);
-            }
-
-            if (this.moviTableAdapter.SumMontoScalarQuery("ext", id_account, Auxiliar.id_logged) != null)
-            {
-                total -= this.moviTableAdapter.SumMontoScalarQuery("ext", id_account, Auxiliar.id_logged);
-            }
-
-            return total.ToString();
-        }
-
         private void Main_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.movi' table. You can move, or remove it, as needed.
@@ -131,9 +103,14 @@ namespace ExpenseManager
         private void ConsultingSelectedAccountProps()
         {
             int selectedIdx = this.cbx_accounts.SelectedIndex;
+            int id_selected_account = Convert.ToInt32(this.cbx_accounts.SelectedValue);
             try
             {
-                this.lbl_saldo.Text = "$ " + this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2).ToString();
+                //this.lbl_saldo.Text = "$ " + this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2).ToString();
+                this.lbl_saldo.Text = "$ " + Auxiliar.GetSaldoAccount(this.moviTableAdapter, id_selected_account);
+                //MessageBox.Show(this.cbx_accounts.SelectedValue.ToString());
+                //decimal d = Convert.ToDecimal(this.cbx_accounts.SelectedValue);
+                //this.Text = d.ToString();
             }
             catch (Exception) { }
         }

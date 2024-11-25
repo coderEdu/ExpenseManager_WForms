@@ -35,5 +35,33 @@ namespace ExpenseManager
         {
             return "*/ Este texto se crea automáticamente cada vez que usted realiza un depósito o una extracción en modo correctivo mediante el código < $correctivo > /*";
         }
+
+        public static decimal? GetSaldoAccount(EXPENSE_MANAGERDataSetTableAdapters.movimientosTableAdapter movi, int id_account)
+        {
+            // testing function
+            //
+            decimal? total = 0;
+            if (movi.SumMontoScalarQuery("dep", id_account, Auxiliar.id_logged) != null)
+            {
+                total += movi.SumMontoScalarQuery("dep", id_account, Auxiliar.id_logged);
+            }
+
+            if (movi.SumMontoScalarQuery("rec", id_account, Auxiliar.id_logged) != null)
+            {
+                total += movi.SumMontoScalarQuery("rec", id_account, Auxiliar.id_logged);
+            }
+
+            if (movi.SumMontoScalarQuery("tra", id_account, Auxiliar.id_logged) != null)
+            {
+                total -= movi.SumMontoScalarQuery("tra", id_account, Auxiliar.id_logged);
+            }
+
+            if (movi.SumMontoScalarQuery("ext", id_account, Auxiliar.id_logged) != null)
+            {
+                total -= movi.SumMontoScalarQuery("ext", id_account, Auxiliar.id_logged);
+            }
+
+            return total;
+        }
     }
 }

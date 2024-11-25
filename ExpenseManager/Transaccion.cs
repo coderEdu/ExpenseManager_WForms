@@ -64,13 +64,13 @@ namespace ExpenseManager
                 int id = Convert.ToInt32(this.moviTableAdapter2.MaxIdScalarQuery()) + 1;
                 int selectedIdx = this.cbx_accounts.SelectedIndex;
                 int accountIdx = (int)this.cbx_accounts.SelectedValue;  // id of the account
-                decimal saldo = this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2);
-                int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "dep", Convert.ToDecimal(montoIngresado), saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
+                decimal? saldo = Auxiliar.GetSaldoAccount(this.moviTableAdapter2, accountIdx);
+                int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "dep", Convert.ToDecimal(montoIngresado), (decimal)saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
                 if (insert_result > 0)
                 {
                     MessageBox.Show("Depósito realizado con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     saldo += Convert.ToDecimal(montoIngresado);
-                    this.cuentasTableAdapter.UpdateQuery(saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
+                    this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
                     //FileManager.WriteFile("Updated.txt", "1");
                 }
             }
@@ -85,7 +85,7 @@ namespace ExpenseManager
                 int id = Convert.ToInt32(this.moviTableAdapter2.MaxIdScalarQuery()) + 1;
                 int selectedIdx = this.cbx_accounts.SelectedIndex;
                 int accountIdx = (int)this.cbx_accounts.SelectedValue;  // id of the account
-                decimal saldo = this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2);
+                decimal? saldo = Auxiliar.GetSaldoAccount(this.moviTableAdapter2, accountIdx);
 
                 if (montoIngresado > saldo)
                 {
@@ -101,12 +101,12 @@ namespace ExpenseManager
                 }
                 else
                 {
-                    int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "ext", Convert.ToDecimal(montoIngresado), saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
+                    int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "ext", Convert.ToDecimal(montoIngresado), (decimal)saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
                     if (insert_result > 0)
                     {
                         MessageBox.Show("Extracción realizada con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         saldo -= Convert.ToDecimal(montoIngresado);
-                        this.cuentasTableAdapter.UpdateQuery(saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
+                        this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
                         //FileManager.WriteFile("Updated.txt", "1");
                     }
                 }
