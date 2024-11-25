@@ -49,11 +49,11 @@
             this.tStrip_delete_nota = new System.Windows.Forms.ToolStripButton();
             this.tStrip_ver_notas = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_crear_cuenta = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_borrar_cuenta = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_ver_cuentas = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.tStrip_cambiar_clave = new System.Windows.Forms.ToolStripButton();
             this.tStrip_close_sesion = new System.Windows.Forms.ToolStripButton();
             this.cbx_accounts = new System.Windows.Forms.ComboBox();
             this.cuentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -129,11 +129,11 @@
             this.tStrip_delete_nota,
             this.tStrip_ver_notas,
             this.toolStripSeparator2,
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
+            this.tStrip_crear_cuenta,
+            this.tStrip_borrar_cuenta,
+            this.tStrip_ver_cuentas,
             this.toolStripSeparator3,
-            this.toolStripButton4,
+            this.tStrip_cambiar_clave,
             this.tStrip_close_sesion});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -229,48 +229,48 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 52);
             // 
-            // toolStripButton1
+            // tStrip_crear_cuenta
             // 
-            this.toolStripButton1.Image = global::ExpenseManager.Properties.Resources.Awicons_Vista_Artistic_Coin_add_48;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(96, 49);
-            this.toolStripButton1.Text = "Crear cuenta";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.tStrip_crear_cuenta.Image = global::ExpenseManager.Properties.Resources.Awicons_Vista_Artistic_Coin_add_48;
+            this.tStrip_crear_cuenta.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_crear_cuenta.Name = "tStrip_crear_cuenta";
+            this.tStrip_crear_cuenta.Size = new System.Drawing.Size(96, 49);
+            this.tStrip_crear_cuenta.Text = "Crear cuenta";
+            this.tStrip_crear_cuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_crear_cuenta.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // toolStripButton2
+            // tStrip_borrar_cuenta
             // 
-            this.toolStripButton2.Image = global::ExpenseManager.Properties.Resources.Awicons_Vista_Artistic_Coin_delete_48;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(102, 49);
-            this.toolStripButton2.Text = "Borrar cuenta";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.tStrip_borrar_cuenta.Image = global::ExpenseManager.Properties.Resources.Awicons_Vista_Artistic_Coin_delete_48;
+            this.tStrip_borrar_cuenta.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_borrar_cuenta.Name = "tStrip_borrar_cuenta";
+            this.tStrip_borrar_cuenta.Size = new System.Drawing.Size(102, 49);
+            this.tStrip_borrar_cuenta.Text = "Borrar cuenta";
+            this.tStrip_borrar_cuenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_borrar_cuenta.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // toolStripButton3
+            // tStrip_ver_cuentas
             // 
-            this.toolStripButton3.Image = global::ExpenseManager.Properties.Resources.Awicons_Vista_Artistic_Coin_48;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(88, 49);
-            this.toolStripButton3.Text = "Ver cuentas";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_ver_cuentas.Image = global::ExpenseManager.Properties.Resources.Awicons_Vista_Artistic_Coin_48;
+            this.tStrip_ver_cuentas.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_ver_cuentas.Name = "tStrip_ver_cuentas";
+            this.tStrip_ver_cuentas.Size = new System.Drawing.Size(88, 49);
+            this.tStrip_ver_cuentas.Text = "Ver cuentas";
+            this.tStrip_ver_cuentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 52);
             // 
-            // toolStripButton4
+            // tStrip_cambiar_clave
             // 
-            this.toolStripButton4.Image = global::ExpenseManager.Properties.Resources.Fatcow_Farm_Fresh_Set_password_32;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(107, 49);
-            this.toolStripButton4.Text = "Cambiar clave";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_cambiar_clave.Image = global::ExpenseManager.Properties.Resources.Fatcow_Farm_Fresh_Set_password_32;
+            this.tStrip_cambiar_clave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tStrip_cambiar_clave.Name = "tStrip_cambiar_clave";
+            this.tStrip_cambiar_clave.Size = new System.Drawing.Size(107, 49);
+            this.tStrip_cambiar_clave.Text = "Cambiar clave";
+            this.tStrip_cambiar_clave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tStrip_close_sesion
             // 
@@ -590,10 +590,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idusuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcuentaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton tStrip_crear_cuenta;
+        private System.Windows.Forms.ToolStripButton tStrip_borrar_cuenta;
+        private System.Windows.Forms.ToolStripButton tStrip_ver_cuentas;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton tStrip_cambiar_clave;
     }
 }

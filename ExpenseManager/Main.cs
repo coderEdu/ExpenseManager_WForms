@@ -18,10 +18,36 @@ namespace ExpenseManager
         private int accountBalance;
         public double opacity = 0.9;
         public double WinOpacity { get; set; }
+        private int Notes { get; set; }
+        private int Accounts { get; set; }
 
         public Main()
         {
             InitializeComponent();
+        }
+
+        private void ActivOrDeactivButtBar()
+        {
+            bool activate_accounts = Accounts != 0;
+            bool activate_notes = Notes != 0;
+
+            // deposits, withdrawals, etc
+            this.tStrip_deposito.Enabled = activate_accounts;
+            this.tStrip_extraccion.Enabled = activate_accounts;
+            this.tStrip_transfer.Enabled = activate_accounts;
+            this.tStrip_ver_registro.Enabled = activate_accounts;
+
+            // account actions ...
+            this.tStrip_ver_cuentas.Enabled = activate_accounts;
+            this.tStrip_borrar_cuenta.Enabled = activate_accounts;
+
+
+            if (Notes == 0)
+            {
+                this.tStrip_edit_nota.Enabled = activate_notes;
+                this.tStrip_delete_nota.Enabled = activate_notes;
+                this.tStrip_ver_notas.Enabled = activate_notes;
+            }
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -49,13 +75,12 @@ namespace ExpenseManager
             this.dateTimePicker1.Visible = false;
             this.dateTimePicker1.Enabled = true;
             increase = 0;
-            GetLastNotes();
-
         }
 
         public void GetLastNotes()
         {
             int count = this.notasTableAdapter.FillByNotasById_log_desc(this.c_AHORRO_NEW_DS1.notas, Auxiliar.id_logged);
+            this.Notes = count;
             for (int i = 0; i < count; i++)
             {
                 if (this.flp_note.Controls.Count < 8)
@@ -80,6 +105,7 @@ namespace ExpenseManager
                     this.flp_note.Controls.Add(button);
                 }
             }
+            ActivOrDeactivButtBar();
         }
 
         private void Flp_note_ControlAdded(object sender, ControlEventArgs e)
@@ -129,13 +155,17 @@ namespace ExpenseManager
             // capturo el valor de caja del usuario activo y lo guardo en Auxiliar
             //Auxiliar.dineroEnCaja = this.c_AHORRO_NEW_DS1.Tables["login"].Rows[0].Field<int>(3);
 
-            // getting the accounts
+            // getting the Accounts
             try
             {
                 this.accountCount = this.cuentasTableAdapter.FillByAccountSaldoDesc(this.c_AHORRO_NEW_DS1.cuentas, ((int)(System.Convert.ChangeType(Auxiliar.id_logged, typeof(int)))));
                 if (accountCount > 0)
                 {
                     ConsultingSelectedAccountProps();
+                }
+                else
+                {
+                    this.Accounts = accountCount;
                 }
                 
             }
