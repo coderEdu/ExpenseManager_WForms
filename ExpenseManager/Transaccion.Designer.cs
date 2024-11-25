@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.loginTableAdapter1 = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.usuariosTableAdapter();
             this.pnl_container = new System.Windows.Forms.Panel();
+            this.btn_point = new System.Windows.Forms.Button();
             this.btn_correctivo = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btn0 = new System.Windows.Forms.Button();
@@ -50,7 +51,7 @@
             this.btn9 = new System.Windows.Forms.Button();
             this.btn8 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
-            this.txt_trans_monto = new System.Windows.Forms.Label();
+            this.Txt_display = new System.Windows.Forms.Label();
             this.lbl_account = new System.Windows.Forms.Label();
             this.cbx_accounts = new System.Windows.Forms.ComboBox();
             this.cuentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -74,7 +75,7 @@
             this.btn_trans.TabIndex = 2;
             this.btn_trans.Text = "Efectuar";
             this.btn_trans.UseVisualStyleBackColor = false;
-            this.btn_trans.Click += new System.EventHandler(this.btn_trans_Click);
+            this.btn_trans.Click += new System.EventHandler(this.Btn_trans_Click);
             // 
             // lbl_trans
             // 
@@ -131,6 +132,7 @@
             // pnl_container
             // 
             this.pnl_container.BackColor = System.Drawing.Color.White;
+            this.pnl_container.Controls.Add(this.btn_point);
             this.pnl_container.Controls.Add(this.btn_correctivo);
             this.pnl_container.Controls.Add(this.btnDel);
             this.pnl_container.Controls.Add(this.btn0);
@@ -144,13 +146,24 @@
             this.pnl_container.Controls.Add(this.btn8);
             this.pnl_container.Controls.Add(this.btn7);
             this.pnl_container.Controls.Add(this.txt_concepto);
-            this.pnl_container.Controls.Add(this.txt_trans_monto);
+            this.pnl_container.Controls.Add(this.Txt_display);
             this.pnl_container.Controls.Add(this.label1);
             this.pnl_container.Controls.Add(this.lbl_trans);
             this.pnl_container.Location = new System.Drawing.Point(10, 58);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(342, 199);
             this.pnl_container.TabIndex = 0;
+            // 
+            // btn_point
+            // 
+            this.btn_point.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_point.Location = new System.Drawing.Point(253, 148);
+            this.btn_point.Name = "btn_point";
+            this.btn_point.Size = new System.Drawing.Size(32, 32);
+            this.btn_point.TabIndex = 21;
+            this.btn_point.Text = ".";
+            this.btn_point.UseVisualStyleBackColor = true;
+            this.btn_point.Click += new System.EventHandler(this.Btn_point_Click);
             // 
             // btn_correctivo
             // 
@@ -163,7 +176,7 @@
             this.btn_correctivo.TabIndex = 20;
             this.btn_correctivo.Text = "C";
             this.btn_correctivo.UseVisualStyleBackColor = false;
-            this.btn_correctivo.Click += new System.EventHandler(this.btn_correctivo_Click);
+            this.btn_correctivo.Click += new System.EventHandler(this.Btn_correctivo_Click);
             // 
             // btnDel
             // 
@@ -174,18 +187,18 @@
             this.btnDel.TabIndex = 19;
             this.btnDel.Text = "←";
             this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            this.btnDel.Click += new System.EventHandler(this.BtnDel_Click);
             // 
             // btn0
             // 
             this.btn0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn0.Location = new System.Drawing.Point(215, 147);
             this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(70, 32);
+            this.btn0.Size = new System.Drawing.Size(32, 32);
             this.btn0.TabIndex = 17;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = true;
-            this.btn0.Click += new System.EventHandler(this.btn0_Click);
+            this.btn0.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btn3
             // 
@@ -196,7 +209,7 @@
             this.btn3.TabIndex = 16;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = true;
-            this.btn3.Click += new System.EventHandler(this.btn0_Click);
+            this.btn3.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btn2
             // 
@@ -207,7 +220,7 @@
             this.btn2.TabIndex = 15;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = true;
-            this.btn2.Click += new System.EventHandler(this.btn0_Click);
+            this.btn2.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btn1
             // 
@@ -218,7 +231,7 @@
             this.btn1.TabIndex = 14;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
-            this.btn1.Click += new System.EventHandler(this.btn0_Click);
+            this.btn1.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btn6
             // 
@@ -229,7 +242,7 @@
             this.btn6.TabIndex = 13;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = true;
-            this.btn6.Click += new System.EventHandler(this.btn0_Click);
+            this.btn6.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btn5
             // 
@@ -240,7 +253,7 @@
             this.btn5.TabIndex = 12;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = true;
-            this.btn5.Click += new System.EventHandler(this.btn0_Click);
+            this.btn5.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btn4
             // 
@@ -251,7 +264,7 @@
             this.btn4.TabIndex = 11;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
-            this.btn4.Click += new System.EventHandler(this.btn0_Click);
+            this.btn4.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btn9
             // 
@@ -262,7 +275,7 @@
             this.btn9.TabIndex = 10;
             this.btn9.Text = "9";
             this.btn9.UseVisualStyleBackColor = true;
-            this.btn9.Click += new System.EventHandler(this.btn0_Click);
+            this.btn9.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btn8
             // 
@@ -273,7 +286,7 @@
             this.btn8.TabIndex = 9;
             this.btn8.Text = "8";
             this.btn8.UseVisualStyleBackColor = true;
-            this.btn8.Click += new System.EventHandler(this.btn0_Click);
+            this.btn8.Click += new System.EventHandler(this.Btn0_Click);
             // 
             // btn7
             // 
@@ -284,17 +297,18 @@
             this.btn7.TabIndex = 8;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
-            this.btn7.Click += new System.EventHandler(this.btn0_Click);
+            this.btn7.Click += new System.EventHandler(this.Btn0_Click);
             // 
-            // txt_trans_monto
+            // Txt_display
             // 
-            this.txt_trans_monto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_trans_monto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_trans_monto.Location = new System.Drawing.Point(15, 35);
-            this.txt_trans_monto.Name = "txt_trans_monto";
-            this.txt_trans_monto.Size = new System.Drawing.Size(184, 31);
-            this.txt_trans_monto.TabIndex = 7;
-            this.txt_trans_monto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Txt_display.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Txt_display.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txt_display.Location = new System.Drawing.Point(15, 35);
+            this.Txt_display.Name = "Txt_display";
+            this.Txt_display.Size = new System.Drawing.Size(184, 28);
+            this.Txt_display.TabIndex = 7;
+            this.Txt_display.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Txt_display.TextChanged += new System.EventHandler(this.Txt_display_TextChanged);
             // 
             // lbl_account
             // 
@@ -365,7 +379,7 @@
         private System.Windows.Forms.TextBox txt_concepto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnl_container;
-        private System.Windows.Forms.Label txt_trans_monto;
+        private System.Windows.Forms.Label Txt_display;
         private System.Windows.Forms.Button btn7;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btn0;
@@ -382,5 +396,6 @@
         private System.Windows.Forms.ComboBox cbx_accounts;
         private System.Windows.Forms.BindingSource cuentasBindingSource;
         private EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter cuentasTableAdapter;
+        private System.Windows.Forms.Button btn_point;
     }
 }

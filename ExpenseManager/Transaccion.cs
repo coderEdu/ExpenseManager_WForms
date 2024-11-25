@@ -14,6 +14,7 @@ namespace ExpenseManager
     public partial class Transaccion : Form
     {
         private DateTime dateTime;
+        private int decimalCounter;
         public Transaccion()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace ExpenseManager
         private void Transaccion_Load(object sender, EventArgs e)
         {
             dateTime = this.dtp.Value;
+            decimalCounter = 0;
             // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.cuentas' table. You can move, or remove it, as needed.
             this.cuentasTableAdapter.Fill(this.c_AHORRO_NEW_DS1.cuentas);
             c_AHORRO_NEW_DS1.Clear();
@@ -117,15 +119,15 @@ namespace ExpenseManager
             }           
         }
 
-        private void btn_trans_Click(object sender, EventArgs e)
+        private void Btn_trans_Click(object sender, EventArgs e)
         {
-            if (txt_trans_monto.Text == "" || txt_trans_monto.Text == null)
+            if (Txt_display.Text == "" || Txt_display.Text == null)
             {
                 return;
             }
 
             int montoIngresado = 0;
-            _ = Int32.TryParse(this.txt_trans_monto.Text, out montoIngresado);  // parsing from string to int
+            _ = Int32.TryParse(this.Txt_display.Text, out montoIngresado);  // parsing from string to int
 
             if (montoIngresado <= 0)
                 return;
@@ -134,7 +136,7 @@ namespace ExpenseManager
             dR = MessageBox.Show("Confirma la transacción?", "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dR == DialogResult.No)
             {
-                this.txt_trans_monto.Text = "";
+                this.Txt_display.Text = "";
                 return;
             }
 
@@ -150,40 +152,73 @@ namespace ExpenseManager
             this.Close();
         }
 
-        private void txt_trans_monto_KeyPress(object sender, KeyPressEventArgs e)
+        private void Txt_trans_monto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
                 this.btn_trans.PerformClick();
         }
 
-        private void btn0_Click(object sender, EventArgs e)
+        private void Btn0_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             if (button.Text == "0")
             {
-                if (this.txt_trans_monto.Text.Length > 0)
+                if (this.Txt_display.Text.Length == 0 && !this.Txt_display.Text.Contains("."))
                 {
-                    this.txt_trans_monto.Text += button.Text;
+                    this.Txt_display.Text = "0.";
+                }
+                else
+                {
+                    this.Txt_display.Text += "0";
                 }
             }
             else
             {
-                this.txt_trans_monto.Text += button.Text;
+                if (this.Txt_display.Text.Contains("."))
+                {
+                    if (this.decimalCounter < 2)
+                    {
+                        decimalCounter++;
+                        this.Txt_display.Text += button.Text;
+                    }
+                }
+                else
+                {
+                    this.Txt_display.Text += button.Text;
+                }
             }
         }
 
-        private void btnDel_Click(object sender, EventArgs e)
+        private void BtnDel_Click(object sender, EventArgs e)
         {
-            if (this.txt_trans_monto.Text.Length > 0)
+            if (this.Txt_display.Text.Length > 0)
             {
-                this.txt_trans_monto.Text = this.txt_trans_monto.Text.Remove(this.txt_trans_monto.Text.Length - 1);
+                this.Txt_display.Text = this.Txt_display.Text.Remove(this.Txt_display.Text.Length - 1);
             }
         }
 
-        private void btn_correctivo_Click(object sender, EventArgs e)
+        private void Btn_correctivo_Click(object sender, EventArgs e)
         {
             this.txt_concepto.Text = "$correctivo";
         }
 
+        private void Btn_point_Click(object sender, EventArgs e)
+        {
+            if (this.Txt_display.Text.Length > 0 || this.Txt_display.Text == "0")
+            {
+                if (!this.Txt_display.Text.Contains("."))
+                {
+                    this.Txt_display.Text += ".";
+                }
+            }
+        }
+
+        private void Txt_display_TextChanged(object sender, EventArgs e)
+        {
+            if (this.Txt_display.Text.Length == 0)
+            {
+                this.decimalCounter = 0;
+            }
+        }
     }
 }
