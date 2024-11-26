@@ -104,9 +104,7 @@ namespace ExpenseManager
                 this.Balance = (decimal) selected_balance;
                 //this.lbl_saldo.Text = "$ " + this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2).ToString();
                 this.lbl_saldo.Text = "$ " + selected_balance;
-                //MessageBox.Show(this.cbx_accounts.SelectedValue.ToString());
-                //decimal d = Convert.ToDecimal(this.cbx_accounts.SelectedValue);
-                //this.Text = d.ToString();
+                ActivOrDeactivBtnsBar();
             }
             catch (Exception) { }
         }
