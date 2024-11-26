@@ -56,9 +56,11 @@
             this.cbx_accounts = new System.Windows.Forms.ComboBox();
             this.cuentasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cuentasTableAdapter = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter();
+            this.pnl_accounts = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.c_AHORRO_NEW_DS1)).BeginInit();
             this.pnl_container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).BeginInit();
+            this.pnl_accounts.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_trans
@@ -69,7 +71,7 @@
             this.btn_trans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_trans.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_trans.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_trans.Location = new System.Drawing.Point(266, 263);
+            this.btn_trans.Location = new System.Drawing.Point(266, 290);
             this.btn_trans.Name = "btn_trans";
             this.btn_trans.Size = new System.Drawing.Size(86, 29);
             this.btn_trans.TabIndex = 2;
@@ -90,7 +92,7 @@
             // 
             // dtp
             // 
-            this.dtp.Location = new System.Drawing.Point(10, 266);
+            this.dtp.Location = new System.Drawing.Point(10, 297);
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(200, 20);
             this.dtp.TabIndex = 3;
@@ -149,7 +151,7 @@
             this.pnl_container.Controls.Add(this.Txt_display);
             this.pnl_container.Controls.Add(this.label1);
             this.pnl_container.Controls.Add(this.lbl_trans);
-            this.pnl_container.Location = new System.Drawing.Point(10, 58);
+            this.pnl_container.Location = new System.Drawing.Point(10, 81);
             this.pnl_container.Name = "pnl_container";
             this.pnl_container.Size = new System.Drawing.Size(342, 199);
             this.pnl_container.TabIndex = 0;
@@ -314,7 +316,7 @@
             // 
             this.lbl_account.AutoSize = true;
             this.lbl_account.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_account.Location = new System.Drawing.Point(9, 20);
+            this.lbl_account.Location = new System.Drawing.Point(15, 20);
             this.lbl_account.Name = "lbl_account";
             this.lbl_account.Size = new System.Drawing.Size(111, 18);
             this.lbl_account.TabIndex = 30;
@@ -326,9 +328,9 @@
             this.cbx_accounts.DisplayMember = "nombre";
             this.cbx_accounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbx_accounts.FormattingEnabled = true;
-            this.cbx_accounts.Location = new System.Drawing.Point(156, 16);
+            this.cbx_accounts.Location = new System.Drawing.Point(155, 17);
             this.cbx_accounts.Name = "cbx_accounts";
-            this.cbx_accounts.Size = new System.Drawing.Size(196, 26);
+            this.cbx_accounts.Size = new System.Drawing.Size(170, 26);
             this.cbx_accounts.TabIndex = 29;
             this.cbx_accounts.ValueMember = "id";
             // 
@@ -341,14 +343,23 @@
             // 
             this.cuentasTableAdapter.ClearBeforeFill = true;
             // 
+            // pnl_accounts
+            // 
+            this.pnl_accounts.BackColor = System.Drawing.Color.White;
+            this.pnl_accounts.Controls.Add(this.cbx_accounts);
+            this.pnl_accounts.Controls.Add(this.lbl_account);
+            this.pnl_accounts.Location = new System.Drawing.Point(10, 10);
+            this.pnl_accounts.Name = "pnl_accounts";
+            this.pnl_accounts.Size = new System.Drawing.Size(342, 61);
+            this.pnl_accounts.TabIndex = 31;
+            // 
             // Transaccion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(247)))), ((int)(((byte)(247)))));
-            this.ClientSize = new System.Drawing.Size(363, 302);
-            this.Controls.Add(this.lbl_account);
-            this.Controls.Add(this.cbx_accounts);
+            this.ClientSize = new System.Drawing.Size(363, 329);
+            this.Controls.Add(this.pnl_accounts);
             this.Controls.Add(this.dtp);
             this.Controls.Add(this.btn_trans);
             this.Controls.Add(this.pnl_container);
@@ -363,8 +374,9 @@
             this.pnl_container.ResumeLayout(false);
             this.pnl_container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).EndInit();
+            this.pnl_accounts.ResumeLayout(false);
+            this.pnl_accounts.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -397,5 +409,6 @@
         private System.Windows.Forms.BindingSource cuentasBindingSource;
         private EXPENSE_MANAGERDataSetTableAdapters.cuentasTableAdapter cuentasTableAdapter;
         private System.Windows.Forms.Button btn_point;
+        private System.Windows.Forms.Panel pnl_accounts;
     }
 }

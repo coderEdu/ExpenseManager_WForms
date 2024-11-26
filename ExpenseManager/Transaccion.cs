@@ -25,7 +25,7 @@ namespace ExpenseManager
             dateTime = this.dtp.Value;
             decimalCounter = 0;
             // TODO: This line of code loads data into the 'c_AHORRO_NEW_DS1.cuentas' table. You can move, or remove it, as needed.
-            this.cuentasTableAdapter.Fill(this.c_AHORRO_NEW_DS1.cuentas);
+            //this.cuentasTableAdapter.Fill(this.c_AHORRO_NEW_DS1.cuentas);
             c_AHORRO_NEW_DS1.Clear();
             try
             {
