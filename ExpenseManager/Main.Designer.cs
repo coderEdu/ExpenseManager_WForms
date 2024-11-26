@@ -528,6 +528,7 @@
             this.Controls.Add(this.cbx_accounts);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dateTimePicker1);
+            this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expense Manager --";
