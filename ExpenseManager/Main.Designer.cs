@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -62,6 +64,15 @@
             this.lbl_saldo = new System.Windows.Forms.Label();
             this.lbl_for_saldo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eXPENSE_MANAGER_DS2 = new ExpenseManager.EXPENSE_MANAGER_DS2();
+            this.lbl_last_movs = new System.Windows.Forms.Label();
+            this.lbl_last_notes = new System.Windows.Forms.Label();
+            this.flp_note = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.movimientosTableAdapter = new ExpenseManager.EXPENSE_MANAGER_DS2TableAdapters.movimientosTableAdapter();
+            this.eXPENSEMANAGERDS2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.movimientosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,10 +81,7 @@
             this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lbl_last_movs = new System.Windows.Forms.Label();
-            this.lbl_last_notes = new System.Windows.Forms.Label();
-            this.flp_note = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.moviBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_AHORRO_NEW_DS1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -83,6 +91,10 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGER_DS2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSEMANAGERDS2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -324,7 +336,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.lbl_last_notes);
             this.splitContainer1.Panel2.Controls.Add(this.flp_note);
             this.splitContainer1.Size = new System.Drawing.Size(1273, 542);
-            this.splitContainer1.SplitterDistance = 836;
+            this.splitContainer1.SplitterDistance = 704;
             this.splitContainer1.TabIndex = 27;
             // 
             // lbl_saldo
@@ -332,7 +344,7 @@
             this.lbl_saldo.Font = new System.Drawing.Font("Caladea", 44F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_saldo.Location = new System.Drawing.Point(63, 63);
             this.lbl_saldo.Name = "lbl_saldo";
-            this.lbl_saldo.Size = new System.Drawing.Size(725, 72);
+            this.lbl_saldo.Size = new System.Drawing.Size(352, 72);
             this.lbl_saldo.TabIndex = 1;
             this.lbl_saldo.Text = "$ 50.000";
             // 
@@ -369,34 +381,102 @@
             this.saldocuentaDataGridViewTextBoxColumn,
             this.conceptoDataGridViewTextBoxColumn,
             this.idusuarioDataGridViewTextBoxColumn,
-            this.idcuentaDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.moviBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.idcuentaDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.movimientosBindingSource1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 63);
+            this.dataGridView1.Location = new System.Drawing.Point(24, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 45;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(389, 139);
+            this.dataGridView1.Size = new System.Drawing.Size(521, 139);
             this.dataGridView1.TabIndex = 26;
             this.dataGridView1.TabStop = false;
+            // 
+            // movimientosBindingSource
+            // 
+            this.movimientosBindingSource.DataMember = "movimientos";
+            this.movimientosBindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
+            // 
+            // eXPENSE_MANAGER_DS2
+            // 
+            this.eXPENSE_MANAGER_DS2.DataSetName = "EXPENSE_MANAGER_DS2";
+            this.eXPENSE_MANAGER_DS2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lbl_last_movs
+            // 
+            this.lbl_last_movs.AutoSize = true;
+            this.lbl_last_movs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_last_movs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_last_movs.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_last_movs.Location = new System.Drawing.Point(20, 26);
+            this.lbl_last_movs.Name = "lbl_last_movs";
+            this.lbl_last_movs.Size = new System.Drawing.Size(165, 20);
+            this.lbl_last_movs.TabIndex = 25;
+            this.lbl_last_movs.Text = "Últimos Movimientos";
+            // 
+            // lbl_last_notes
+            // 
+            this.lbl_last_notes.AutoSize = true;
+            this.lbl_last_notes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_last_notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_last_notes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_last_notes.Location = new System.Drawing.Point(20, 240);
+            this.lbl_last_notes.Name = "lbl_last_notes";
+            this.lbl_last_notes.Size = new System.Drawing.Size(115, 20);
+            this.lbl_last_notes.TabIndex = 28;
+            this.lbl_last_notes.Text = "Últimas Notas";
+            // 
+            // flp_note
+            // 
+            this.flp_note.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flp_note.Location = new System.Drawing.Point(24, 265);
+            this.flp_note.Name = "flp_note";
+            this.flp_note.Size = new System.Drawing.Size(389, 232);
+            this.flp_note.TabIndex = 27;
+            this.flp_note.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Flp_note_ControlAdded);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 20);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Tus cuentas:";
+            // 
+            // movimientosTableAdapter
+            // 
+            this.movimientosTableAdapter.ClearBeforeFill = true;
+            // 
+            // eXPENSEMANAGERDS2BindingSource
+            // 
+            this.eXPENSEMANAGERDS2BindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
+            this.eXPENSEMANAGERDS2BindingSource.Position = 0;
+            // 
+            // movimientosBindingSource1
+            // 
+            this.movimientosBindingSource1.DataMember = "movimientos";
+            this.movimientosBindingSource1.DataSource = this.eXPENSEMANAGERDS2BindingSource;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -429,20 +509,27 @@
             // montoDataGridViewTextBoxColumn
             // 
             this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.montoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.montoDataGridViewTextBoxColumn.HeaderText = "monto";
             this.montoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
             this.montoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.montoDataGridViewTextBoxColumn.Width = 112;
+            this.montoDataGridViewTextBoxColumn.Width = 115;
             // 
             // saldocuentaDataGridViewTextBoxColumn
             // 
             this.saldocuentaDataGridViewTextBoxColumn.DataPropertyName = "saldo_cuenta";
-            this.saldocuentaDataGridViewTextBoxColumn.HeaderText = "saldo_ant";
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.saldocuentaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.saldocuentaDataGridViewTextBoxColumn.HeaderText = "saldo";
             this.saldocuentaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.saldocuentaDataGridViewTextBoxColumn.Name = "saldocuentaDataGridViewTextBoxColumn";
             this.saldocuentaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saldocuentaDataGridViewTextBoxColumn.Width = 112;
+            this.saldocuentaDataGridViewTextBoxColumn.ToolTipText = "Saldo de la cuenta al momento de la transacción";
+            this.saldocuentaDataGridViewTextBoxColumn.Width = 115;
             // 
             // conceptoDataGridViewTextBoxColumn
             // 
@@ -474,48 +561,14 @@
             this.idcuentaDataGridViewTextBoxColumn.Visible = false;
             this.idcuentaDataGridViewTextBoxColumn.Width = 112;
             // 
-            // lbl_last_movs
+            // nombreDataGridViewTextBoxColumn
             // 
-            this.lbl_last_movs.AutoSize = true;
-            this.lbl_last_movs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_last_movs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_last_movs.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_last_movs.Location = new System.Drawing.Point(20, 37);
-            this.lbl_last_movs.Name = "lbl_last_movs";
-            this.lbl_last_movs.Size = new System.Drawing.Size(165, 20);
-            this.lbl_last_movs.TabIndex = 25;
-            this.lbl_last_movs.Text = "Últimos Movimientos";
-            // 
-            // lbl_last_notes
-            // 
-            this.lbl_last_notes.AutoSize = true;
-            this.lbl_last_notes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_last_notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_last_notes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_last_notes.Location = new System.Drawing.Point(20, 251);
-            this.lbl_last_notes.Name = "lbl_last_notes";
-            this.lbl_last_notes.Size = new System.Drawing.Size(115, 20);
-            this.lbl_last_notes.TabIndex = 28;
-            this.lbl_last_notes.Text = "Últimas Notas";
-            // 
-            // flp_note
-            // 
-            this.flp_note.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flp_note.Location = new System.Drawing.Point(24, 276);
-            this.flp_note.Name = "flp_note";
-            this.flp_note.Size = new System.Drawing.Size(389, 232);
-            this.flp_note.TabIndex = 27;
-            this.flp_note.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Flp_note_ControlAdded);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 20);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Tus cuentas:";
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 125;
             // 
             // Main
             // 
@@ -548,6 +601,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGER_DS2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSEMANAGERDS2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -583,6 +640,16 @@
         private System.Windows.Forms.ToolStripButton tStrip_ver_registro;
         private System.Windows.Forms.Label lbl_saldo;
         private System.Windows.Forms.Label lbl_for_saldo;
+        private System.Windows.Forms.ToolStripButton tStrip_crear_cuenta;
+        private System.Windows.Forms.ToolStripButton tStrip_borrar_cuenta;
+        private System.Windows.Forms.ToolStripButton tStrip_ver_cuentas;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton tStrip_cambiar_clave;
+        private System.Windows.Forms.BindingSource movimientosBindingSource;
+        private EXPENSE_MANAGER_DS2 eXPENSE_MANAGER_DS2;
+        private EXPENSE_MANAGER_DS2TableAdapters.movimientosTableAdapter movimientosTableAdapter;
+        private System.Windows.Forms.BindingSource movimientosBindingSource1;
+        private System.Windows.Forms.BindingSource eXPENSEMANAGERDS2BindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
@@ -591,10 +658,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn conceptoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idusuarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcuentaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripButton tStrip_crear_cuenta;
-        private System.Windows.Forms.ToolStripButton tStrip_borrar_cuenta;
-        private System.Windows.Forms.ToolStripButton tStrip_ver_cuentas;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripButton tStrip_cambiar_clave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
     }
 }

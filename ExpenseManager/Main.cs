@@ -148,7 +148,7 @@ namespace ExpenseManager
             // getting the last five movements of the user
             try
             {
-                int movs = this.moviTableAdapter.FillByLastFiveMovs(this.c_AHORRO_NEW_DS1.movimientos, Auxiliar.id_logged);
+                int movs = this.movimientosTableAdapter.FillByLastFiveMovsPlusAccountName(this.eXPENSE_MANAGER_DS2.movimientos, Auxiliar.id_logged);
                 this.Movements = movs;
                 ActivOrDeactivBtnsBar();
             }
