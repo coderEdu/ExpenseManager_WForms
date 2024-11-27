@@ -26,6 +26,7 @@ namespace ExpenseManager
 
         private void Login_Load(object sender, EventArgs e)
         {
+            this.usuariosTableAdapter1.Fill(expensE_MANAGERDataSet1.usuarios);
             //string fileName = "Exported.txt";
             //FileManager.WriteFile(fileName, "1");
             //MessageBox.Show(FileManager.ReadFile(fileName));
@@ -63,25 +64,24 @@ namespace ExpenseManager
             this.Location = new Point(scrDimH / 2 - this.ClientRectangle.Width / 2, scrDimV / 2 - this.ClientRectangle.Height / 2);
             this.btn_crea_usuario.Visible = false;
             increase = 0;
-            this.txt_usuario.Clear();
             this.txt_contrasegna.Clear();
             this.txt_usuario.Focus();
         }
 
         private void TextBoxes_GotFocus(object sender, EventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-            if (textBox.TextLength > 0)
-            {
-                textBox.SelectAll();
-            }
+            //TextBox textBox = (TextBox)sender;
+            //if (textBox.TextLength > 0)
+            //{
+            //    textBox.SelectAll();
+            //}
         }
 
         private void Btn_login_Click(object sender, EventArgs e)
         {
-            if (this.txt_usuario.TextLength == 0 || this.txt_contrasegna.TextLength == 0)
+            if (this.txt_contrasegna.TextLength == 0)
             {
-                MessageBox.Show("Hay al menos un campo vacío.\nDebe completar los dos campos para ingresar");
+                MessageBox.Show("Debe ingresar una contraseña para poder iniciar sesión","Expense Manager - 🗝️ Login",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
             else
             {
@@ -89,7 +89,7 @@ namespace ExpenseManager
                 {
                     //Auxiliar.admin.Show();
                     //Auxiliar.login.Hide();
-                    MessageBox.Show("The admin panel is under construction!");
+                    MessageBox.Show("Sorry! the admin panel is under construction yet!");
                 }            
                 else if (Convert.ToInt32(this.usuariosTableAdapter1.ScalarQuery(this.txt_usuario.Text, this.txt_contrasegna.Text)) == 1)
                 {

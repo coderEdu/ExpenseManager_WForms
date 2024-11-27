@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txt_usuario = new System.Windows.Forms.TextBox();
+            this.txt_usuario = new System.Windows.Forms.ComboBox();
+            this.usuariosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.expensE_MANAGERDataSet1 = new ExpenseManager.EXPENSE_MANAGERDataSet();
             this.txt_contrasegna = new System.Windows.Forms.TextBox();
             this.btn_login = new System.Windows.Forms.Button();
             this.btn_crea_usuario = new System.Windows.Forms.Button();
@@ -48,29 +50,42 @@
             this.tabP_inicio = new System.Windows.Forms.TabPage();
             this.tabP_nuevo = new System.Windows.Forms.TabPage();
             this.progress = new System.Windows.Forms.ProgressBar();
-            this.expensE_MANAGERDataSet1 = new ExpenseManager.EXPENSE_MANAGERDataSet();
             this.usuariosTableAdapter1 = new ExpenseManager.EXPENSE_MANAGERDataSetTableAdapters.usuariosTableAdapter();
             this.pbx_login = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensE_MANAGERDataSet1)).BeginInit();
             this.tab_sesion.SuspendLayout();
             this.tabP_inicio.SuspendLayout();
             this.tabP_nuevo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.expensE_MANAGERDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_login)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_usuario
             // 
             this.txt_usuario.BackColor = System.Drawing.Color.White;
-            this.txt_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_usuario.Font = new System.Drawing.Font("Segoe UI Emoji", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_usuario.DataSource = this.usuariosBindingSource;
+            this.txt_usuario.DisplayMember = "usuario";
+            this.txt_usuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txt_usuario.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.txt_usuario.Font = new System.Drawing.Font("Segoe UI Emoji", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_usuario.ForeColor = System.Drawing.Color.Black;
             this.txt_usuario.Location = new System.Drawing.Point(58, 68);
             this.txt_usuario.MaxLength = 25;
             this.txt_usuario.Name = "txt_usuario";
-            this.txt_usuario.Size = new System.Drawing.Size(256, 30);
+            this.txt_usuario.Size = new System.Drawing.Size(256, 28);
             this.txt_usuario.TabIndex = 0;
-            this.txt_usuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txt_usuario.ValueMember = "id";
             this.txt_usuario.GotFocus += new System.EventHandler(this.TextBoxes_GotFocus);
+            // 
+            // usuariosBindingSource
+            // 
+            this.usuariosBindingSource.DataMember = "usuarios";
+            this.usuariosBindingSource.DataSource = this.expensE_MANAGERDataSet1;
+            // 
+            // expensE_MANAGERDataSet1
+            // 
+            this.expensE_MANAGERDataSet1.DataSetName = "EXPENSE_MANAGERDataSet";
+            this.expensE_MANAGERDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txt_contrasegna
             // 
@@ -122,7 +137,7 @@
             this.txt_nuevo_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_nuevo_usuario.Font = new System.Drawing.Font("Segoe UI Emoji", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_nuevo_usuario.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txt_nuevo_usuario.Location = new System.Drawing.Point(58, 69);
+            this.txt_nuevo_usuario.Location = new System.Drawing.Point(58, 68);
             this.txt_nuevo_usuario.MaxLength = 25;
             this.txt_nuevo_usuario.Name = "txt_nuevo_usuario";
             this.txt_nuevo_usuario.Size = new System.Drawing.Size(256, 30);
@@ -159,7 +174,7 @@
             this.txt_pass_nuevo_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_pass_nuevo_usuario.Font = new System.Drawing.Font("Segoe UI Emoji", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_pass_nuevo_usuario.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.txt_pass_nuevo_usuario.Location = new System.Drawing.Point(58, 136);
+            this.txt_pass_nuevo_usuario.Location = new System.Drawing.Point(58, 135);
             this.txt_pass_nuevo_usuario.MaxLength = 25;
             this.txt_pass_nuevo_usuario.Name = "txt_pass_nuevo_usuario";
             this.txt_pass_nuevo_usuario.Size = new System.Drawing.Size(256, 30);
@@ -219,7 +234,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(55, 117);
+            this.label2.Location = new System.Drawing.Point(55, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 16);
             this.label2.TabIndex = 17;
@@ -231,7 +246,7 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(55, 50);
+            this.label3.Location = new System.Drawing.Point(55, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 16;
@@ -302,11 +317,6 @@
             this.progress.Size = new System.Drawing.Size(859, 3);
             this.progress.TabIndex = 22;
             // 
-            // expensE_MANAGERDataSet1
-            // 
-            this.expensE_MANAGERDataSet1.DataSetName = "EXPENSE_MANAGERDataSet";
-            this.expensE_MANAGERDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // usuariosTableAdapter1
             // 
             this.usuariosTableAdapter1.ClearBeforeFill = true;
@@ -342,19 +352,20 @@
             this.Activated += new System.EventHandler(this.Login_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.usuariosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.expensE_MANAGERDataSet1)).EndInit();
             this.tab_sesion.ResumeLayout(false);
             this.tabP_inicio.ResumeLayout(false);
             this.tabP_inicio.PerformLayout();
             this.tabP_nuevo.ResumeLayout(false);
             this.tabP_nuevo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.expensE_MANAGERDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbx_login)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txt_usuario;
+        private System.Windows.Forms.ComboBox txt_usuario;
         private System.Windows.Forms.TextBox txt_contrasegna;
         private System.Windows.Forms.Button btn_login;
         private EXPENSE_MANAGERDataSetTableAdapters.usuariosTableAdapter loginTableAdapter1;
@@ -377,6 +388,7 @@
         private System.Windows.Forms.ProgressBar progress;
         private EXPENSE_MANAGERDataSet expensE_MANAGERDataSet1;
         private EXPENSE_MANAGERDataSetTableAdapters.usuariosTableAdapter usuariosTableAdapter1;
+        private System.Windows.Forms.BindingSource usuariosBindingSource;
         // ******************************** from Caja_ahorro - It isn't useful in this project, at least at the moment **************************************
         //private C_AHORRO_NEW_DSTableAdapters.creadoTableAdapter creadoTableAdapter1;
         //private C_AHORRO_NEW_DSTableAdapters.estadoTableAdapter estadoTableAdapter1;
