@@ -22,6 +22,7 @@ namespace ExpenseManager
         private int Accounts { get; set; }
         private int Movements { get; set; }
         private decimal Balance { get; set; }
+        private int CurrentAccount { get; set; }
 
         public Main()
         {
@@ -127,7 +128,13 @@ namespace ExpenseManager
             try
             {
                 this.accountCount = this.cuentasTableAdapter.FillByAccountSaldoDesc(this.c_AHORRO_NEW_DS1.cuentas, ((int)(System.Convert.ChangeType(Auxiliar.id_logged, typeof(int)))));
-                
+
+                // assigning the last selected account after the form is activated
+                if (this.CurrentAccount > 0)
+                {
+                    this.cbx_accounts.SelectedValue = this.CurrentAccount;
+                }
+
                 if (accountCount > 0)
                 {
                     ConsultingSelectedAccountProps();
@@ -224,6 +231,7 @@ namespace ExpenseManager
 
         private void Main_Deactivate(object sender, EventArgs e)
         {
+            this.CurrentAccount = Convert.ToInt32(this.cbx_accounts.SelectedValue);
             if (this.WinOpacity < 1)
                 this.Opacity = WinOpacity;
         }
