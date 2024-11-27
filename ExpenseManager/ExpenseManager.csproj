@@ -59,6 +59,11 @@
     <Compile Include="DeleteAccount.Designer.cs">
       <DependentUpon>DeleteAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="EXPENSE_MANAGER_DS2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EXPENSE_MANAGER_DS2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="NuevaCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +161,17 @@
     </None>
     <None Include="EXPENSE_MANAGERDataSet.xss">
       <DependentUpon>EXPENSE_MANAGERDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EXPENSE_MANAGER_DS2.xsc">
+      <DependentUpon>EXPENSE_MANAGER_DS2.xsd</DependentUpon>
+    </None>
+    <None Include="EXPENSE_MANAGER_DS2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EXPENSE_MANAGER_DS2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EXPENSE_MANAGER_DS2.xss">
+      <DependentUpon>EXPENSE_MANAGER_DS2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
