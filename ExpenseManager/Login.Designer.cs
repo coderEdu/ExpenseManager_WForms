@@ -275,7 +275,6 @@
             this.tab_sesion.SelectedIndex = 0;
             this.tab_sesion.Size = new System.Drawing.Size(386, 254);
             this.tab_sesion.TabIndex = 21;
-            this.tab_sesion.SelectedIndexChanged += new System.EventHandler(this.Tab_sesion_SelectedIndexChanged);
             this.tab_sesion.Selected += new System.Windows.Forms.TabControlEventHandler(this.Tab_sesion_Selected);
             // 
             // tabP_inicio

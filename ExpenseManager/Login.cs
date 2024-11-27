@@ -26,7 +26,7 @@ namespace ExpenseManager
 
         private void Login_Load(object sender, EventArgs e)
         {
-            this.usuariosTableAdapter1.Fill(expensE_MANAGERDataSet1.usuarios);
+            //this.usuariosTableAdapter1.Fill(expensE_MANAGERDataSet1.usuarios);
             //string fileName = "Exported.txt";
             //FileManager.WriteFile(fileName, "1");
             //MessageBox.Show(FileManager.ReadFile(fileName));
@@ -55,6 +55,7 @@ namespace ExpenseManager
 
         public void LoadingModules()
         {
+            this.usuariosTableAdapter1.Fill(expensE_MANAGERDataSet1.usuarios);
             Auxiliar.main = new Main();
             Auxiliar.admin = new Administrador();
             Auxiliar.login = this;
@@ -199,11 +200,6 @@ namespace ExpenseManager
             //{
             //    MessageBox.Show("No olvide exportar la base de datos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //}
-        }
-
-        private void Tab_sesion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
