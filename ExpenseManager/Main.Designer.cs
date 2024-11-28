@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.moviBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.c_AHORRO_NEW_DS1 = new ExpenseManager.EXPENSE_MANAGERDataSet();
@@ -64,15 +65,15 @@
             this.lbl_saldo = new System.Windows.Forms.Label();
             this.lbl_for_saldo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.movimientosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.eXPENSEMANAGERDS2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eXPENSE_MANAGER_DS2 = new ExpenseManager.EXPENSE_MANAGER_DS2();
             this.lbl_last_movs = new System.Windows.Forms.Label();
             this.lbl_last_notes = new System.Windows.Forms.Label();
             this.flp_note = new System.Windows.Forms.FlowLayoutPanel();
+            this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.movimientosTableAdapter = new ExpenseManager.EXPENSE_MANAGER_DS2TableAdapters.movimientosTableAdapter();
-            this.eXPENSEMANAGERDS2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.movimientosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,10 +92,10 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGER_DS2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eXPENSEMANAGERDS2BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSEMANAGERDS2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGER_DS2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -342,9 +343,9 @@
             // lbl_saldo
             // 
             this.lbl_saldo.Font = new System.Drawing.Font("Caladea", 44F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_saldo.Location = new System.Drawing.Point(63, 63);
+            this.lbl_saldo.Location = new System.Drawing.Point(57, 63);
             this.lbl_saldo.Name = "lbl_saldo";
-            this.lbl_saldo.Size = new System.Drawing.Size(352, 72);
+            this.lbl_saldo.Size = new System.Drawing.Size(591, 72);
             this.lbl_saldo.TabIndex = 1;
             this.lbl_saldo.Text = "$ 50.000";
             // 
@@ -363,14 +364,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeight = 25;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -384,26 +385,26 @@
             this.idcuentaDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.movimientosBindingSource1;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(24, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 45;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -411,10 +412,15 @@
             this.dataGridView1.TabIndex = 26;
             this.dataGridView1.TabStop = false;
             // 
-            // movimientosBindingSource
+            // movimientosBindingSource1
             // 
-            this.movimientosBindingSource.DataMember = "movimientos";
-            this.movimientosBindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
+            this.movimientosBindingSource1.DataMember = "movimientos";
+            this.movimientosBindingSource1.DataSource = this.eXPENSEMANAGERDS2BindingSource;
+            // 
+            // eXPENSEMANAGERDS2BindingSource
+            // 
+            this.eXPENSEMANAGERDS2BindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
+            this.eXPENSEMANAGERDS2BindingSource.Position = 0;
             // 
             // eXPENSE_MANAGER_DS2
             // 
@@ -454,6 +460,11 @@
             this.flp_note.TabIndex = 27;
             this.flp_note.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Flp_note_ControlAdded);
             // 
+            // movimientosBindingSource
+            // 
+            this.movimientosBindingSource.DataMember = "movimientos";
+            this.movimientosBindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -467,16 +478,6 @@
             // movimientosTableAdapter
             // 
             this.movimientosTableAdapter.ClearBeforeFill = true;
-            // 
-            // eXPENSEMANAGERDS2BindingSource
-            // 
-            this.eXPENSEMANAGERDS2BindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
-            this.eXPENSEMANAGERDS2BindingSource.Position = 0;
-            // 
-            // movimientosBindingSource1
-            // 
-            this.movimientosBindingSource1.DataMember = "movimientos";
-            this.movimientosBindingSource1.DataSource = this.eXPENSEMANAGERDS2BindingSource;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -500,6 +501,8 @@
             // tipoDataGridViewTextBoxColumn
             // 
             this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.tipoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.tipoDataGridViewTextBoxColumn.HeaderText = "tipo";
             this.tipoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
@@ -509,9 +512,10 @@
             // montoDataGridViewTextBoxColumn
             // 
             this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.montoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.montoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.montoDataGridViewTextBoxColumn.HeaderText = "monto";
             this.montoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
@@ -521,9 +525,10 @@
             // saldocuentaDataGridViewTextBoxColumn
             // 
             this.saldocuentaDataGridViewTextBoxColumn.DataPropertyName = "saldo_cuenta";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.saldocuentaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.saldocuentaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.saldocuentaDataGridViewTextBoxColumn.HeaderText = "saldo";
             this.saldocuentaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.saldocuentaDataGridViewTextBoxColumn.Name = "saldocuentaDataGridViewTextBoxColumn";
@@ -601,10 +606,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGER_DS2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eXPENSEMANAGERDS2BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSEMANAGERDS2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGER_DS2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movimientosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
