@@ -67,14 +67,26 @@ namespace ExpenseManager
                 int selectedIdx = this.cbx_accounts.SelectedIndex;
                 int accountIdx = (int)this.cbx_accounts.SelectedValue;  // id of the account
                 decimal? saldo = Auxiliar.GetSaldoAccount(this.moviTableAdapter2, accountIdx);
-                int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "dep", Convert.ToDecimal(montoIngresado), (decimal)saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
-                if (insert_result > 0)
+
+                string message = "DATOS DEL DEPOSITO 💲\n=======================================\n\n" +
+                                 "CUENTA => " + Auxiliar.LoggUserName + "." + this.cbx_accounts.GetItemText(this.cbx_accounts.SelectedItem) + "\n" +
+                                 "MONTO  => " + string.Format("{0:C}", Convert.ToDecimal(this.Txt_display.Text)) + "\n" +
+                                 "FECHA  => " + dateTime + "\n" +
+                                 "CONCEPTO  => " + this.txt_concepto.Text + "\n\n" +
+                                 "¿Confirma la transacción?";
+
+                if (MessageBox.Show(message, "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    MessageBox.Show("Depósito realizado con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    saldo += Convert.ToDecimal(montoIngresado);
-                    this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
-                    //FileManager.WriteFile("Updated.txt", ",");
-                }
+                    int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "dep", Convert.ToDecimal(montoIngresado), (decimal)saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
+                    if (insert_result > 0)
+                    {
+                        MessageBox.Show("Depósito realizado con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        saldo += Convert.ToDecimal(montoIngresado);
+                        this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
+                        //FileManager.WriteFile("Updated.txt", ",");
+                    }
+                } 
+
             }
             catch (SqlException ex) { MessageBox.Show(ex.Message); }
         }
@@ -103,14 +115,24 @@ namespace ExpenseManager
                 }
                 else
                 {
-                    int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "ext", Convert.ToDecimal(montoIngresado), (decimal)saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
-                    if (insert_result > 0)
-                    {
-                        MessageBox.Show("Extracción realizada con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        saldo -= Convert.ToDecimal(montoIngresado);
-                        this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
-                        //FileManager.WriteFile("Updated.txt", ",");
+                    string message = "DATOS DE LA EXTRACCION 💲\n=======================================\n\n" +
+                                     "CUENTA => " + Auxiliar.LoggUserName + "." + this.cbx_accounts.GetItemText(this.cbx_accounts.SelectedItem) + "\n" +
+                                     "MONTO  => " + string.Format("{0:C}", Convert.ToDecimal(this.Txt_display.Text)) + "\n" +
+                                     "FECHA  => " + dateTime + "\n" +
+                                     "CONCEPTO  => " + this.txt_concepto.Text + "\n\n" +
+                                     "¿Confirma la transacción?";
+                    if (MessageBox.Show(message, "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    { 
+                        int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "ext", Convert.ToDecimal(montoIngresado), (decimal)saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
+                        if (insert_result > 0)
+                        {
+                            MessageBox.Show("Extracción realizada con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            saldo -= Convert.ToDecimal(montoIngresado);
+                            this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
+                            //FileManager.WriteFile("Updated.txt", ",");
+                        }
                     }
+
                 }
             }
             catch (SqlException ex)
@@ -131,13 +153,13 @@ namespace ExpenseManager
             if (montoIngresado <= 0)
                 return;
 
-            DialogResult dR;
-            dR = MessageBox.Show("Confirma la transacción?", "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dR == DialogResult.No)
-            {
-                this.Txt_display.Text = "";
-                return;
-            }
+            //DialogResult dR;
+            //dR = MessageBox.Show("Confirma la transacción?", "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //if (dR == DialogResult.No)
+            //{
+            //    this.Txt_display.Text = "";
+            //    return;
+            //}
 
             if (this.Text.EndsWith("ito"))
             {
