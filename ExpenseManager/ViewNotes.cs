@@ -22,9 +22,5 @@ namespace ExpenseManager
             this.notasTableAdapter.FillByUserNotes(eXPENSE_MANAGERDSNotes.notas, Auxiliar.id_logged);
         }
 
-        private void BtnView_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

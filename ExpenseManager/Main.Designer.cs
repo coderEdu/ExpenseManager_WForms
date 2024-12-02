@@ -65,15 +65,6 @@
             this.lbl_saldo = new System.Windows.Forms.Label();
             this.lbl_for_saldo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saldocuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.movimientosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.eXPENSEMANAGERDS2BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eXPENSE_MANAGER_DS2 = new ExpenseManager.EXPENSE_MANAGER_DS2();
@@ -83,6 +74,15 @@
             this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.movimientosTableAdapter = new ExpenseManager.EXPENSE_MANAGER_DS2TableAdapters.movimientosTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saldocuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.conceptoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.moviBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_AHORRO_NEW_DS1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -413,102 +413,6 @@
             this.dataGridView1.TabIndex = 26;
             this.dataGridView1.TabStop = false;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 112;
-            // 
-            // fechaDataGridViewTextBoxColumn
-            // 
-            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
-            this.fechaDataGridViewTextBoxColumn.HeaderText = "fecha";
-            this.fechaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
-            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaDataGridViewTextBoxColumn.Width = 112;
-            // 
-            // tipoDataGridViewTextBoxColumn
-            // 
-            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.tipoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.tipoDataGridViewTextBoxColumn.HeaderText = "tipo";
-            this.tipoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
-            this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tipoDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // montoDataGridViewTextBoxColumn
-            // 
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.montoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.montoDataGridViewTextBoxColumn.HeaderText = "monto";
-            this.montoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
-            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.montoDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // saldocuentaDataGridViewTextBoxColumn
-            // 
-            this.saldocuentaDataGridViewTextBoxColumn.DataPropertyName = "saldo_cuenta";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.saldocuentaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.saldocuentaDataGridViewTextBoxColumn.HeaderText = "saldo";
-            this.saldocuentaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.saldocuentaDataGridViewTextBoxColumn.Name = "saldocuentaDataGridViewTextBoxColumn";
-            this.saldocuentaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saldocuentaDataGridViewTextBoxColumn.ToolTipText = "Saldo de la cuenta al momento de la transacción";
-            this.saldocuentaDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // conceptoDataGridViewTextBoxColumn
-            // 
-            this.conceptoDataGridViewTextBoxColumn.DataPropertyName = "concepto";
-            this.conceptoDataGridViewTextBoxColumn.HeaderText = "concepto";
-            this.conceptoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.conceptoDataGridViewTextBoxColumn.Name = "conceptoDataGridViewTextBoxColumn";
-            this.conceptoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.conceptoDataGridViewTextBoxColumn.Visible = false;
-            this.conceptoDataGridViewTextBoxColumn.Width = 112;
-            // 
-            // idusuarioDataGridViewTextBoxColumn
-            // 
-            this.idusuarioDataGridViewTextBoxColumn.DataPropertyName = "id_usuario";
-            this.idusuarioDataGridViewTextBoxColumn.HeaderText = "id_usuario";
-            this.idusuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idusuarioDataGridViewTextBoxColumn.Name = "idusuarioDataGridViewTextBoxColumn";
-            this.idusuarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idusuarioDataGridViewTextBoxColumn.Visible = false;
-            this.idusuarioDataGridViewTextBoxColumn.Width = 112;
-            // 
-            // idcuentaDataGridViewTextBoxColumn
-            // 
-            this.idcuentaDataGridViewTextBoxColumn.DataPropertyName = "id_cuenta";
-            this.idcuentaDataGridViewTextBoxColumn.HeaderText = "id_cuenta";
-            this.idcuentaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idcuentaDataGridViewTextBoxColumn.Name = "idcuentaDataGridViewTextBoxColumn";
-            this.idcuentaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idcuentaDataGridViewTextBoxColumn.Visible = false;
-            this.idcuentaDataGridViewTextBoxColumn.Width = 112;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
-            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 125;
-            // 
             // movimientosBindingSource1
             // 
             this.movimientosBindingSource1.DataMember = "movimientos";
@@ -575,6 +479,102 @@
             // movimientosTableAdapter
             // 
             this.movimientosTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 112;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "fecha";
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "fecha";
+            this.fechaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaDataGridViewTextBoxColumn.Width = 114;
+            // 
+            // tipoDataGridViewTextBoxColumn
+            // 
+            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.tipoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.tipoDataGridViewTextBoxColumn.HeaderText = "tipo";
+            this.tipoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
+            this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // montoDataGridViewTextBoxColumn
+            // 
+            this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.montoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.montoDataGridViewTextBoxColumn.HeaderText = "monto";
+            this.montoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
+            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.montoDataGridViewTextBoxColumn.Width = 113;
+            // 
+            // saldocuentaDataGridViewTextBoxColumn
+            // 
+            this.saldocuentaDataGridViewTextBoxColumn.DataPropertyName = "saldo_cuenta";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.saldocuentaDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.saldocuentaDataGridViewTextBoxColumn.HeaderText = "saldo";
+            this.saldocuentaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.saldocuentaDataGridViewTextBoxColumn.Name = "saldocuentaDataGridViewTextBoxColumn";
+            this.saldocuentaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.saldocuentaDataGridViewTextBoxColumn.ToolTipText = "Saldo de la cuenta al momento de la transacción";
+            this.saldocuentaDataGridViewTextBoxColumn.Width = 113;
+            // 
+            // conceptoDataGridViewTextBoxColumn
+            // 
+            this.conceptoDataGridViewTextBoxColumn.DataPropertyName = "concepto";
+            this.conceptoDataGridViewTextBoxColumn.HeaderText = "concepto";
+            this.conceptoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.conceptoDataGridViewTextBoxColumn.Name = "conceptoDataGridViewTextBoxColumn";
+            this.conceptoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.conceptoDataGridViewTextBoxColumn.Visible = false;
+            this.conceptoDataGridViewTextBoxColumn.Width = 112;
+            // 
+            // idusuarioDataGridViewTextBoxColumn
+            // 
+            this.idusuarioDataGridViewTextBoxColumn.DataPropertyName = "id_usuario";
+            this.idusuarioDataGridViewTextBoxColumn.HeaderText = "id_usuario";
+            this.idusuarioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idusuarioDataGridViewTextBoxColumn.Name = "idusuarioDataGridViewTextBoxColumn";
+            this.idusuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idusuarioDataGridViewTextBoxColumn.Visible = false;
+            this.idusuarioDataGridViewTextBoxColumn.Width = 112;
+            // 
+            // idcuentaDataGridViewTextBoxColumn
+            // 
+            this.idcuentaDataGridViewTextBoxColumn.DataPropertyName = "id_cuenta";
+            this.idcuentaDataGridViewTextBoxColumn.HeaderText = "id_cuenta";
+            this.idcuentaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idcuentaDataGridViewTextBoxColumn.Name = "idcuentaDataGridViewTextBoxColumn";
+            this.idcuentaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idcuentaDataGridViewTextBoxColumn.Visible = false;
+            this.idcuentaDataGridViewTextBoxColumn.Width = 112;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "nombre";
+            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 127;
             // 
             // Main
             // 
