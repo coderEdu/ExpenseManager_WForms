@@ -59,6 +59,11 @@
     <Compile Include="DeleteAccount.Designer.cs">
       <DependentUpon>DeleteAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="EXPENSE_MANAGERDSNotes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EXPENSE_MANAGERDSNotes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EXPENSE_MANAGER_DS2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -117,6 +122,12 @@
     <Compile Include="Transaccion.Designer.cs">
       <DependentUpon>Transaccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewNotes.Designer.cs">
+      <DependentUpon>ViewNotes.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DeleteAccount.resx">
       <DependentUpon>DeleteAccount.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +162,9 @@
     <EmbeddedResource Include="Transaccion.resx">
       <DependentUpon>Transaccion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewNotes.resx">
+      <DependentUpon>ViewNotes.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="EXPENSE_MANAGERDataSet.xsc">
       <DependentUpon>EXPENSE_MANAGERDataSet.xsd</DependentUpon>
     </None>
@@ -161,6 +175,17 @@
     </None>
     <None Include="EXPENSE_MANAGERDataSet.xss">
       <DependentUpon>EXPENSE_MANAGERDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EXPENSE_MANAGERDSNotes.xsc">
+      <DependentUpon>EXPENSE_MANAGERDSNotes.xsd</DependentUpon>
+    </None>
+    <None Include="EXPENSE_MANAGERDSNotes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EXPENSE_MANAGERDSNotes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EXPENSE_MANAGERDSNotes.xss">
+      <DependentUpon>EXPENSE_MANAGERDSNotes.xsd</DependentUpon>
     </None>
     <None Include="EXPENSE_MANAGER_DS2.xsc">
       <DependentUpon>EXPENSE_MANAGER_DS2.xsd</DependentUpon>

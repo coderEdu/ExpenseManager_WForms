@@ -307,5 +307,12 @@ namespace ExpenseManager
             DeleteAccount deleteAccount = new DeleteAccount();
             deleteAccount.ShowDialog(this);
         }
+
+        private void tStrip_ver_notas_Click(object sender, EventArgs e)
+        {
+            this.WinOpacity = this.opacity;
+            ViewNotes notes = new ViewNotes();
+            notes.ShowDialog(this);
+        }
     }
 }

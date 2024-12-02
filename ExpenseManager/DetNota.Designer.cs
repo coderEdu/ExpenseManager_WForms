@@ -51,9 +51,9 @@
             this.lbl_fec_crea.Font = new System.Drawing.Font("Comic Sans MS", 9.333333F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_fec_crea.Location = new System.Drawing.Point(8, 319);
             this.lbl_fec_crea.Name = "lbl_fec_crea";
-            this.lbl_fec_crea.Size = new System.Drawing.Size(63, 19);
+            this.lbl_fec_crea.Size = new System.Drawing.Size(138, 19);
             this.lbl_fec_crea.TabIndex = 25;
-            this.lbl_fec_crea.Text = "Creada:";
+            this.lbl_fec_crea.Text = "Fecha de creación:";
             // 
             // lbl_fec_modif
             // 
@@ -61,16 +61,16 @@
             this.lbl_fec_modif.Font = new System.Drawing.Font("Comic Sans MS", 9.333333F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_fec_modif.Location = new System.Drawing.Point(8, 345);
             this.lbl_fec_modif.Name = "lbl_fec_modif";
-            this.lbl_fec_modif.Size = new System.Drawing.Size(88, 19);
+            this.lbl_fec_modif.Size = new System.Drawing.Size(164, 19);
             this.lbl_fec_modif.TabIndex = 26;
-            this.lbl_fec_modif.Text = "Modificada:";
+            this.lbl_fec_modif.Text = "Fecha de modificación:";
             // 
             // lbl_mod
             // 
             this.lbl_mod.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.notasBindingSource, "fec_modif", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "F"));
-            this.lbl_mod.Location = new System.Drawing.Point(104, 346);
+            this.lbl_mod.Location = new System.Drawing.Point(188, 346);
             this.lbl_mod.Name = "lbl_mod";
-            this.lbl_mod.Size = new System.Drawing.Size(300, 13);
+            this.lbl_mod.Size = new System.Drawing.Size(333, 13);
             this.lbl_mod.TabIndex = 28;
             this.lbl_mod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -88,9 +88,9 @@
             // 
             this.lbl_crea.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.notasBindingSource, "fec_crea", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "F"));
             this.lbl_crea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_crea.Location = new System.Drawing.Point(104, 322);
+            this.lbl_crea.Location = new System.Drawing.Point(188, 321);
             this.lbl_crea.Name = "lbl_crea";
-            this.lbl_crea.Size = new System.Drawing.Size(300, 13);
+            this.lbl_crea.Size = new System.Drawing.Size(333, 13);
             this.lbl_crea.TabIndex = 27;
             this.lbl_crea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -116,6 +116,7 @@
             // 
             // notaTextBox
             // 
+            this.notaTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.notaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.notasBindingSource, "nota", true));
             this.notaTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.notaTextBox.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

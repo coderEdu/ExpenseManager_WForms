@@ -236,6 +236,7 @@
             this.tStrip_ver_notas.Size = new System.Drawing.Size(74, 49);
             this.tStrip_ver_notas.Text = "Ver notas";
             this.tStrip_ver_notas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_ver_notas.Click += new System.EventHandler(this.tStrip_ver_notas_Click);
             // 
             // toolStripSeparator2
             // 
