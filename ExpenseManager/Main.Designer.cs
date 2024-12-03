@@ -65,15 +65,6 @@
             this.lbl_saldo = new System.Windows.Forms.Label();
             this.lbl_for_saldo = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.movimientosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.eXPENSEMANAGERDS2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eXPENSE_MANAGER_DS2 = new ExpenseManager.EXPENSE_MANAGER_DS2();
-            this.lbl_last_movs = new System.Windows.Forms.Label();
-            this.lbl_last_notes = new System.Windows.Forms.Label();
-            this.flp_note = new System.Windows.Forms.FlowLayoutPanel();
-            this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.movimientosTableAdapter = new ExpenseManager.EXPENSE_MANAGER_DS2TableAdapters.movimientosTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +74,15 @@
             this.idusuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movimientosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.eXPENSEMANAGERDS2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eXPENSE_MANAGER_DS2 = new ExpenseManager.EXPENSE_MANAGER_DS2();
+            this.lbl_last_movs = new System.Windows.Forms.Label();
+            this.lbl_last_notes = new System.Windows.Forms.Label();
+            this.flp_note = new System.Windows.Forms.FlowLayoutPanel();
+            this.movimientosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.movimientosTableAdapter = new ExpenseManager.EXPENSE_MANAGER_DS2TableAdapters.movimientosTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.moviBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c_AHORRO_NEW_DS1)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -353,10 +353,10 @@
             // lbl_for_saldo
             // 
             this.lbl_for_saldo.AutoSize = true;
-            this.lbl_for_saldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_for_saldo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_for_saldo.Location = new System.Drawing.Point(19, 37);
             this.lbl_for_saldo.Name = "lbl_for_saldo";
-            this.lbl_for_saldo.Size = new System.Drawing.Size(112, 15);
+            this.lbl_for_saldo.Size = new System.Drawing.Size(130, 17);
             this.lbl_for_saldo.TabIndex = 0;
             this.lbl_for_saldo.Text = "Saldo de la cuenta:";
             // 
@@ -412,73 +412,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(521, 139);
             this.dataGridView1.TabIndex = 26;
             this.dataGridView1.TabStop = false;
-            // 
-            // movimientosBindingSource1
-            // 
-            this.movimientosBindingSource1.DataMember = "movimientos";
-            this.movimientosBindingSource1.DataSource = this.eXPENSEMANAGERDS2BindingSource;
-            // 
-            // eXPENSEMANAGERDS2BindingSource
-            // 
-            this.eXPENSEMANAGERDS2BindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
-            this.eXPENSEMANAGERDS2BindingSource.Position = 0;
-            // 
-            // eXPENSE_MANAGER_DS2
-            // 
-            this.eXPENSE_MANAGER_DS2.DataSetName = "EXPENSE_MANAGER_DS2";
-            this.eXPENSE_MANAGER_DS2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lbl_last_movs
-            // 
-            this.lbl_last_movs.AutoSize = true;
-            this.lbl_last_movs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_last_movs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_last_movs.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_last_movs.Location = new System.Drawing.Point(20, 26);
-            this.lbl_last_movs.Name = "lbl_last_movs";
-            this.lbl_last_movs.Size = new System.Drawing.Size(165, 20);
-            this.lbl_last_movs.TabIndex = 25;
-            this.lbl_last_movs.Text = "Últimos Movimientos";
-            // 
-            // lbl_last_notes
-            // 
-            this.lbl_last_notes.AutoSize = true;
-            this.lbl_last_notes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_last_notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_last_notes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbl_last_notes.Location = new System.Drawing.Point(20, 240);
-            this.lbl_last_notes.Name = "lbl_last_notes";
-            this.lbl_last_notes.Size = new System.Drawing.Size(115, 20);
-            this.lbl_last_notes.TabIndex = 28;
-            this.lbl_last_notes.Text = "Últimas Notas";
-            // 
-            // flp_note
-            // 
-            this.flp_note.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flp_note.Location = new System.Drawing.Point(24, 265);
-            this.flp_note.Name = "flp_note";
-            this.flp_note.Size = new System.Drawing.Size(389, 232);
-            this.flp_note.TabIndex = 27;
-            this.flp_note.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Flp_note_ControlAdded);
-            // 
-            // movimientosBindingSource
-            // 
-            this.movimientosBindingSource.DataMember = "movimientos";
-            this.movimientosBindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 79);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 20);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Tus cuentas:";
-            // 
-            // movimientosTableAdapter
-            // 
-            this.movimientosTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -575,6 +508,73 @@
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreDataGridViewTextBoxColumn.Width = 127;
+            // 
+            // movimientosBindingSource1
+            // 
+            this.movimientosBindingSource1.DataMember = "movimientos";
+            this.movimientosBindingSource1.DataSource = this.eXPENSEMANAGERDS2BindingSource;
+            // 
+            // eXPENSEMANAGERDS2BindingSource
+            // 
+            this.eXPENSEMANAGERDS2BindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
+            this.eXPENSEMANAGERDS2BindingSource.Position = 0;
+            // 
+            // eXPENSE_MANAGER_DS2
+            // 
+            this.eXPENSE_MANAGER_DS2.DataSetName = "EXPENSE_MANAGER_DS2";
+            this.eXPENSE_MANAGER_DS2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lbl_last_movs
+            // 
+            this.lbl_last_movs.AutoSize = true;
+            this.lbl_last_movs.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_last_movs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_last_movs.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_last_movs.Location = new System.Drawing.Point(20, 26);
+            this.lbl_last_movs.Name = "lbl_last_movs";
+            this.lbl_last_movs.Size = new System.Drawing.Size(165, 20);
+            this.lbl_last_movs.TabIndex = 25;
+            this.lbl_last_movs.Text = "Últimos Movimientos";
+            // 
+            // lbl_last_notes
+            // 
+            this.lbl_last_notes.AutoSize = true;
+            this.lbl_last_notes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_last_notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_last_notes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_last_notes.Location = new System.Drawing.Point(20, 240);
+            this.lbl_last_notes.Name = "lbl_last_notes";
+            this.lbl_last_notes.Size = new System.Drawing.Size(115, 20);
+            this.lbl_last_notes.TabIndex = 28;
+            this.lbl_last_notes.Text = "Últimas Notas";
+            // 
+            // flp_note
+            // 
+            this.flp_note.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.flp_note.Location = new System.Drawing.Point(24, 265);
+            this.flp_note.Name = "flp_note";
+            this.flp_note.Size = new System.Drawing.Size(389, 232);
+            this.flp_note.TabIndex = 27;
+            this.flp_note.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Flp_note_ControlAdded);
+            // 
+            // movimientosBindingSource
+            // 
+            this.movimientosBindingSource.DataMember = "movimientos";
+            this.movimientosBindingSource.DataSource = this.eXPENSE_MANAGER_DS2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.33333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 20);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Tus cuentas:";
+            // 
+            // movimientosTableAdapter
+            // 
+            this.movimientosTableAdapter.ClearBeforeFill = true;
             // 
             // Main
             // 
