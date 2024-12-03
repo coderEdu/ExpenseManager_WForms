@@ -122,6 +122,12 @@
     <Compile Include="Transaccion.Designer.cs">
       <DependentUpon>Transaccion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transfer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer.Designer.cs">
+      <DependentUpon>Transfer.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewNotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </Compile>
     <EmbeddedResource Include="Transaccion.resx">
       <DependentUpon>Transaccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer.resx">
+      <DependentUpon>Transfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewNotes.resx">
       <DependentUpon>ViewNotes.cs</DependentUpon>

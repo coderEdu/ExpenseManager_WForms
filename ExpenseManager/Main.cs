@@ -314,5 +314,12 @@ namespace ExpenseManager
             ViewNotes notes = new ViewNotes();
             notes.ShowDialog(this);
         }
+
+        private void tStrip_transfer_Click(object sender, EventArgs e)
+        {
+            this.WinOpacity = this.opacity;
+            Transfer transfer = new Transfer();
+            transfer.ShowDialog();
+        }
     }
 }

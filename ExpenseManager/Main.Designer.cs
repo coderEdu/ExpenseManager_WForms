@@ -182,6 +182,7 @@
             this.tStrip_transfer.Size = new System.Drawing.Size(100, 49);
             this.tStrip_transfer.Text = "Transferencia";
             this.tStrip_transfer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tStrip_transfer.Click += new System.EventHandler(this.tStrip_transfer_Click);
             // 
             // tStrip_ver_registro
             // 
