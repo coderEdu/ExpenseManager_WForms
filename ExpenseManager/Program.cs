@@ -14,9 +14,30 @@ namespace ExpenseManager
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            if (FirstInstance)
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Login());
+            }
+            else
+            {
+                MessageBox.Show("La aplicación ya se está ejecutando");
+                Application.Exit();
+            }
+
+        }
+        private static bool FirstInstance
+        {
+            get
+            {
+                // Verifying if an instance of the app already exists
+                System.Threading.Mutex mutex;
+                string mutex_name = "Main";
+                bool new_instance;
+                mutex = new System.Threading.Mutex(true, mutex_name, out new_instance);
+                return new_instance;
+            }
         }
     }
 }
