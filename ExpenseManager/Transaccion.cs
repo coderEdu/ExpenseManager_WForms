@@ -77,6 +77,10 @@ namespace ExpenseManager
 
                 if (MessageBox.Show(message, "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    if (this.txt_concepto.Text == "$correctivo")
+                    {
+                        this.txt_concepto.Text = Auxiliar.getTextCorrective();
+                    }
                     int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "dep", Convert.ToDecimal(montoIngresado), (decimal)saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
                     if (insert_result > 0)
                     {
@@ -122,7 +126,11 @@ namespace ExpenseManager
                                      "CONCEPTO  => " + this.txt_concepto.Text + "\n\n" +
                                      "¿Confirma la transacción?";
                     if (MessageBox.Show(message, "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    { 
+                    {
+                        if (this.txt_concepto.Text == "$correctivo")
+                        {
+                            this.txt_concepto.Text = Auxiliar.getTextCorrective();
+                        }
                         int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "ext", Convert.ToDecimal(montoIngresado), (decimal)saldo, txt_concepto.Text, Auxiliar.id_logged, accountIdx);
                         if (insert_result > 0)
                         {
@@ -152,14 +160,6 @@ namespace ExpenseManager
 
             if (montoIngresado <= 0)
                 return;
-
-            //DialogResult dR;
-            //dR = MessageBox.Show("Confirma la transacción?", "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (dR == DialogResult.No)
-            //{
-            //    this.Txt_display.Text = "";
-            //    return;
-            //}
 
             if (this.Text.EndsWith("ito"))
             {
