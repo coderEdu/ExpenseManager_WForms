@@ -46,29 +46,18 @@ namespace ExpenseManager
             this.dtp.Visible = false;
         }
 
-        private void Deposit(decimal montoIngresado)
+        private void Deposit(int id, decimal montoIngresado, int selectedIdx, int selectedValue, decimal? accountBalance)
         {
             try   // depositing the received transfer
             {
-                int id = Convert.ToInt32(this.moviTableAdapter2.MaxIdScalarQuery()) + 1;
-                int selectedDestinationIdx = this.cbx_destination_accounts.SelectedIndex;
-                int selectedDestinationAccountIdx = (int)this.cbx_destination_accounts.SelectedValue;  // id of the selected destination account
-                decimal? saldo = Auxiliar.GetSaldoAccount(this.moviTableAdapter2, selectedDestinationAccountIdx);
-
-                //string message = "DATOS DEL DEPOSITO 💲\n=======================================\n\n" +
-                //                 "CUENTA => " + Auxiliar.LoggUserName + "." + this.cbx_source_accounts.GetItemText(this.cbx_source_accounts.SelectedItem) + "\n" +
-                //                 "MONTO  => " + string.Format("{0:C}", Convert.ToDecimal(this.Txt_display.Text)) + "\n" +
-                //                 "FECHA  => " + dateTime + "\n" +
-                //                 "CONCEPTO  => " + this.txt_concepto.Text + "\n\n" +
-                //                 "¿Confirma la transacción?";
                 string tra_concept = txt_concepto.Text + ". (Transferencia recibida).";
-                int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "rec", Convert.ToDecimal(montoIngresado), (decimal)saldo, tra_concept, Auxiliar.id_logged, selectedDestinationAccountIdx);
+                int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "rec", Convert.ToDecimal(montoIngresado), (decimal)accountBalance, tra_concept, Auxiliar.id_logged, selectedValue);
                 if (insert_result > 0)
                 {
                     ++received;
                     //MessageBox.Show("Depósito realizado con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    saldo += Convert.ToDecimal(montoIngresado);
-                    this.cuentasTableAdapter.UpdateQuery((decimal)saldo, selectedDestinationAccountIdx, Auxiliar.id_logged);
+                    accountBalance += Convert.ToDecimal(montoIngresado);
+                    this.cuentasTableAdapter.UpdateQuery((decimal)accountBalance, selectedValue, Auxiliar.id_logged);
                     //FileManager.WriteFile("Updated.txt", ",");
                 }
 
@@ -76,18 +65,13 @@ namespace ExpenseManager
             catch (SqlException ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void Withdrawal(decimal montoIngresado)
+        private void Withdrawal(int id, decimal montoIngresado, int selectedIdx, int selectedValue, decimal? accountBalance)
         {
             try   // making a transfer
             {
-                int id = Convert.ToInt32(this.moviTableAdapter2.MaxIdScalarQuery()) + 1;
-                int sourceSelectedIdx = this.cbx_source_accounts.SelectedIndex;
-                int selectedSourceAccountIdx = (int)this.cbx_source_accounts.SelectedValue;  // id of the selected source account
-                decimal? saldo = Auxiliar.GetSaldoAccount(this.moviTableAdapter2, selectedSourceAccountIdx);
-
-                if (montoIngresado > saldo)
+                if (montoIngresado > accountBalance)
                 {
-                    if (saldo == 0)
+                    if (accountBalance == 0)
                     {
                         MessageBox.Show("Error: no dispone de saldo!", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -100,13 +84,13 @@ namespace ExpenseManager
                 else
                 {
                     string tra_concept = txt_concepto.Text + ". (Transferencia efectuada).";
-                    int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "tra", Convert.ToDecimal(montoIngresado), (decimal)saldo, txt_concepto.Text, Auxiliar.id_logged, selectedSourceAccountIdx);
+                    int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "tra", Convert.ToDecimal(montoIngresado), (decimal)accountBalance, tra_concept, Auxiliar.id_logged, selectedValue);
                     if (insert_result > 0)
                     {
                         ++transfered;
                         //MessageBox.Show("Extracción realizada con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        saldo -= Convert.ToDecimal(montoIngresado);
-                        this.cuentasTableAdapter.UpdateQuery((decimal)saldo, selectedSourceAccountIdx, Auxiliar.id_logged);
+                        accountBalance -= Convert.ToDecimal(montoIngresado);
+                        this.cuentasTableAdapter.UpdateQuery((decimal)accountBalance, selectedValue, Auxiliar.id_logged);
                         //FileManager.WriteFile("Updated.txt", ",");
                     }
                 }
@@ -136,18 +120,40 @@ namespace ExpenseManager
 
         private void Transferring(decimal montoIngresado)
         {
-            string message = "Confirma la transferencia?";
+            int id = Convert.ToInt32(this.moviTableAdapter2.MaxIdScalarQuery()) + 1; // for both
+
+            // withdrawal
+            int selectedSourceIdx = this.cbx_source_accounts.SelectedIndex;
+            int selectedSourceAccountIdx = (int)this.cbx_source_accounts.SelectedValue;  // id of the selected source account
+            decimal? saldoSelectedSrcAcc = Auxiliar.GetSaldoAccount(this.moviTableAdapter2, selectedSourceAccountIdx);
+
+            // deposit
+            int selectedDestinationIdx = this.cbx_destination_accounts.SelectedIndex;
+            int selectedDestinationAccountIdx = (int)this.cbx_destination_accounts.SelectedValue;  // id of the selected destination account
+            decimal? saldoSelectedDestAcc = Auxiliar.GetSaldoAccount(this.moviTableAdapter2, selectedDestinationAccountIdx);
+
+            // transfer details
+            string message = "DATOS DE LA TRANSFERENCIA A EFECTUAR 💲\n=======================================\n\n" +
+                             "CUENTA ORIGEN  => " + Auxiliar.LoggUserName + "." + this.cbx_source_accounts.GetItemText(this.cbx_source_accounts.SelectedItem) + "\n" +
+                             "CUENTA DESTINO => " + Auxiliar.LoggUserName + "." + this.cbx_destination_accounts.GetItemText(this.cbx_destination_accounts.SelectedItem) + "\n" +
+                             "MONTO          => " + string.Format("{0:C}", Convert.ToDecimal(this.Txt_display.Text)) + "\n" +
+                             "FECHA          => " + dateTime + "\n" +
+                             "CONCEPTO       => " + this.txt_concepto.Text + "\n\n" +
+                             "¿Confirma la transacción?";
+
             if (MessageBox.Show(message, "Expense Manager", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Withdrawal(montoIngresado);
-                Deposit(montoIngresado);
+                Withdrawal(id, montoIngresado, selectedSourceIdx, selectedSourceAccountIdx, saldoSelectedSrcAcc);
+                Deposit(++id, montoIngresado, selectedDestinationIdx, selectedDestinationAccountIdx, saldoSelectedDestAcc);
+
                 if (transfered + received == 2)
                 {
-                    MessageBox.Show("Transferencia exitosa!","Expense Manager 😊");
+                    MessageBox.Show("Transferencia exitosa!","Expense Manager 😊",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Ops! algo anduvo mal...", "Expense Manager 😒");
+                    MessageBox.Show("Ops! algo anduvo mal...", "Expense Manager 😒",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    Deposit(++id, montoIngresado, selectedSourceIdx, selectedSourceAccountIdx, saldoSelectedSrcAcc);
                 }
             }
         }

@@ -59,11 +59,13 @@
             this.cbx_destination_accounts = new System.Windows.Forms.ComboBox();
             this.lbl_destination_account = new System.Windows.Forms.Label();
             this.pnl_concept = new System.Windows.Forms.Panel();
+            this.cuentasBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.c_AHORRO_NEW_DS1)).BeginInit();
             this.pnl_amount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource)).BeginInit();
             this.pnl_accounts.SuspendLayout();
             this.pnl_concept.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_trans
@@ -303,7 +305,7 @@
             // 
             this.lbl_source_account.AutoSize = true;
             this.lbl_source_account.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_source_account.Location = new System.Drawing.Point(16, 20);
+            this.lbl_source_account.Location = new System.Drawing.Point(24, 20);
             this.lbl_source_account.Name = "lbl_source_account";
             this.lbl_source_account.Size = new System.Drawing.Size(104, 18);
             this.lbl_source_account.TabIndex = 30;
@@ -345,7 +347,7 @@
             // 
             // cbx_destination_accounts
             // 
-            this.cbx_destination_accounts.DataSource = this.cuentasBindingSource;
+            this.cbx_destination_accounts.DataSource = this.cuentasBindingSource2;
             this.cbx_destination_accounts.DisplayMember = "nombre";
             this.cbx_destination_accounts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbx_destination_accounts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -376,6 +378,10 @@
             this.pnl_concept.Size = new System.Drawing.Size(200, 244);
             this.pnl_concept.TabIndex = 32;
             // 
+            // cuentasBindingSource2
+            // 
+            this.cuentasBindingSource2.DataSource = this.cuentasBindingSource;
+            // 
             // Transfer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,6 +407,7 @@
             this.pnl_accounts.PerformLayout();
             this.pnl_concept.ResumeLayout(false);
             this.pnl_concept.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cuentasBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -437,5 +444,6 @@
         private System.Windows.Forms.ComboBox cbx_destination_accounts;
         private System.Windows.Forms.Label lbl_destination_account;
         private System.Windows.Forms.Panel pnl_concept;
+        private System.Windows.Forms.BindingSource cuentasBindingSource2;
     }
 }
