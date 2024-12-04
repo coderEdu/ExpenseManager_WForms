@@ -27,5 +27,16 @@ namespace ExpenseManager
             }
         }
 
+        private void txt_search_TextChanged(object sender, EventArgs e)
+        {
+            this.notasTableAdapter.FillByValueSearch(eXPENSE_MANAGERDSNotes.notas, Auxiliar.id_logged, this.txt_search.Text);
+
+            this.Dgv_all_notes.Columns[6].Width = 245;
+            
+            if (Dgv_all_notes.Rows.Count < 13)
+            {
+                this.Dgv_all_notes.Columns[6].Width = 245 + 19;
+            }
+        }
     }
 }

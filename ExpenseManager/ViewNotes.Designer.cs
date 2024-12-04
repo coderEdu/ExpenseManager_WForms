@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.notaTextBox = new System.Windows.Forms.Label();
             this.notasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eXPENSE_MANAGERDSNotes = new ExpenseManager.EXPENSE_MANAGERDSNotes();
@@ -49,6 +49,8 @@
             this.iduserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idcuentaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_search = new System.Windows.Forms.TextBox();
+            this.lbl_search = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDSNotes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_all_notes)).BeginInit();
@@ -59,7 +61,7 @@
             this.notaTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.notaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.notasBindingSource, "nota", true));
             this.notaTextBox.Font = new System.Drawing.Font("Comic Sans MS", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notaTextBox.Location = new System.Drawing.Point(285, 12);
+            this.notaTextBox.Location = new System.Drawing.Point(287, 77);
             this.notaTextBox.Name = "notaTextBox";
             this.notaTextBox.Size = new System.Drawing.Size(696, 311);
             this.notaTextBox.TabIndex = 31;
@@ -77,9 +79,9 @@
             // lbl_mod
             // 
             this.lbl_mod.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.notasBindingSource, "fec_modif", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "F"));
-            this.lbl_mod.Location = new System.Drawing.Point(192, 364);
+            this.lbl_mod.Location = new System.Drawing.Point(190, 428);
             this.lbl_mod.Name = "lbl_mod";
-            this.lbl_mod.Size = new System.Drawing.Size(333, 18);
+            this.lbl_mod.Size = new System.Drawing.Size(333, 23);
             this.lbl_mod.TabIndex = 37;
             this.lbl_mod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -87,9 +89,9 @@
             // 
             this.lbl_crea.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.notasBindingSource, "fec_crea", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "F"));
             this.lbl_crea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_crea.Location = new System.Drawing.Point(192, 337);
+            this.lbl_crea.Location = new System.Drawing.Point(190, 401);
             this.lbl_crea.Name = "lbl_crea";
-            this.lbl_crea.Size = new System.Drawing.Size(333, 18);
+            this.lbl_crea.Size = new System.Drawing.Size(333, 23);
             this.lbl_crea.TabIndex = 36;
             this.lbl_crea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -97,7 +99,7 @@
             // 
             this.lbl_fec_crea.AutoSize = true;
             this.lbl_fec_crea.Font = new System.Drawing.Font("Comic Sans MS", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_fec_crea.Location = new System.Drawing.Point(12, 339);
+            this.lbl_fec_crea.Location = new System.Drawing.Point(10, 403);
             this.lbl_fec_crea.Name = "lbl_fec_crea";
             this.lbl_fec_crea.Size = new System.Drawing.Size(129, 19);
             this.lbl_fec_crea.TabIndex = 34;
@@ -107,7 +109,7 @@
             // 
             this.lbl_fec_modif.AutoSize = true;
             this.lbl_fec_modif.Font = new System.Drawing.Font("Comic Sans MS", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_fec_modif.Location = new System.Drawing.Point(12, 365);
+            this.lbl_fec_modif.Location = new System.Drawing.Point(10, 429);
             this.lbl_fec_modif.Name = "lbl_fec_modif";
             this.lbl_fec_modif.Size = new System.Drawing.Size(155, 19);
             this.lbl_fec_modif.TabIndex = 35;
@@ -121,19 +123,19 @@
             // 
             this.Dgv_all_notes.AllowUserToAddRows = false;
             this.Dgv_all_notes.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.Dgv_all_notes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            this.Dgv_all_notes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.Dgv_all_notes.AutoGenerateColumns = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_all_notes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_all_notes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.Dgv_all_notes.ColumnHeadersHeight = 25;
             this.Dgv_all_notes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Dgv_all_notes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -145,27 +147,27 @@
             this.idcuentaDataGridViewTextBoxColumn,
             this.tituloDataGridViewTextBoxColumn});
             this.Dgv_all_notes.DataSource = this.notasBindingSource;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dgv_all_notes.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dgv_all_notes.DefaultCellStyle = dataGridViewCellStyle11;
             this.Dgv_all_notes.EnableHeadersVisualStyles = false;
             this.Dgv_all_notes.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Dgv_all_notes.Location = new System.Drawing.Point(12, 12);
+            this.Dgv_all_notes.Location = new System.Drawing.Point(14, 77);
             this.Dgv_all_notes.Name = "Dgv_all_notes";
             this.Dgv_all_notes.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_all_notes.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_all_notes.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.Dgv_all_notes.RowHeadersVisible = false;
             this.Dgv_all_notes.RowHeadersWidth = 45;
             this.Dgv_all_notes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -181,6 +183,7 @@
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 112;
             // 
             // notaDataGridViewTextBoxColumn
             // 
@@ -241,11 +244,33 @@
             this.tituloDataGridViewTextBoxColumn.ReadOnly = true;
             this.tituloDataGridViewTextBoxColumn.Width = 245;
             // 
+            // txt_search
+            // 
+            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_search.Location = new System.Drawing.Point(716, 27);
+            this.txt_search.Multiline = true;
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(267, 25);
+            this.txt_search.TabIndex = 39;
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
+            // 
+            // lbl_search
+            // 
+            this.lbl_search.AutoSize = true;
+            this.lbl_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_search.Location = new System.Drawing.Point(654, 32);
+            this.lbl_search.Name = "lbl_search";
+            this.lbl_search.Size = new System.Drawing.Size(56, 17);
+            this.lbl_search.TabIndex = 40;
+            this.lbl_search.Text = "Buscar:";
+            // 
             // ViewNotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(995, 398);
+            this.ClientSize = new System.Drawing.Size(995, 463);
+            this.Controls.Add(this.lbl_search);
+            this.Controls.Add(this.txt_search);
             this.Controls.Add(this.Dgv_all_notes);
             this.Controls.Add(this.lbl_mod);
             this.Controls.Add(this.lbl_crea);
@@ -254,7 +279,7 @@
             this.Controls.Add(this.notaTextBox);
             this.Name = "ViewNotes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Todas tus notas";
+            this.Text = "Todas tus notas 📜";
             this.Load += new System.EventHandler(this.ViewNotes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDSNotes)).EndInit();
@@ -282,5 +307,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iduserDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcuentaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.Label lbl_search;
     }
 }
