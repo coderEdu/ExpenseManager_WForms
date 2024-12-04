@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.notaTextBox = new System.Windows.Forms.Label();
+            this.notasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eXPENSE_MANAGERDSNotes = new ExpenseManager.EXPENSE_MANAGERDSNotes();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lbl_mod = new System.Windows.Forms.Label();
             this.lbl_crea = new System.Windows.Forms.Label();
             this.lbl_fec_crea = new System.Windows.Forms.Label();
             this.lbl_fec_modif = new System.Windows.Forms.Label();
-            this.eXPENSE_MANAGERDSNotes = new ExpenseManager.EXPENSE_MANAGERDSNotes();
-            this.notasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.notasTableAdapter = new ExpenseManager.EXPENSE_MANAGERDSNotesTableAdapters.notasTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDSNotes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDSNotes)).BeginInit();
             this.SuspendLayout();
             // 
             // notaTextBox
@@ -51,6 +51,16 @@
             this.notaTextBox.Name = "notaTextBox";
             this.notaTextBox.Size = new System.Drawing.Size(800, 308);
             this.notaTextBox.TabIndex = 31;
+            // 
+            // notasBindingSource
+            // 
+            this.notasBindingSource.DataMember = "notas";
+            this.notasBindingSource.DataSource = this.eXPENSE_MANAGERDSNotes;
+            // 
+            // eXPENSE_MANAGERDSNotes
+            // 
+            this.eXPENSE_MANAGERDSNotes.DataSetName = "EXPENSE_MANAGERDSNotes";
+            this.eXPENSE_MANAGERDSNotes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // comboBox1
             // 
@@ -68,9 +78,9 @@
             // lbl_mod
             // 
             this.lbl_mod.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.notasBindingSource, "fec_modif", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "F"));
-            this.lbl_mod.Location = new System.Drawing.Point(189, 419);
+            this.lbl_mod.Location = new System.Drawing.Point(189, 417);
             this.lbl_mod.Name = "lbl_mod";
-            this.lbl_mod.Size = new System.Drawing.Size(333, 13);
+            this.lbl_mod.Size = new System.Drawing.Size(333, 18);
             this.lbl_mod.TabIndex = 37;
             this.lbl_mod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -78,9 +88,9 @@
             // 
             this.lbl_crea.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.notasBindingSource, "fec_crea", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "F"));
             this.lbl_crea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_crea.Location = new System.Drawing.Point(189, 394);
+            this.lbl_crea.Location = new System.Drawing.Point(189, 390);
             this.lbl_crea.Name = "lbl_crea";
-            this.lbl_crea.Size = new System.Drawing.Size(333, 13);
+            this.lbl_crea.Size = new System.Drawing.Size(333, 18);
             this.lbl_crea.TabIndex = 36;
             this.lbl_crea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -104,16 +114,6 @@
             this.lbl_fec_modif.TabIndex = 35;
             this.lbl_fec_modif.Text = "Fecha de modificación:";
             // 
-            // eXPENSE_MANAGERDSNotes
-            // 
-            this.eXPENSE_MANAGERDSNotes.DataSetName = "EXPENSE_MANAGERDSNotes";
-            this.eXPENSE_MANAGERDSNotes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // notasBindingSource
-            // 
-            this.notasBindingSource.DataMember = "notas";
-            this.notasBindingSource.DataSource = this.eXPENSE_MANAGERDSNotes;
-            // 
             // notasTableAdapter
             // 
             this.notasTableAdapter.ClearBeforeFill = true;
@@ -133,8 +133,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Todas tus notas";
             this.Load += new System.EventHandler(this.ViewNotes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDSNotes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDSNotes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
