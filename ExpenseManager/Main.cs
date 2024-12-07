@@ -103,8 +103,8 @@ namespace ExpenseManager
             {
                 decimal? selected_balance = Auxiliar.GetSaldoAccount(this.moviTableAdapter, id_selected_account);
                 this.Balance = (decimal) selected_balance;
-                //this.lbl_saldo.Text = "$ " + this.c_AHORRO_NEW_DS1.Tables["cuentas"].Rows[selectedIdx].Field<decimal>(2).ToString();
-                this.lbl_saldo.Text = "$ " + selected_balance;
+                //this.lbl_saldo.Text = "$ " + selected_balance; // String.Format("{0:N2}", selected_balance);
+                this.lbl_saldo.Text = "$ " + String.Format("{0:N2}", selected_balance);
                 ActivOrDeactivBtnsBar();
             }
             catch (Exception) { }

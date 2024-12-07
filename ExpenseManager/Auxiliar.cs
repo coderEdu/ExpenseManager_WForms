@@ -38,8 +38,6 @@ namespace ExpenseManager
 
         public static decimal? GetSaldoAccount(EXPENSE_MANAGERDataSetTableAdapters.movimientosTableAdapter movi, int id_account)
         {
-            // testing function
-            //
             decimal? total = 0;
             if (movi.SumMontoScalarQuery("dep", id_account, Auxiliar.id_logged) != null)
             {
