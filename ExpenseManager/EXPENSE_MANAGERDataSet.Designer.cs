@@ -2638,8 +2638,8 @@ SELECT id, nombre, saldo, fec_crea, id_user FROM cuentas WHERE (id = @id)";
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@logged_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT   id, nombre, saldo, fec_crea, id_user\r\nFROM      cuentas\r\nWHERE   (id_use" +
-                "r = @logged_user)\r\nORDER BY saldo desc";
+            this._commandCollection[3].CommandText = "SELECT    id, nombre, saldo, fec_crea, id_user\r\nFROM       cuentas\r\nWHERE    (id_" +
+                "user = @logged_user)\r\nORDER BY nombre";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@logged_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_user", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
