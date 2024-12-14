@@ -83,7 +83,8 @@ namespace ExpenseManager
                 }
                 else
                 {
-                    string tra_concept = txt_concepto.Text + ". (Transferencia efectuada).";
+                    string destination_account_name = this.cbx_destination_accounts.GetItemText(this.cbx_destination_accounts.SelectedItem);
+                    string tra_concept = txt_concepto.Text + $". (Transferencia a '{destination_account_name}' con éxito 👍).";
                     int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "tra", Convert.ToDecimal(montoIngresado), (decimal)accountBalance, tra_concept, Auxiliar.id_logged, selectedValue);
                     if (insert_result > 0)
                     {
