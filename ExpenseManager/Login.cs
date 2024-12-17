@@ -26,31 +26,30 @@ namespace ExpenseManager
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //this.usuariosTableAdapter1.Fill(expensE_MANAGERDataSet1.usuarios);
-            //string fileName = "Exported.txt";
+            this.usuariosTableAdapter1.Fill(expensE_MANAGERDataSet1.usuarios);
+            string fileName = "Exported.txt";
             //FileManager.WriteFile(fileName, "1");
             //MessageBox.Show(FileManager.ReadFile(fileName));
             //if (FileManager.ReadFile(fileName).Equals("0")) { MessageBox.Show("Es cero"); }
 
-            // working here
-            //bool exported = FileManager.ReadFile("Exported.txt").Equals("1");
-            //if (exported)  // exportada field
-            //{
-            //    DbTransferingManager.ImportingDBFromCloud();
-            //    //this.pbx_db_state.Image = global::CajaDeAhorro.Properties.Resources.Custom_Icon_Design_Pretty_Office_3_Accept_database_32;
+            bool exported = FileManager.ReadFile("Exported.txt").Equals("1");
+            if (exported)  // exportada field
+            {
+                DbTransferingManager.ImportingDBFromCloud();
+                //this.pbx_db_state.Image = global::CajaDeAhorro.Properties.Resources.Custom_Icon_Design_Pretty_Office_3_Accept_database_32;
 
-            //    FileManager.WriteFile("Exported.txt", "0");
-            //    FileManager.WriteFile("Imported.txt", "1");
-            //    FileManager.WriteFile("Updated.txt", "0");
-            //}
-            //else
-            //{
-            //    this.Text += " ( Non-imported Database )";
+                FileManager.WriteFile("Exported.txt", "0");
+                FileManager.WriteFile("Imported.txt", "1");
+                FileManager.WriteFile("Updated.txt", "0");
+            }
+            else
+            {
+                this.Text += " ( Non-imported Database )";
 
-            //    try { FileManager.WriteFile("Imported.txt", "0"); }
-            //    catch (Exception) { Console.WriteLine(e); }
-            //}
-            //DbTransferingManager.ImportingDBFromCloud();
+                try { FileManager.WriteFile("Imported.txt", "0"); }
+                catch (Exception) { Console.WriteLine(e); }
+            }
+            DbTransferingManager.ImportingDBFromCloud();
         }
 
         public void LoadingModules()
@@ -196,10 +195,10 @@ namespace ExpenseManager
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //if (FileManager.ReadFile("Updated.txt").Equals("1"))
-            //{
-            //    MessageBox.Show("No olvide exportar la base de datos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
+            if (FileManager.ReadFile("Updated.txt").Equals("1"))
+            {
+                MessageBox.Show("No olvide exportar la base de datos.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

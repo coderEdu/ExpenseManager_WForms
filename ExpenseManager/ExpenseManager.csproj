@@ -53,6 +53,7 @@
       <DependentUpon>Administrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Auxiliar.cs" />
+    <Compile Include="DbTransferingManager.cs" />
     <Compile Include="DeleteAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +70,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EXPENSE_MANAGER_DS2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="fileManager.cs" />
     <Compile Include="NuevaCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
