@@ -27,7 +27,7 @@ namespace ExpenseManager
         private void Login_Load(object sender, EventArgs e)
         {
             this.usuariosTableAdapter1.Fill(expensE_MANAGERDataSet1.usuarios);
-            string fileName = "Exported.txt";
+            //string fileName = "Exported.txt";
             //FileManager.WriteFile(fileName, "1");
             //MessageBox.Show(FileManager.ReadFile(fileName));
             //if (FileManager.ReadFile(fileName).Equals("0")) { MessageBox.Show("Es cero"); }
