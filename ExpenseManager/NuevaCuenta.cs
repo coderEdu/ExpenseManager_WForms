@@ -27,6 +27,7 @@ namespace ExpenseManager
                     if (this.cuentasTableAdapter1.InsertQuery((int)id, this.txtName.Text, (decimal)0, DateTime.Now, Auxiliar.id_logged) == 1)
                     {
                         MessageBox.Show("Cuenta creada correctamente!","Expense manager",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        FileManager.WriteFile("Updated.txt", "1");
                         Close();
                     }
                 }

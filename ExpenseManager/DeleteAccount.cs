@@ -27,6 +27,7 @@ namespace ExpenseManager
                     if (this.cuentasTableAdapter1.DeleteQuery(id) == 1)
                     {
                         MessageBox.Show("Cuenta eliminada correctamente!", "Expense manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        FileManager.WriteFile("Updated.txt", "1");
                         Close();
                     }
 
