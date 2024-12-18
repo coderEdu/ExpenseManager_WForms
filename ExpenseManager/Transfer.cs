@@ -50,7 +50,8 @@ namespace ExpenseManager
         {
             try   // depositing the received transfer
             {
-                string tra_concept = txt_concepto.Text + ". (Transferencia recibida).";
+                string source_account_name = this.cbx_source_accounts.GetItemText(this.cbx_source_accounts.SelectedItem);
+                string tra_concept = txt_concepto.Text + $"\n(Transferencia de '{source_account_name}' recibida 👍).";
                 int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "rec", Convert.ToDecimal(montoIngresado), (decimal)accountBalance, tra_concept, Auxiliar.id_logged, selectedValue);
                 if (insert_result > 0)
                 {
@@ -84,7 +85,7 @@ namespace ExpenseManager
                 else
                 {
                     string destination_account_name = this.cbx_destination_accounts.GetItemText(this.cbx_destination_accounts.SelectedItem);
-                    string tra_concept = txt_concepto.Text + $". (Transferencia a '{destination_account_name}' con éxito 👍).";
+                    string tra_concept = txt_concepto.Text + $"\n(Transferencia a '{destination_account_name}' con éxito 👍).";
                     int insert_result = this.moviTableAdapter2.InsertQuery(id, dateTime, "tra", Convert.ToDecimal(montoIngresado), (decimal)accountBalance, tra_concept, Auxiliar.id_logged, selectedValue);
                     if (insert_result > 0)
                     {
@@ -150,6 +151,7 @@ namespace ExpenseManager
                 if (transfered + received == 2)
                 {
                     MessageBox.Show("Transferencia exitosa!","Expense Manager 😊",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    FileManager.WriteFile("Updated.txt", "1");
                 }
                 else
                 {
