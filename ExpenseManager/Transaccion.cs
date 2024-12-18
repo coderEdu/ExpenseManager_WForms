@@ -87,7 +87,7 @@ namespace ExpenseManager
                         MessageBox.Show("Depósito realizado con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         saldo += Convert.ToDecimal(montoIngresado);
                         this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
-                        FileManager.WriteFile("Updated.txt", ",");
+                        FileManager.WriteFile("Updated.txt", "1");
                     }
                 } 
 
@@ -137,7 +137,7 @@ namespace ExpenseManager
                             MessageBox.Show("Extracción realizada con éxito!.", "Expense Manager", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             saldo -= Convert.ToDecimal(montoIngresado);
                             this.cuentasTableAdapter.UpdateQuery((decimal)saldo, (int)this.cbx_accounts.SelectedValue, Auxiliar.id_logged);
-                            FileManager.WriteFile("Updated.txt", ",");
+                            FileManager.WriteFile("Updated.txt", "1");
                         }
                     }
 
