@@ -145,7 +145,7 @@
             this.movimientosDataGridView.TabIndex = 1;
             this.movimientosDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.movimientosDataGridView_CellClick);
             this.movimientosDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.movimientosDataGridView_CellEnter);
-            this.movimientosDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.movimientosDataGridView_RowPostPaint);
+            this.movimientosDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.movimientosDataGridView_CellFormatting);
             this.movimientosDataGridView.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.movimientosDataGridView_RowStateChanged);
             this.movimientosDataGridView.Enter += new System.EventHandler(this.movimientosDataGridView_Enter);
             // 
@@ -373,7 +373,7 @@
             this.dTP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dTP2.Location = new System.Drawing.Point(426, 112);
             this.dTP2.Name = "dTP2";
-            this.dTP2.Size = new System.Drawing.Size(266, 23);
+            this.dTP2.Size = new System.Drawing.Size(266, 22);
             this.dTP2.TabIndex = 30;
             // 
             // lbl_date1
@@ -382,7 +382,7 @@
             this.lbl_date1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_date1.Location = new System.Drawing.Point(421, 33);
             this.lbl_date1.Name = "lbl_date1";
-            this.lbl_date1.Size = new System.Drawing.Size(51, 15);
+            this.lbl_date1.Size = new System.Drawing.Size(46, 13);
             this.lbl_date1.TabIndex = 29;
             this.lbl_date1.Text = "Fecha 1";
             // 
@@ -391,7 +391,7 @@
             this.dTP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dTP1.Location = new System.Drawing.Point(424, 51);
             this.dTP1.Name = "dTP1";
-            this.dTP1.Size = new System.Drawing.Size(268, 23);
+            this.dTP1.Size = new System.Drawing.Size(268, 22);
             this.dTP1.TabIndex = 28;
             // 
             // cbx_accounts
@@ -400,7 +400,7 @@
             this.cbx_accounts.FormattingEnabled = true;
             this.cbx_accounts.Location = new System.Drawing.Point(24, 49);
             this.cbx_accounts.Name = "cbx_accounts";
-            this.cbx_accounts.Size = new System.Drawing.Size(228, 25);
+            this.cbx_accounts.Size = new System.Drawing.Size(228, 23);
             this.cbx_accounts.TabIndex = 27;
             // 
             // label5
@@ -409,7 +409,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(21, 31);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 15);
+            this.label5.Size = new System.Drawing.Size(41, 13);
             this.label5.TabIndex = 26;
             this.label5.Text = "Cuenta";
             // 
@@ -424,7 +424,7 @@
             "rec"});
             this.cbx_tipo.Location = new System.Drawing.Point(304, 49);
             this.cbx_tipo.Name = "cbx_tipo";
-            this.cbx_tipo.Size = new System.Drawing.Size(68, 25);
+            this.cbx_tipo.Size = new System.Drawing.Size(68, 23);
             this.cbx_tipo.TabIndex = 25;
             // 
             // txt_concepto
@@ -432,7 +432,7 @@
             this.txt_concepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_concepto.Location = new System.Drawing.Point(181, 114);
             this.txt_concepto.Name = "txt_concepto";
-            this.txt_concepto.Size = new System.Drawing.Size(190, 23);
+            this.txt_concepto.Size = new System.Drawing.Size(190, 22);
             this.txt_concepto.TabIndex = 24;
             // 
             // label4
@@ -441,7 +441,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(178, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 15);
+            this.label4.Size = new System.Drawing.Size(53, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "Concepto";
             // 
@@ -450,7 +450,7 @@
             this.txt_monto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_monto.Location = new System.Drawing.Point(24, 114);
             this.txt_monto.Name = "txt_monto";
-            this.txt_monto.Size = new System.Drawing.Size(101, 23);
+            this.txt_monto.Size = new System.Drawing.Size(101, 22);
             this.txt_monto.TabIndex = 22;
             // 
             // label3
@@ -459,7 +459,7 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(21, 96);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 15);
+            this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 21;
             this.label3.Text = "Monto";
             // 
@@ -469,7 +469,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(301, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 15);
+            this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 20;
             this.label2.Text = "Tipo";
             // 
@@ -479,7 +479,7 @@
             this.lbl_date2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_date2.Location = new System.Drawing.Point(423, 94);
             this.lbl_date2.Name = "lbl_date2";
-            this.lbl_date2.Size = new System.Drawing.Size(51, 15);
+            this.lbl_date2.Size = new System.Drawing.Size(46, 13);
             this.lbl_date2.TabIndex = 19;
             this.lbl_date2.Text = "Fecha 2";
             // 

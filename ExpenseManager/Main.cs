@@ -321,5 +321,19 @@ namespace ExpenseManager
             Transfer transfer = new Transfer();
             transfer.ShowDialog();
         }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Rows[e.RowIndex].Cells[2].Value.Equals("ext") || dataGridView1.Rows[e.RowIndex].Cells[2].Value.Equals("tra"))
+            {   // Color.FromArgb(213, 245, 227);
+                dataGridView1.Rows[e.RowIndex].Cells[5].Style.ForeColor = Color.FromArgb(169, 50, 38);
+                dataGridView1.Rows[e.RowIndex].Cells[2].Style.ForeColor = Color.FromArgb(169, 50, 38);
+            }
+            else if (dataGridView1.Rows[e.RowIndex].Cells[2].Value.Equals("dep") || dataGridView1.Rows[e.RowIndex].Cells[2].Value.Equals("rec"))
+            {
+                dataGridView1.Rows[e.RowIndex].Cells[5].Style.ForeColor = Color.FromArgb(17, 122, 101);
+                dataGridView1.Rows[e.RowIndex].Cells[2].Style.ForeColor = Color.FromArgb(17, 122, 101);
+            }
+        }
     }
 }

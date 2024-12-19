@@ -193,25 +193,6 @@ namespace ExpenseManager
             CheckConceptTextLength();
         }
 
-        private void movimientosDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            int correctivo = 0;
-
-            try { correctivo = this.movimientosTableAdapter.FillByCorrectivo(eXPENSE_MANAGERDataSet.movimientos, Convert.ToInt32(cbx_accounts.SelectedValue), 1); }
-            catch (Exception) { }
-
-            if (correctivo > 0)
-            {
-                for (int i = 0; i < movimientosDataGridView.RowCount; i++)
-                {
-                    if (fields.Contains(movimientosDataGridView.Rows[i].Cells[0].Value.ToString()))
-                    {
-                        movimientosDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
-                    }
-                }
-            }
-        }
-
         private void CheckConceptTextLength()
         {
             if (this.movimientosDataGridView.CurrentRow != null)
@@ -246,5 +227,24 @@ namespace ExpenseManager
             this.lbl_concept_text.Text = "";
         }
 
+        private void movimientosDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (movimientosDataGridView.Rows[e.RowIndex].Cells[2].Value.Equals("ext") || movimientosDataGridView.Rows[e.RowIndex].Cells[2].Value.Equals("tra"))
+            {   // Color.FromArgb(213, 245, 227);
+                movimientosDataGridView.Rows[e.RowIndex].Cells[3].Style.ForeColor = Color.FromArgb(169, 50, 38);
+                movimientosDataGridView.Rows[e.RowIndex].Cells[2].Style.ForeColor = Color.FromArgb(169, 50, 38);
+            }
+            
+            if (movimientosDataGridView.Rows[e.RowIndex].Cells[2].Value.Equals("dep") || movimientosDataGridView.Rows[e.RowIndex].Cells[2].Value.Equals("rec"))
+            {
+                movimientosDataGridView.Rows[e.RowIndex].Cells[3].Style.ForeColor = Color.FromArgb(17, 122, 101);
+                movimientosDataGridView.Rows[e.RowIndex].Cells[2].Style.ForeColor = Color.FromArgb(17, 122, 101);
+            }
+
+            if (fields.Contains(movimientosDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString()))
+            {
+                movimientosDataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(230, 230, 230);
+            }
+        }
     }
 }
