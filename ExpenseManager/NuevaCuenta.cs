@@ -36,26 +36,31 @@ namespace ExpenseManager
 
         private void BtnCheck_Click(object sender, EventArgs e)
         {
-            if (this.txtName.TextLength > 0)
-            {
-                if (this.cuentasTableAdapter1.FillByExistence(this.expensE_MANAGERDataSet1.cuentas,this.txtName.Text) == 1)
-                {
-                    this.BtnCheck.BackgroundImage = global::ExpenseManager.Properties.Resources.Oxygen_Icons_org_Oxygen_Actions_dialog_ok_48;
-                }
-                else
-                {
-                    this.BtnCheck.BackgroundImage = global::ExpenseManager.Properties.Resources.Oxygen_Icons_org_Oxygen_Actions_dialog_ok_apply_48;
-                }
-            }
-            else
-            {
-                this.BtnCheck.BackgroundImage = global::ExpenseManager.Properties.Resources.Oxygen_Icons_org_Oxygen_Actions_dialog_ok_48;
-            }
+           
         }
 
         private void CreateAccount_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            if (this.txtName.TextLength > 0)
+            {
+                if (this.cuentasTableAdapter1.FillByExistence(this.expensE_MANAGERDataSet1.cuentas, this.txtName.Text) == 1)
+                {
+                    this.Pbx_check.Image = global::ExpenseManager.Properties.Resources.Oxygen_Icons_org_Oxygen_Actions_dialog_ok_48;
+                }
+                else
+                {
+                    this.Pbx_check.Image = global::ExpenseManager.Properties.Resources.Oxygen_Icons_org_Oxygen_Actions_dialog_ok_apply_48;
+                }
+            }
+            else
+            {
+                this.Pbx_check.Image = global::ExpenseManager.Properties.Resources.Oxygen_Icons_org_Oxygen_Actions_dialog_ok_48;
+            }
         }
     }
 }
