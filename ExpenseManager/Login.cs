@@ -26,7 +26,6 @@ namespace ExpenseManager
 
         private void Login_Load(object sender, EventArgs e)
         {
-            this.usuariosTableAdapter1.Fill(expensE_MANAGERDataSet1.usuarios);
             //string fileName = "Exported.txt";
             //FileManager.WriteFile(fileName, "1");
             //MessageBox.Show(FileManager.ReadFile(fileName));
@@ -49,7 +48,6 @@ namespace ExpenseManager
                 try { FileManager.WriteFile("Imported.txt", "0"); }
                 catch (Exception) { Console.WriteLine(e); }
             }
-            DbTransferingManager.ImportingDBFromCloud();
         }
 
         public void LoadingModules()
