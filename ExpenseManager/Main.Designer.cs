@@ -556,7 +556,7 @@
             this.flp_note.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.flp_note.Location = new System.Drawing.Point(24, 265);
             this.flp_note.Name = "flp_note";
-            this.flp_note.Size = new System.Drawing.Size(389, 232);
+            this.flp_note.Size = new System.Drawing.Size(521, 232);
             this.flp_note.TabIndex = 27;
             this.flp_note.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Flp_note_ControlAdded);
             // 

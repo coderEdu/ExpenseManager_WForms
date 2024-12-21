@@ -168,7 +168,7 @@ namespace ExpenseManager
 
             for (int i = 0; i < count; i++)
             {
-                if (this.flp_note.Controls.Count < 8)
+                if (this.flp_note.Controls.Count < 10)
                 {
                     Nota nota = new Nota();
                     string note_title;
