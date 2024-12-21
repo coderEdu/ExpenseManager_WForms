@@ -21,6 +21,8 @@ namespace ExpenseManager
         {
             this.notasTableAdapter.FillByUserNotes(eXPENSE_MANAGERDSNotes.notas, Auxiliar.id_logged);
 
+            this.lbl_notes_count.Text = Dgv_all_notes.Rows.Count.ToString();
+            
             if (Dgv_all_notes.Rows.Count < 13)
             {
                 this.Dgv_all_notes.Columns[6].Width = this.Dgv_all_notes.Columns[6].Width + 19;
@@ -30,6 +32,8 @@ namespace ExpenseManager
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
             this.notasTableAdapter.FillByValueSearch(eXPENSE_MANAGERDSNotes.notas, Auxiliar.id_logged, this.txt_search.Text);
+
+            this.lbl_notes_count.Text = Dgv_all_notes.Rows.Count.ToString();
 
             this.Dgv_all_notes.Columns[6].Width = 245;
             

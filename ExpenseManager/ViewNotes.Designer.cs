@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.notaTextBox = new System.Windows.Forms.Label();
             this.notasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eXPENSE_MANAGERDSNotes = new ExpenseManager.EXPENSE_MANAGERDSNotes();
@@ -51,6 +51,8 @@
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.lbl_search = new System.Windows.Forms.Label();
+            this.lbl_notes = new System.Windows.Forms.Label();
+            this.lbl_notes_count = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.notasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eXPENSE_MANAGERDSNotes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_all_notes)).BeginInit();
@@ -101,7 +103,7 @@
             this.lbl_fec_crea.Font = new System.Drawing.Font("Comic Sans MS", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_fec_crea.Location = new System.Drawing.Point(10, 403);
             this.lbl_fec_crea.Name = "lbl_fec_crea";
-            this.lbl_fec_crea.Size = new System.Drawing.Size(129, 19);
+            this.lbl_fec_crea.Size = new System.Drawing.Size(123, 18);
             this.lbl_fec_crea.TabIndex = 34;
             this.lbl_fec_crea.Text = "Fecha de creación:";
             // 
@@ -111,7 +113,7 @@
             this.lbl_fec_modif.Font = new System.Drawing.Font("Comic Sans MS", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_fec_modif.Location = new System.Drawing.Point(10, 429);
             this.lbl_fec_modif.Name = "lbl_fec_modif";
-            this.lbl_fec_modif.Size = new System.Drawing.Size(155, 19);
+            this.lbl_fec_modif.Size = new System.Drawing.Size(149, 18);
             this.lbl_fec_modif.TabIndex = 35;
             this.lbl_fec_modif.Text = "Fecha de modificación:";
             // 
@@ -123,19 +125,19 @@
             // 
             this.Dgv_all_notes.AllowUserToAddRows = false;
             this.Dgv_all_notes.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.Dgv_all_notes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
+            this.Dgv_all_notes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.Dgv_all_notes.AutoGenerateColumns = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_all_notes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_all_notes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.Dgv_all_notes.ColumnHeadersHeight = 25;
             this.Dgv_all_notes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.Dgv_all_notes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -147,27 +149,27 @@
             this.idcuentaDataGridViewTextBoxColumn,
             this.tituloDataGridViewTextBoxColumn});
             this.Dgv_all_notes.DataSource = this.notasBindingSource;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Dgv_all_notes.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Dgv_all_notes.DefaultCellStyle = dataGridViewCellStyle23;
             this.Dgv_all_notes.EnableHeadersVisualStyles = false;
             this.Dgv_all_notes.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.Dgv_all_notes.Location = new System.Drawing.Point(14, 77);
             this.Dgv_all_notes.Name = "Dgv_all_notes";
             this.Dgv_all_notes.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Dgv_all_notes.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Dgv_all_notes.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.Dgv_all_notes.RowHeadersVisible = false;
             this.Dgv_all_notes.RowHeadersWidth = 45;
             this.Dgv_all_notes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -260,15 +262,38 @@
             this.lbl_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.333333F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_search.Location = new System.Drawing.Point(654, 32);
             this.lbl_search.Name = "lbl_search";
-            this.lbl_search.Size = new System.Drawing.Size(56, 17);
+            this.lbl_search.Size = new System.Drawing.Size(52, 16);
             this.lbl_search.TabIndex = 40;
             this.lbl_search.Text = "Buscar:";
+            // 
+            // lbl_notes
+            // 
+            this.lbl_notes.AutoSize = true;
+            this.lbl_notes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_notes.Location = new System.Drawing.Point(12, 34);
+            this.lbl_notes.Name = "lbl_notes";
+            this.lbl_notes.Size = new System.Drawing.Size(162, 15);
+            this.lbl_notes.TabIndex = 41;
+            this.lbl_notes.Text = "Totad de notas encontradas:";
+            // 
+            // lbl_notes_count
+            // 
+            this.lbl_notes_count.AutoSize = true;
+            this.lbl_notes_count.Font = new System.Drawing.Font("Caladea", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_notes_count.ForeColor = System.Drawing.Color.Green;
+            this.lbl_notes_count.Location = new System.Drawing.Point(173, 34);
+            this.lbl_notes_count.Name = "lbl_notes_count";
+            this.lbl_notes_count.Size = new System.Drawing.Size(16, 17);
+            this.lbl_notes_count.TabIndex = 42;
+            this.lbl_notes_count.Text = "0";
             // 
             // ViewNotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 463);
+            this.Controls.Add(this.lbl_notes_count);
+            this.Controls.Add(this.lbl_notes);
             this.Controls.Add(this.lbl_search);
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.Dgv_all_notes);
@@ -309,5 +334,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Label lbl_search;
+        private System.Windows.Forms.Label lbl_notes;
+        private System.Windows.Forms.Label lbl_notes_count;
     }
 }
