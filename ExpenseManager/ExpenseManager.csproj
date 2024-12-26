@@ -447,5 +447,8 @@
   <ItemGroup>
     <None Include="Resources\Fatcow-Farm-Fresh-Set-password.32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database-search-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -483,6 +483,16 @@ namespace ExpenseManager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap database_search_icon {
+            get {
+                object obj = ResourceManager.GetObject("database_search_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enter_icon_icons_com_71207 {
             get {
                 object obj = ResourceManager.GetObject("enter_icon_icons_com_71207", resourceCulture);
