@@ -36,6 +36,7 @@ namespace ExpenseManager
             try
             {
                 this.cuentasTableAdapter.FillByAccountName(this.c_AHORRO_NEW_DS1.cuentas, ((int)(System.Convert.ChangeType(Auxiliar.id_logged, typeof(int)))));
+                this.cbx_accounts.SelectedValue = (object)Main.GlobalCurrentAccount;
             }
             catch (System.Exception ex)
             {

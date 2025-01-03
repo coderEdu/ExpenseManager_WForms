@@ -23,6 +23,7 @@ namespace ExpenseManager
         private int Movements { get; set; }
         private decimal Balance { get; set; }
         private int CurrentAccount { get; set; }
+        public static int GlobalCurrentAccount { get; set; }
 
         public Main()
         {
@@ -97,6 +98,7 @@ namespace ExpenseManager
 
         private void ConsultingSelectedAccountProps()
         {
+            Main.GlobalCurrentAccount = Convert.ToInt32(this.cbx_accounts.SelectedValue); // 3/1/2025
             int selectedIdx = this.cbx_accounts.SelectedIndex;
             int id_selected_account = Convert.ToInt32(this.cbx_accounts.SelectedValue);
             try
@@ -232,13 +234,9 @@ namespace ExpenseManager
         private void Main_Deactivate(object sender, EventArgs e)
         {
             this.CurrentAccount = Convert.ToInt32(this.cbx_accounts.SelectedValue);
+            //MessageBox.Show(Main.CurrentAccount.ToString());
             if (this.WinOpacity < 1)
                 this.Opacity = WinOpacity;
-        }
-
-        private void btn_ver_notas_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void cbx_accounts_SelectedIndexChanged(object sender, EventArgs e)
